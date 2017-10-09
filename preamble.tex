@@ -1,0 +1,35 @@
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage[norsk]{babel}
+
+% Gjør alle lenker mørkeblå
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,linkcolor=darkblue,urlcolor=darkblue,anchorcolor=darkblue,citecolor=darkblue}
+
+
+% Bruk hf-rager på nivå 1 og 2 overskrifter
+\definecolor{hfmork}{RGB}{0,82,155}
+\definecolor{hflys}{RGB}{104,174,224}
+\subsectionfont{\color{hflys}}
+\sectionfont{\color{hfmork}}
+
+
+% Bruk mørk grå på all annen tekst
+\definecolor{text}{RGB}{40,40,40}
+
+\makeatletter
+\newcommand{\globalcolor}[1]{%
+  \color{#1}\global\let\default@color\current@color
+}
+\makeatother
+
+\AtBeginDocument{\globalcolor{text}}
+
+\usepackage{framed,color}
+\definecolor{shadecolor}{RGB}{248,248,248}
+
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
