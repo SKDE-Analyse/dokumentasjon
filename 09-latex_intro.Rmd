@@ -131,7 +131,7 @@ Denne her: [rapport barnehelseatlas](http://www.helseatlas.no/getfile.php/SKDE%2
 
 ### Selve dokumentet
 
-Bruker `\input{filnavn}` for å legge inn andre LaTeX-fileri, der all teksten ligger. "side2" er gitt [under](\@ref(side2tex)).
+Bruker `\input{filnavn}` for å legge inn andre LaTeX-fileri, der all teksten ligger. "side2" er gitt under.
 
 ```latex
 \begin{document}
@@ -199,7 +199,7 @@ Bruker `\input{filnavn}` for å legge inn andre LaTeX-fileri, der all teksten li
 
 Dokumentet [over](#selve-dokumentet) krever at man har filene "side2.tex", "forord.tex", "forord_blf.tex", "sammendrag.tex" etc. i samme mappe som hoveddokumentet. I tillegg må man ha et to-siders pdf-dokument ("omslag.pdf") der side 1 er forsiden og side 2 er baksiden av rapporten.
 
-#### side2.tex {#side2tex}
+#### side2.tex
 
 Lagt i egen fil kalt `side2.tex`
 
