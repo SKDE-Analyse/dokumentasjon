@@ -1,0 +1,17 @@
+---
+title: "Dokumentasjon for internt bruk ved SKDE"
+author: "Arnfinn Hykkerud Steindal, SKDE"
+date: '`r Sys.Date()`'
+documentclass: book
+lof: yes
+description: Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere
+papersize: A4
+site: bookdown::bookdown_site
+cover-image: images/logo.svg
+---
+
+
+# Forord {-}
+
+...
+
