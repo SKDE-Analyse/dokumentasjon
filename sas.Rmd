@@ -75,7 +75,7 @@ knitr::include_graphics("figurer/nySASserver5.png")
 knitr::include_graphics("figurer/nySASserver_utforsker1.png")
 ```
 
-- Velg stasjon og skriv inn `\\tos-sas-skde-01\skde_sas\` for å få tilgang til sas-koder (det som tidligere lå under *Analyse\Data\SAS\*)
+- Velg stasjon og skriv inn `\\tos-sas-skde-01\skde_sas\` for å få tilgang til sas-koder (det som tidligere lå under `Analyse\Data\SAS\`)
 
 ```{r, echo=FALSE}
 knitr::include_graphics("figurer/nySASserver_utforsker2.png")
