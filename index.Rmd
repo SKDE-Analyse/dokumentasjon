@@ -13,5 +13,20 @@ cover-image: images/logo.svg
 
 # Forord {-}
 
-...
+```{block2, info-text, type='rmdinfo'}
+Utfyllende opplysninger, men som ikke er vesentlig for å følge
+brukerveiledningen.
+
+```
+
+```{block2, important-text, type='rmdimportant'}
+Utheving av et viktig moment.
+
+```
+
+```{block2, danger-text, type='rmddanger'}
+Et vesentlig budskap som om det blir misforstått innebærer en fare.
+
+```
+
 
