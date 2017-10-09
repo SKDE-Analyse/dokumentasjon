@@ -2,7 +2,8 @@
 
 ## Lagring av sensitive datasett
 
-- Sensitive datasett skal *kun* lagres på npr_utva! Disse skal slettes hvert år, når vi får nye data i hus
+- Sensitive datasett skal *kun* lagres på `npr_utva`! Disse skal slettes hvert år, når vi får nye data i hus og nye data er tilrettelagt.
+
 ```
 data npr_utva.ahs_utvalg1;
 set mittutvalg;
