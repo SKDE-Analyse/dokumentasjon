@@ -23,7 +23,9 @@ run;
 
 - Trykk på symbol/blå tekst nede i høyre hjørne
 
+```{r}
 knitr::include_graphics("figurer/nySASserver0.png")
+```
 
 - Trykk på `Add...`
 
