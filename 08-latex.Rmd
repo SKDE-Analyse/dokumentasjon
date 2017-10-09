@@ -38,7 +38,7 @@ Man kan velge et annet skriveprogram hvis man vil, f.eks [TeXnicCenter](http://w
 
 ## Bruke LaTeX
 
-Introduksjon [her](\@ref{introlatex}). Ellers er [google](http://www.google.no/search?q=introduction+to+latex) din venn.  
+[Google](http://www.google.no/search?q=introduction+to+latex) er din venn.  
 
 # Spor endringer i LaTeX ved bruk av *latexdiff*
 
