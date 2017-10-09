@@ -1,4 +1,4 @@
-# Hvordan skrive SKDE rapport i LaTeX
+# Hvordan skrive SKDE rapport i LaTeX {#introlatex}
 
 ## En enkel start
 
