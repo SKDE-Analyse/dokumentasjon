@@ -1,17 +1,16 @@
 output_dir: "docs"
 
-rmd_files: [
-"index.Rmd",
-"sas.Rmd",
-"tilrettelegging.Rmd",
-"ia.Rmd",
-"git.Rmd",
-"github.Rmd",
-"git-r.Rmd",
-"r-shiny.Rmd",
-"latex.Rmd",
-"latex_intro.Rmd",
-"python.Rmd",
-"diverse.Rmd",
-"arnfinn.Rmd"
-]
+rmd_files:
+  - "index.Rmd"
+  - "sas.Rmd"
+  - "tilrettelegging.Rmd"
+  - "ia.Rmd"
+  - "git.Rmd"
+  - "github.Rmd"
+  - "git-r.Rmd"
+  - "r-shiny.Rmd"
+  - "latex.Rmd"
+  - "latex_intro.Rmd"
+  - "python.Rmd"
+  - "diverse.Rmd"
+  - "arnfinn.Rmd"
