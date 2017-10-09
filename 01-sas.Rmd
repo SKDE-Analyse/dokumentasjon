@@ -23,7 +23,7 @@ run;
 
 - Trykk på symbol/blå tekst nede i høyre hjørne
 
-![Alt text](figurer/nySASserver0.png)
+knitr::include_graphics("figurer/nySASserver0.png")
 
 - Trykk på `Add...`
 
@@ -93,6 +93,7 @@ options sasautos=("&filbane.Makroer\master" SASAUTOS);
 ### Lage en makro
 
 - En makro kan se omtrent slik ut:
+
 ```
 %macro macronavn(datasett=);
 
@@ -105,6 +106,7 @@ run &datasett;
 %mend macronavn;
 ```
 - Hvis man lagrer en fil med navn `macronavn.sas` i `\\tos-sas-skde-01\SKDE_SAS\Makroer\master` kan andre bruke denne hvis de har kjørt følgende kode i SAS-prosjektet:
+
 ```
 %let filbane=\\tos-sas-skde-01\SKDE_SAS\;
 options sasautos=("&filbane.Makroer\master" SASAUTOS);
@@ -113,6 +115,7 @@ options sasautos=("&filbane.Makroer\master" SASAUTOS);
 ## Formater
 
 - Bruk de formatene som ligger under `\\tos-sas-skde-01\SKDE_SAS\Formater\master\`, som f.eks
+
 ```
 %let filbane=\\tos-sas-skde-01\SKDE_SAS\;
 %include "&filbane.Formater\master\SKDE_somatikk.sas";
