@@ -16,7 +16,7 @@ before_install:                           # Install Ruby and html-proofer
 
 script:
   - ./_build.sh
-  - htmlproofer ./docs 
+  - htmlproofer --alt-ignore '/.*/' ./docs 
 
 deploy:
   provider: pages                         # Specify the gh-pages deployment method
