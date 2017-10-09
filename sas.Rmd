@@ -1,15 +1,16 @@
-# Huskeliste for arbeid med SAS på SKDE
+# SAS
 
 ## Lagring av sensitive datasett
 
 - Sensitive datasett skal *kun* lagres på `npr_utva`! Disse skal slettes hvert år, når vi får nye data i hus og nye data er tilrettelagt.
 
-```
+```sas
 data npr_utva.ahs_utvalg1;
 set mittutvalg;
 
-
-...
+/*
+some code
+*/
 
 run;
 ```
@@ -146,7 +147,8 @@ options sasautos=("&filbane.Makroer\master" SASAUTOS);
 
 ## Rateprogrammet
 
-
+- Dokumentasjon kan finnes [her](http://skde-analyse.github.io/rateprogram/)
+- Koden ligger på [*github*](https://github.com/SKDE-Analyse/rateprogram)
   
 ## Annet
 
@@ -164,15 +166,17 @@ knitr::include_graphics("figurer/sas_gtitle.png")
 Alle verdier lagres som standard med 8 bytes. Dette er i de fleste av våre tilfeller ikke nødvendig. SAS kan redusere plassen hvert tall tar på disk ned til 3 bytes. I tillegg har SAS verktøy for å komprimere datasett.
 
 - Hvis man vil redusere størrelsen på en variabel til 3 bytes, legger man inn følgende i et datasteg:
-```
+
+```sas
 length variabelnavn 3;
 ```
 - Jeg har lagt til en macro som heter squeeze, som finner ut hvor liten plass hver variabel kan reduseres til, og reduserer antall bytes tilsvarende (denne har jeg ikke skrevet selv). Den kjøres slik:
-```
+
+```sas
 %squeeze(inndata, utdata);
 ```
 - Hvis man vil komprimere datasett, gjør man følgende (dette vil føre til at SAS bruker lenger tid på å lese datasettet neste gang, siden datasettet må pakkes opp igjen):
-```
+```sas
 data komprimertDatasett (compress=binary);
 set ukomprimertDatasett;
 run;
@@ -196,7 +200,6 @@ Jeg har kjørt ulike komprimeringer på et årssett (2011) og fått følgende st
 ```{r, echo=FALSE}
 knitr::include_graphics("figurer/sas_tmpdata.png")
 ```
-
 
 ### SAS-syntax i Notepad++
 
@@ -265,5 +268,5 @@ knitr::include_graphics("figurer/sas_tmpdata.png")
 </NotepadPlus>
 ```
 
-- Restart Notepad++ og gå inn på `Språk`. Der kan man velge `SAS` nest nederst.
+- Restart *Notepad++* og gå inn på *Språk*. Der kan man velge *SAS* nest nederst.
 
