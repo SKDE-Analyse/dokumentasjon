@@ -42,6 +42,10 @@ Installerer alt på `c/Users/ast046/AppData/Local/Programs/`
 8. Installèr [gvim](http://mirror.netinch.com/pub/vim/pc/) (for å kunne få bedre vimdiff)
 9. Installèr [python](https://www.python.org/downloads/) 3 (custom installasjon, slik at man kan skru av "for alle")
 
+### Legge til skriver
+
+- *TOS-UNN-C0.511A-03*
+
 ### RStudio
 
 - bytte libpath
