@@ -18,4 +18,15 @@ rmd_files:
     - "arnfinn.Rmd"
   latex:
     - "sas.Rmd"
+    - "tilrettelegging.Rmd"
+    - "ia.Rmd"
+    - "git.Rmd"
+    - "github.Rmd"
+    - "git-r.Rmd"
+    - "r-shiny.Rmd"
+    - "latex.Rmd"
+    - "latex_intro.Rmd"
+    - "python.Rmd"
+    - "diverse.Rmd"
+    - "arnfinn.Rmd"
 
