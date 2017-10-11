@@ -1,4 +1,4 @@
 # Diverse instruksjoner
 
-- Sidene kan leses [her](http://skde.readthedocs.io/)
+- Sidene kan leses [her](http://skde-analyse.github.io/dokumentasjon/)
 
