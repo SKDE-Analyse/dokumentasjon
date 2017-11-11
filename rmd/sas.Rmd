@@ -20,7 +20,7 @@ run;
 
 ## Overgang til ny sas-server
 
-### Koble til ny server i SAS Enterprise guide
+### Koble til sas-server i SAS Enterprise guide
 
 - Trykk på symbol/blå tekst nede i høyre hjørne
 
@@ -46,19 +46,6 @@ knitr::include_graphics("figurer/nySASserver2.png")
 knitr::include_graphics("figurer/nySASserver3.png")
 ```
 
-### Feilmelding ala `ERROR: Libref NPR_SKDE is not assigned.`
-
-- Dette betyr at man må *assigne* mappen `NPR_SKDE` (den vil vises som grå i SAS Enterprise)
-
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/nySASserver4.png")
-```
-
-- Det gjøres ved å gå inn til denne mappen, høyreklikk og velg *Assign*
-
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/nySASserver5.png")
-```
 
 ### Ny *filbane*
 
@@ -69,7 +56,7 @@ knitr::include_graphics("figurer/nySASserver5.png")
 
 ### Koble til ny server i utforskeren
 
-- Åpne utforsker og gå inn på *Verktøy/Koble til nettverksstasjon...* 
+- Åpne utforsker og gå inn på *Verktøy/Koble til nettverksstasjon...*
 
 ```{r, echo=FALSE}
 knitr::include_graphics("figurer/nySASserver_utforsker1.png")
@@ -87,6 +74,8 @@ knitr::include_graphics("figurer/nySASserver_utforsker2.png")
 knitr::include_graphics("figurer/nySASserver_utforsker3.png")
 ```
 
+- Velg stasjon og skriv inn `\\tos-sas-skde-01\skde_analytikere\` for å få tilgang til området der dine ikke-sensitive datasett ligger.
+
 - De felles sensitive datesettene ligger på `\\tos-sas-skde-01\SKDE_Sensetiv`, men vi har ikke tilgang til denne stasjonen gjennom utforskeren.
 
 
@@ -100,10 +89,9 @@ knitr::include_graphics("figurer/nySASserver_utforsker3.png")
 2. *Import...*
 3. Gå inn på `S:\Makroer\Abb_macro` og velg *Auto_Makro.kmf* (`S:` er her serveren `\\tos-sas-skde-01\skde_sas\`)
 4. *Close*
-5. Med ujevne mellomrom oppdateres *Abb_macro*, og man må da kjøre stegene 1 til 4 på nytt. Vi får prøve å gi beskjed om dette internt...
 
-- Hvis man nå begynner å skrive `auto` vil *AUTO_MACRO* kommer opp i en liste.
-- Hvis man velger denne, vil følgende tekst legge seg inn i sas-programmet ditt
+- Med ujevne mellomrom oppdateres *Abb_macro*, og man må da kjøre stegene 1 til 4 på nytt. Vi får prøve å gi beskjed om dette internt...
+- Hvis man nå begynner å skrive *auto* vil `AUTO_MACRO` kommer opp i en liste, og hvis man velger denne vil følgende tekst legge seg inn i sas-programmet ditt
 ```
 %let filbane=\\tos-sas-skde-01\SKDE_SAS\;
 options sasautos=("&filbane.Makroer\master" SASAUTOS);
@@ -133,7 +121,7 @@ options sasautos=("&filbane.Makroer\master" SASAUTOS);
 
 ## Formater
 
-- Bruk de formatene som ligger under `\\tos-sas-skde-01\SKDE_SAS\Formater\master\`, som f.eks
+Bruk de formatene som ligger under `\\tos-sas-skde-01\SKDE_SAS\Formater\master\`, som f.eks
 
 ```
 %let filbane=\\tos-sas-skde-01\SKDE_SAS\;
@@ -141,69 +129,63 @@ options sasautos=("&filbane.Makroer\master" SASAUTOS);
 %include "&filbane.Formater\master\bo.sas";
 %include "&filbane.Formater\master\beh.sas";
 ```
-- Hvis man vil ha spesialtilpasset macro, kan man enten 
-  - kopiere over det som står i en av sas-filene som ligger på master rett inn i programmet sitt, eller
-  - kopiere mappen `master` og endre direkte i den nye mappen.
+Hvis man vil ha spesialtilpasset macro, kan man enten
+- kopiere over det som står i en av sas-filene som ligger på master rett inn i programmet sitt, eller
+- kopiere mappen `master` og endre direkte i den nye mappen.
 
 ## Rateprogrammet
 
 - Dokumentasjon kan finnes [her](http://skde-analyse.github.io/rateprogram/)
 - Koden ligger på [*github*](https://github.com/SKDE-Analyse/rateprogram)
-  
+
 ## Annet
+
+### Feilmelding ala `ERROR: Libref NPR_SKDE is not assigned.`
+
+- Dette betyr at man må *assigne* mappen `NPR_SKDE` (den vil vises som grå i SAS Enterprise)
+
+```{r, echo=FALSE}
+knitr::include_graphics("figurer/nySASserver4.png")
+```
+
+- Det gjøres ved å gå inn til denne mappen, høyreklikk og velg *Assign*
+
+```{r, echo=FALSE}
+knitr::include_graphics("figurer/nySASserver5.png")
+```
 
 ### gtitle
 
 For at tittel skal bli lagt på figurene som produseres i SAS, må følgende gjøres i SAS Enterprise Guide:
 
 - Gå inn på `Tools/Options...` og skriv inn følgende:
+
 ```{r, echo=FALSE}
 knitr::include_graphics("figurer/sas_gtitle.png")
 ```
 
 ### Redusere størrelsen på datasett
 
-Alle verdier lagres som standard med 8 bytes. Dette er i de fleste av våre tilfeller ikke nødvendig. SAS kan redusere plassen hvert tall tar på disk ned til 3 bytes. I tillegg har SAS verktøy for å komprimere datasett.
-
-- Hvis man vil redusere størrelsen på en variabel til 3 bytes, legger man inn følgende i et datasteg:
+Alle verdier lagres som standard med 8 bytes. Dette er i de fleste av våre tilfeller ikke nødvendig. SAS kan redusere plassen hvert tall tar på disk ned til 3 bytes. Hvis man vil redusere størrelsen på en variabel til 3 bytes, legger man inn følgende i et datasteg:
 
 ```sas
 length variabelnavn 3;
 ```
-- Jeg har lagt til en macro som heter squeeze, som finner ut hvor liten plass hver variabel kan reduseres til, og reduserer antall bytes tilsvarende (denne har jeg ikke skrevet selv). Den kjøres slik:
-
-```sas
-%squeeze(inndata, utdata);
-```
-- Hvis man vil komprimere datasett, gjør man følgende (dette vil føre til at SAS bruker lenger tid på å lese datasettet neste gang, siden datasettet må pakkes opp igjen):
-```sas
-data komprimertDatasett (compress=binary);
-set ukomprimertDatasett;
-run;
-```
-- Det er også mulig med `compress=yes` og `compress=char`
-
-Jeg har kjørt ulike komprimeringer på et årssett (2011) og fått følgende størrelser:
-
-- Originalt:  8.99 GB 
-- Squeeze (%squeeze): 5.53 GB
-- Compress (yes): 3.34 GB
-- Compress (char): 3.34 GB
-- Compress (binary): 2.68 GB
-- Squeeze-Compress (%squeeze/binary): 2.37 GB
 
 ## Diverse engangs-oppgaver
 
 ### Slå av advarsel om sletting av midlertidig datasett
 
 - Gå inn på `Tools/Options.../Data/Data General/` og huk vekk `Always prompt when closing...`
+
 ```{r, echo=FALSE}
 knitr::include_graphics("figurer/sas_tmpdata.png")
 ```
 
 ### SAS-syntax i Notepad++
 
-- Legg følgende i en fil kalt `UserDefineLang.xml` og lagre den (sannsynligvis) i mappen `C:\Users\<ditt brukernavn>\AppData\Roaming\Notepad++` (hvis filen finnes allerede, legger man inn innholdet mellom de eksisterende <NotepadPlus>):
+Legg følgende i en fil kalt `UserDefineLang.xml` og lagre den i mappen `C:\Brukere\<ditt brukernavn>\AppData\Roaming\Notepad++` (hvis filen finnes allerede, legger man inn innholdet mellom de eksisterende <NotepadPlus>):
+
 ```xml
 <NotepadPlus>
     <UserLang name="SAS" ext="sas SAS" udlVersion="2.0">
@@ -268,5 +250,14 @@ knitr::include_graphics("figurer/sas_tmpdata.png")
 </NotepadPlus>
 ```
 
-- Restart *Notepad++* og gå inn på *Språk*. Der kan man velge *SAS* nest nederst.
+Restart *Notepad++* og gå inn på *Språk*. Der kan man velge *SAS* nest nederst.
 
+Mappen `AppData` er en skjult mappe, så gjør følgende hvis man ikke ser denne i utforskeren:
+1. Trykk på *Windows*-knappen
+2. Skriv `mappe`
+3. Velg `Vis skjulte filer og mapper`
+4. Huk av på valget `Vis skjulte filer, mapper og stasjoner` og trykk OK (se figur)
+
+```{r, echo=FALSE}
+knitr::include_graphics("figurer/vis_skjulte_mapper.png")
+```

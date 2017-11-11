@@ -6,8 +6,8 @@ bookdown::gitbook:
     edit: https://github.com/SKDE-Analyse/dokumentasjon/edit/master/%s
 bookdown::pdf_book:
   includes:
-    in_header: preamble.tex
-    before_body: prebody.tex
+    in_header: tex/preamble.tex
+#    before_body: tex/prebody.tex
 #  dev: "cairo_pdf"
 #  latex_engine: lualatex
 bookdown::epub_book:

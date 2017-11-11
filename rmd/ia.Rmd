@@ -1,5 +1,7 @@
 # Instant Atlas
 
+Dette kapitlet kan med fordel utvides.
+
 ## data.js
 
 ### Lage fila fra excel workbook
@@ -15,7 +17,7 @@ Kan enten modifiseres direkte eller gjennom InstantAtlas designer
 
 - Åpne *Instant atlas designer*
 - Åpne config.xml
-- 
+-
 
 ## Lage et atlas fra bunnen av
 

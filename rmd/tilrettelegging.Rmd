@@ -1,5 +1,7 @@
 # Tilrettelegging av nye data fra NPR
 
+Dette kapitlet kan med fordel utvides.
+
 ## Lage diff-filer
 
 - *gitbash* (og eventuelt *gvim*) må være installert
@@ -32,4 +34,3 @@
 - Koder hentet fra ...
 - Filene ligger på ANALYSE/Data/Kodeverk/DRG/
 - csv-filer produsert fra ISF xlsx-filer, med semikolon mellom kode og tekst
-

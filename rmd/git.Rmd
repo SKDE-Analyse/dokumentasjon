@@ -1,8 +1,8 @@
-# Intro til git for windows
+# git
 
 ## Installèr git
 
-Du kan fint installere *git* på nytt og på nytt uten risiko. Den fjerner gammel git før den installerer ny.
+Du kan fint installere *git* på nytt og på nytt uten risiko. Den fjerner gammel *git* før den installerer ny.
 
 - Last ned fra [git-scm.com](https://git-scm.com/download/win) (obs: nedlasting starter automatisk) og installer med default (ikke endre noen valg)
 
@@ -19,7 +19,7 @@ C:\Users\$USERNAME\AppData\Local\Programs\Git\mingw64\bin
 
 ## Legg inn brukernavn og epost
 
-- Åpne `Git Bash`
+- Åpne *Git Bash*
     - Det er ikke mulig å bruke `ctrl-v` for å lime inn i Git Bash, men man kan trykke inn mellomtasten på musa (eller trykke høyretasten på musa og velge `Paste`)
     - `$` er ikke en del av det som skal skrives inn, men viser til at dette er tekst som skrives inn til Git Bash.
 - Legg inn navn og epost:
@@ -31,17 +31,7 @@ $ git config --global user.email johndoe@example.com
 
 ## Lag SSH-nøkkel
 
-- Hvis du skal bruke git sammen med RStudio må du legge nøkkel på `c:`, slik at Rstudio kan lese den (bytt ut `ast046` med ditt brukernavn; bare trykk Enter når hun spør om passphrase). 
-```bash
-$ mkdir /c/Users/ast046/.ssh
-$ mkdir /p/.ssh # til senere
-$ ssh-keygen
-Enter file in which to save the key (/p/.ssh/id_rsa): /c/Users/ast046/.ssh/id_rsa
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-```
-
-- Hvis du ikke har planer om å bruke git sammen med Rstudio så legger du nøkkelen på `p:`, ved å bare trykke Enter når du får spørsmål om hvor nøkkel skal legges (så slipper du å lage ny nøkkel hver gang du må reinstallere maskinen, og nøkkelen din vil fungere på alle skde sine maskiner; bare trykk Enter når hun spør om passphrase):
+- Hvis du skal bruke *git* sammen med *github* eller lignende må du lage en ssh-nøkkel. Trykk *Enter* når du får spørsmål om hvor nøkkel skal legges (så slipper du å lage ny nøkkel hver gang du må reinstallere maskinen, og nøkkelen din vil fungere på alle skde sine maskiner; bare trykk Enter når hun spør om passphrase):
 ```bash
 $ mkdir /p/.ssh
 $ ssh-keygen
@@ -53,18 +43,14 @@ Enter same passphrase again:
 ## Legg din nøkkel på `github`
 
 - Lag deg en profil på [github.com](https://github.com)
-- Gå inn på [github.com/settings/ssh](https://github.com/settings/ssh) og legg inn din nye SSH-nøkkel (kopier over det som ligger i `/c/Users/$USERNAME/.ssh/id_rsa.pub`, eller `/p/.ssh/id_rsa.pub`).
+- Gå inn på [github.com/settings/ssh](https://github.com/settings/ssh) og legg inn din nye SSH-nøkkel (kopier over det som ligger i fila `/p/.ssh/id_rsa.pub`, eventuelt skriv `cat /p/.ssh/id_rsa.pub` i *git-bash* og kopier over det som spyttes ut).
 
 ## Sett opp ssh-komunikasjon gjennom proxy
 
 - Dette gjøres for å kunne kommunisere med github, som må gjøres gjennom proxy her på Helse-Nord-nettet.
-- Lag en fil kalt `config` i mappen `p/.ssh/` med innhold som under Filen kan lages med `Notisblokk`, eller gjennom terminal (ved bruk av vim)
-- Kutt ut første linje hvis du la din ssh-nøkkel på `p`.
-- Bytt ut `ast046` med ditt brukernavn.
+- Lag en fil kalt `config` i mappen `p/.ssh/` med innhold som under. Filen kan lages med `Notisblokk`, eller gjennom terminal (ved bruk av vim)
 
 ```
-IdentityFile /c/Users/ast046/.ssh/id_rsa
-
 Host githubhn
    Hostname github.com
    User git
@@ -81,8 +67,49 @@ $ vi /p/.ssh/config
 
 ```bash
 $ cd
-$ git clone githubhn:SKDE-Analyse/test.git tmp-mappe
+$ git clone githubhn:SKDE-Analyse/dokumentasjon.git tmp-mappe
 $ rm -rf tmp-mappe # hvis alt gikk etter planen (fjerner mappen igjen)
+```
+
+## Github
+
+### Sette opp Travis til å lage github pages
+
+Om jeg husker rett må du gjøre følgende før dette vil fungere:
+
+- Lage konto på Travis-CI.
+- Lage en Token i github, som du legger inn i Travis-CI som GITHUB_TOKEN.
+- Lag en branch som heter gh-pages.
+- Gå inn i *settings* på prosjektet og aktiver github-pages. Velg gh-pages som aktuell branch.
+
+Travis-CI vil dytte html-filer, produsert av bookdown, til branchen gh-pages med `--force`.
+
+## Rstudio, git og github på Windows gjennom proxy
+
+### Hvordan sette opp git i rstudio
+
+- Hvis du skal bruke git sammen med RStudio må du lage en ny ssh-nøkkel og legge denne på `c:`, slik at Rstudio kan lese den (bytt ut `ast046` med ditt brukernavn; bare trykk Enter når hun spør om passphrase).
+```bash
+$ mkdir /c/Users/ast046/.ssh
+$ ssh-keygen
+Enter file in which to save the key (/p/.ssh/id_rsa): /c/Users/ast046/.ssh/id_rsa
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+```
+
+- Legg inn følgende i `/c/Users/$USERNAME/.ssh/config`:
+
+```
+Host githubhn
+   Hostname github.com
+   User git
+   ProxyCommand /mingw64/bin/connect.exe -H www-proxy.helsenord.no:8080 %h %p
+```
+- Legg inn følgende i `/c/Users/$USERNAME/.gitconfig` (Rstudio leser denne i steden for den på p-disken):
+
+```
+[include]
+    path = /p/.gitconfig
 ```
 
 ## Diverse mer eller mindre obskure git-triks
@@ -101,6 +128,3 @@ echo 'unix.csv merge=ours' >> .gitattributes
 git add .gitattributes
 git commit -m 'Preserve unix.csv during merges'
 ```
-
-
-

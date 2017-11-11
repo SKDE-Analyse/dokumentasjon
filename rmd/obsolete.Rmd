@@ -1,48 +1,27 @@
-# Hvordan skrive SKDE rapport i LaTeX
+### Redusere størrelsen på datasett (mer)
 
-## En enkel start
+- Jeg har lagt til en macro som heter squeeze, som finner ut hvor liten plass hver variabel kan reduseres til, og reduserer antall bytes tilsvarende (denne har jeg ikke skrevet selv). Den kjøres slik:
 
-Dette dokumentet er omtrent så enkelt det kan bli med LaTeX
-
-```latex
-\documentclass[a4paper, norsk]{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage[norsk]{babel}
-\usepackage{parskip}
-
-\begin{document}
-
-\section{Dette er en overskrift}
-
-En introduksjon til hvordan man skriver i \LaTeX.
-
-\subsection{En underoverskrift}
-
-Enkelt og greit.
-
-\section*{Dette er en overskrift uten teller}
-
-Litt mer tekst med æ, ø og å.
-
-\end{document}
-```  
-
-- Et LaTeX-dokument starter alltid med `documentclass`. Her spesifiserer man hva slags dokument man skal skrive (article/report/book) og gir noen instillinger (at dokumentet er på norsk og at det er A4). 
-- Man legger så inn noen pakker man vil bruke. Her har jeg brukt pakken `inputenc` med valget `utf8` for å kunne skrive æ, ø og å. Jeg bruker i tillegg pakken `babel` med valg `norsk`, for å bryte ord riktig ved tvunget linjeskift. Til slutt bruker jeg pakken `parskip` for å få rom mellom avsnitt.
-- Mellom `\begin{document}` og `\end{document}` skriver man inn selve teksten.
-- Overskrifter og underoverskrifter skrives i `\section{}` og `\subsection{}`.
-
-Kopier teksten inn i et nytt dokument i TeXmaker, lagre det, og trykk på `F6`. Dokumentet blir da kompilert og lager en pdf. pdf-filen kan åpnes ved å trykke `F7`. Dette vil gi et dokument som ser slik ut:  
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/simple_tex.png")
+```sas
+%squeeze(inndata, utdata);
 ```
+- Hvis man vil komprimere datasett, gjør man følgende (dette vil føre til at SAS bruker lenger tid på å lese datasettet neste gang, siden datasettet må pakkes opp igjen):
+```sas
+data komprimertDatasett (compress=binary);
+set ukomprimertDatasett;
+run;
+```
+- Det er også mulig med `compress=yes` og `compress=char`
 
-### Diverse man må huske
+Jeg har kjørt ulike komprimeringer på et årssett (2011) og fått følgende størrelser:
 
-- 40 % skrives `40\,\%`
-- "friske" skrives `<<friske>>`
-- én skrives `{\'e}n`
+- Originalt:  8.99 GB
+- Squeeze (%squeeze): 5.53 GB
+- Compress (yes): 3.34 GB
+- Compress (char): 3.34 GB
+- Compress (binary): 2.68 GB
+- Squeeze-Compress (%squeeze/binary): 2.37 GB
+
 
 
 ## En SKDE-rapport
@@ -269,7 +248,7 @@ Helse Nord RHF\\
 sammendrag.tex begynner slik
 
 ```latex
-\chapter{Sammendrag} 
+\chapter{Sammendrag}
 
 \lipsum
 
@@ -289,39 +268,3 @@ introduksjon.tex begynner slik
 \lipsum
 
 ```
-
-## BibTeX
-
-Når man legger inn referanser i LaTeX bruker man som regel bibtex. Da lager man en egen fil som heter noe som ender på `.bib`. I denne skrives alle referansene, omtrent slik som dette:
-```latex
-
-@article{Adler2013,
-author = {Adler, Jeremy and Sandberg, Kelly C. and Shpeen, Benjamin H. and Eder, Sally J. and Dhanani, Muhammad and Clark, Sarah J. and Freed, Gary L},
-title = {Variation in {I}nfliximab Administration Practices in the Treatment of Pediatric Inflammatory Bowel Disease},
-journal = "J Pediatr. Gastroenterol. Nutr.",
-year = {2013},
-volume = {57},
-number = {1},
-pages = {35-38},
-}
-
-
-
-@misc{dagkir,
-author = {Lise Balteskard and Trygve Deraas and Olav Helge Førde and Trine Magnus and Frank Olsen and Bård Uleberg},
-title = {Dagkirurgi i {N}orge 2011-2013, utvalgte inngrep},
-month = {Januar},
-year = {2015},
-isbn = {978-82-93141-16-7},
-note = {{ISBN: 978-82-93141-16-7}}
-}
-
-```
-
-- `Adler2013` og `dagkir` er "nøkkelen" man bruker for å sitere disse referansene i teksten. Det gjør man ved å skrive "\cite{Adler2013}" der man vil putte siteringen.
-- Man skiller forfattere med "and"
-- Alt, bortsett fra første bokstav, i tittel blir små bokstaver, så hvis man vil beholde stor bokstav må bokstaven "beskyttes" med klammeparantes (som i {I}nfliximab).
-- Når man skal kompilere LaTeX-dokumentet når man bruker bibtex må man gjøre dette flere ganger for at alt skal bli riktig. I TeXmaker må man typisk gjøre følgende: `F6`, `F11`, `F6`, `F6` (`F11` for å kompilere bibtex-filen).
-- Å finne "riktig" referansestil, både i tekst og i referanselisten til slutt, kan være litt pes. Kan være lurt å bruke enten `natbib` eller `biblatex`.
-- Se ellers annen bibtex-dokumentasjon på nett.
-- I barnehelseatlasrapporten ville vi ha to referanselister: en for de som ble sitert i teksten og en for resten av artiklene i vår bib-fil. Dette ble gjort ved bruk av pakken `bibtopic` og det som står etter `\begin{btSect}`.

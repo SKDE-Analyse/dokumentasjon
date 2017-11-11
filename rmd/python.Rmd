@@ -1,4 +1,4 @@
-# Diverse om Python (i windows)
+# Python
 
 - Installér Python 3, lastet ned fra [python.org](http://python.org/downloads)
 - For å installere numpy (og andre python-pakker), last ned wheel-pakke [herfra](http://www.lfd.uci.edu/~gohlke/pythonlibs/) og installer med *pip* (i en terminal)

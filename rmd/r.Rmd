@@ -1,8 +1,6 @@
-# Rshiny
+# R
 
 Hvis det oppstår problemer med noen av disse fremgangsmåtene, send gjerne en beskjed til <A HREF="mailto:&#097;&#114;&#110;&#102;&#105;&#110;&#110;&#046;&#115;&#116;&#101;&#105;&#110;&#100;&#097;&#108;&#064;&#115;&#107;&#100;&#101;&#046;&#110;&#111;">arnfinn</A>.
-
-
 
 
 ## Rstudio og shinyapps gjennom proxy
@@ -15,7 +13,7 @@ Hvis det oppstår problemer med noen av disse fremgangsmåtene, send gjerne en b
 install.packages("shiny")
 ```
 - Opprett en bruker på [shinyapps.io](http://www.shinyapps.io)
-- [Opprett en ny](new_rshiny.md) eller åpne en gammel "Shiny web application" i Rstudio.
+- Opprett en ny eller åpne en gammel "Shiny web application" i Rstudio.
 - Kopier din token fra [shinyapps](http://www.shinyapps.io/admin/#/tokens) og kopier over i "Manage Accounts"
 
 ```{r, echo=FALSE}
@@ -37,6 +35,20 @@ library(rsconnect)
 deployApp(appName = "tabellverk")
 ```
 
+## Rstudio og github-pakker
+
+- Skriv følgende i rstudio-konsollen
+```r
+library(httr)
+set_config(use_proxy(url="http://www-proxy.helsenord.no", port=8080))
+```
+- For å installere pakker fra github
+```r
+devtools::install_github("SKDE-Analyse/dynamiskTabellverk")
+```
+
+
+
 ## Hvordan opprette en ny Rshiny applikasjon
 
 
@@ -55,4 +67,3 @@ knitr::include_graphics("figurer/rshiny_4.png")
 ```{r, echo=FALSE}
 knitr::include_graphics("figurer/rshiny_5.png")
 ```
-
