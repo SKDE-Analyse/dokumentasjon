@@ -1,6 +1,10 @@
 output_dir: "docs"
 delete_merged_file: TRUE
 
+---
+documentclass: book
+---
+
 rmd_files:
   html:
     - "index.Rmd"
