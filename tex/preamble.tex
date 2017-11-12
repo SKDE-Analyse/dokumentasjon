@@ -1,18 +1,15 @@
 \usepackage{xcolor}
-\usepackage{sectsty}
 \usepackage[norsk]{babel}
 %\usepackage{fontspec} % only for luatex
 
-% Gjør alle lenker mørkeblå
-\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
-\hypersetup{colorlinks,breaklinks,linkcolor=darkblue,urlcolor=darkblue,anchorcolor=darkblue,citecolor=darkblue}
+\definecolor{skde}{RGB}{0,80,158}
 
+\PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks, citecolor=black, linkcolor=black, urlcolor=black]{hyperref} 
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\color{skde}}
 
-% Bruk hf-rager på nivå 1 og 2 overskrifter
-\definecolor{hfmork}{RGB}{0,82,155}
-\definecolor{hflys}{RGB}{104,174,224}
-\subsectionfont{\color{hflys}}
-\sectionfont{\color{hfmork}}
+\usepackage{pdfpages} % for å legge inn forside/bakside
+
 
 
 % Bruk mørk grå på all annen tekst
