@@ -3,5 +3,4 @@ Thumbs.db
 build
 *.swp
 docs/*
-_book/
 _main.*
