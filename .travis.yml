@@ -12,7 +12,7 @@ before_install:                           # Install Ruby and html-proofer
   - rvm get stable --auto-dotfiles
   - rvm install 2.3.3
   - gem install html-proofer
-  - tlmgr install xcolor sectsty babel babel-norsk framed libertine
+  - tlmgr install xcolor sectsty babel babel-norsk framed libertine mweights
 
 script:
   - ./_build.sh
