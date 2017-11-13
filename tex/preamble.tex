@@ -2,9 +2,18 @@
 \usepackage[norsk]{babel}
 %\usepackage{fontspec} % only for luatex
 
+\usepackage[utf8]{inputenc}
+\usepackage{libertine} % linux libertine font
+%\usepackage[libertine]{newtxmath}
+\usepackage[T1]{fontenc}
+
+\usepackage{parskip}
+
+\usepackage{booktabs}
+
 \definecolor{skde}{RGB}{0,80,158}
 
-\PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks, citecolor=black, linkcolor=black, urlcolor=black]{hyperref} 
+%\PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks, citecolor=black, linkcolor=black, urlcolor=black]{hyperref} 
 \usepackage{sectsty}
 \allsectionsfont{\sffamily\color{skde}}
 
@@ -31,3 +40,48 @@
 \renewcommand{\bottomfraction}{0.8}
 \renewcommand{\floatpagefraction}{0.75}
 
+\title{Kreftkirurgi i Helse Nord} % tittel
+\newcommand{\subtitle}{2013-2016} % undertittel
+\newcommand{\sammendrag}{Dette notatet gir en oversikt over hvilke institusjoner som utfører %avansert 
+kreftkirurgi i Helse Nord RHF og omfanget av disse inngrepene i perioden 2013 til 2016, basert på tall fra Norsk pasientregister.} % sammendrag
+\newcommand{\notatnummer}{\today} % dato for rapport (erstatter notatnummer)
+%\setlength{\textheight}{680pt}
+\author{%
+   	Hanne Sigrun Byhring \\
+    Analytiker \\
+    hanne.sigrun.byhring@skde.no\vspace{20pt} \\
+    Lise Balteskard \\
+    Analytiker \\
+    lise.balteskard@skde.no
+}
+
+\newcommand{\hoydestrek}{125pt} % kommer an på antall forfattere
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{epigraph}
+
+\renewcommand\epigraphflush{flushright}
+\renewcommand\epigraphsize{\normalsize}
+\setlength\epigraphwidth{0.7\textwidth}
+
+%\DeclareFixedFont{\titlefont}{T1}{ppl}{b}{it}{0.5in}
+\DeclareFixedFont{\titlefont}{T1}{ppl}{}{}{0.5in}
+\DeclareFixedFont{\subtitlefont}{T1}{ppl}{}{}{0.2in}
+
+\makeatletter                       
+\def\printauthor{%                  
+    {\large \@author}}
+\let\printtitle\@title
+\makeatother
+
+
+\newcommand\titlepagedecoration{%
+\begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
+\draw[opacity=0.025,white, fill=skde] (-15,20) circle (100pt);
+\draw[opacity=0.05,white, fill=skde] (2,15) circle (75pt);
+\draw[opacity=0.075,white, fill=skde] (-5,7) circle (100pt);
+\draw[opacity=0.1,white, fill=skde] (-15,3) circle (125pt);
+\draw[opacity=0.125,white, fill=skde] (3,-4) circle (150pt);
+\end{tikzpicture}%
+}
