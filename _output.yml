@@ -7,7 +7,7 @@ bookdown::gitbook:
 bookdown::pdf_book:
   includes:
     in_header: tex/preamble.tex
-#    before_body: tex/prebody.tex
+    before_body: tex/prebody.tex
 #  dev: "cairo_pdf"
 #  latex_engine: lualatex
 bookdown::epub_book:
