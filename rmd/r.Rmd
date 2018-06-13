@@ -39,6 +39,7 @@ deployApp(appName = "tabellverk")
 
 - Skriv følgende i rstudio-konsollen
 ```r
+install.packages("httr")
 library(httr)
 set_config(use_proxy(url="http://www-proxy.helsenord.no", port=8080))
 ```
