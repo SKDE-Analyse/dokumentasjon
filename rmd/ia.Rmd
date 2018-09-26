@@ -1,35 +1,56 @@
 # Instant Atlas
 
-Dette kapitlet kan med fordel utvides.
-
-## data.js
-
-### Lage fila fra excel workbook
-
-- `Tillegg` - `IA Export`
-- Velg *JSON* og lagre som `data.js`
-
-## config.xml
-
-Kan enten modifiseres direkte eller gjennom InstantAtlas designer
-
-## Design av selve atlaset
-
-- Åpne *Instant atlas designer*
-- Åpne config.xml
--
+InstantAtlas (IA) er programvaren for det dynamiske kartverktøyet. 
+Det er to programmer som benyttes: *InstantAtlas Publisher* og *InstantAtlas Designer*. 
+For hjelp og mer info om *InstantAtlas Desktop*, se [Desktop User Guide](https://help.instantatlas.com/instantatlas-desktop/en/welcome/desktop-user-guide/).
 
 ## Lage et atlas fra bunnen av
 
-...
+- Åpne *Instant atlas publisher*
+- Trykk på *Next*
+- Velg `Single Map (HTML Edition) (v6.7.8)` (version er muligens ikke lik)
+- Velg en *ESRI shapefile*. Sjekk så *Data Preview* og velg *Feature code field:* og *Feature name field:* i forhold til hva som ser rett ut.
+- *Create a demo data file*
+- Trykk på *Next*
+- Trykk på *Next*
+- Trykk på *Next*
+- Pakk ut
 
+
+Atlaset kan nå åpnes i *Firefox* ved å åpne filen `atlas.html`. Filene `data.js` og `config.xml` kan så erstattes, slik at man får ønsket data og oppsett. 
+
+## Lage fila data.js fra excel workbook 
+
+InstantAtlas leser inn data fra *JSON* (eller *XML*-filer), og disse filene lages i `IAWorkbooks` som er *Excel*-filer. 
+For å kunne eksportere data fra *Excel* til et format som *Instant Atlas* can lese (en *json*-fil, `data.js`), 
+må man installere et *Excel*-tillegg: [InstantAtlas Data Manger - The Excel Add-inn](https://help.instantatlas.com/instantatlas-desktop/en/welcome/desktop-user-guide/the-instantatlas-excel-data-manager/the-excel-add-in/). 
+Det ligger her:
+
+```
+Analyse\Data\InstantAtlas\Excel_AddIns\IA Data Manager v6_7_4.xla
+```
+
+Da er det mulig i *Excel* å velge
+- `Tillegg` - `IA Export`
+- Velg *JSON* og lagre som `data.js`
+
+## Oppdatere config.xml
+
+Kan enten modifiseres direkte eller gjennom *InstantAtlas designer*
+
+## Design av atlaset
+
+- Åpne *Instant atlas designer*
+- Åpne en `config.xml`-fil
+- Juster på layout
 
 ## Logo
 
 - Hvis man ikke definerer både høyde og bredde, men kun en av de, på logo i `config.xml` vil skaleringen alltid være riktig. Definer bredde på logo nederst til venstre; høyde på logo øverst til venstre.
 - Unngå å bruke jpg i logoer
 - Logo med kun tekst kan lages med følgende svg-kode
-```
+
+```html
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="66">
   <text x="10" y="50" font-family="Verdana" font-size="55"
         fill="#00509e" stroke="#00509e" stroke-width="2">
