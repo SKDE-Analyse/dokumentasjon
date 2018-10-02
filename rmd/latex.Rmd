@@ -1,6 +1,58 @@
 # LaTeX
 
-Analyseenheten i SKDE skriver de fleste rapporter i LaTeX ved hjelp av [overleaf.com](https://www.overleaf.com). Dokumentmaler finner [her](https://www.overleaf.com/gallery/tagged/skde).
+Analyseenheten i SKDE skriver de fleste rapporter i LaTeX ved hjelp av [overleaf.com](https://www.overleaf.com).
+
+## Skrive en rapport eller et notat
+
+SKDE har noen maler som kan brukes. Dokumentmaler finnes [her](https://www.overleaf.com/gallery/tagged/skde).
+
+## Forside
+
+Til barnehelseatlasrapporten ble det lagd en forside, og det er denne vi bruker som mal for fremtidige rapporter ved SKDE. 
+For å kunne endre teksten på forsiden og samtidig bevare samme font, må fonten *Open Sans* installeres på maskinen. 
+Dette kan enten gjøres ved å få *Helse Nord IKT* til å installere fonten, eller ved å bruke [denne metoden (*install fonts without administrator access*)](https://woorkup.com/install-fonts-without-administrator-access/).
+
+Ved bytte av forsidebilde i *Adobe Acrobate Pro* vil informasjon om tidligere bilde ligge i filen, og filen vil derfor bli uhensiktsmessig stor. 
+For å bli kvitt denne informasjonen kan man gå inn på `Fil/Instillinger/Dokumenter` og huke av *Fjern skjult informasjon når du lukker dokumentet*. 
+Lukk så dokumentet og svar *Ja* på spørsmålet om du vil fjerne informasjon. 
+Ta bort avhuking på *Metadata* og *Overlappende objekter*, men fjern informasjon om *Slettet eller beskåret innhold*.
+
+## Oversettelse av Helseatlas
+
+### Hvordan få et LaTeX-dokument klar for oversettelse
+
+Oversettelse av Helseatlas (rapporter og faktaark) har blir gjort av [Anneli Olsbø](Anneli@allegro-as.no) ved Allegro AS. 
+Før dokumentene sendes til Allegro for oversettelse, må de konverteres til Word. 
+For å få dette til mest mulig smertefritt gjøres følgende:
+
+- Fjern unødvendige sider (forside, side 2, bakside etc.).
+- Slå av fancyheadings ved å bruke `\pagestyle{empty}` på hele dokumentet.
+- Bruk `\usepackage[none]{hyphenat}` for å tvinge LaTeX til å ikke bryte ord. Eventuelt kan følgende kode brukes
+
+```
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+```
+- Bruk `\usepackage[demo]{graphicx}` for å legge inn svarte bokser i steden for figurer. 
+  Fungerer ikke alltid, så bruk eventuelt `\usepackage[allfiguresdraft]{draftfigure}` (*draftfigure.sty* må lastes ned og legges sammen med tex-dokumentet)
+- Bruk en font som er enkel å konvertere til word (f.eks `calibri`).
+- Konverter pdf-filen til *word* med *Adobe Acrobate Pro*
+
+### Hvordan konvertere word-dokumentet tilbake til LaTeX
+
+- Lagre som rtf i word
+- Konvertere med `rtf2latex2e -n -f -p 1 <filnavn.rtf>` med en linux/unix-maskin
+- Hvis ikke dette går:
+   - Lagre først som doc
+   - Åpne doc og lagre som rtf
+
+
+#### regex i Overleaf
+
+- Erstatt `/(\d)\s+(?=\d)/` med `$1,` for bytte ut tusentallsmellomrom med komma (norsk til engelsk).
+
 
 ## En enkel start
 
@@ -50,6 +102,7 @@ knitr::include_graphics("figurer/simple_tex.png")
 ## BibTeX
 
 Når man legger inn referanser i LaTeX bruker man som regel bibtex. Da lager man en egen fil som heter noe som ender på `.bib`. I denne skrives alle referansene, omtrent slik som dette:
+
 ```latex
 
 @article{Adler2013,
@@ -62,8 +115,6 @@ number = {1},
 pages = {35-38},
 }
 
-
-
 @misc{dagkir,
 author = {Lise Balteskard and Trygve Deraas and Olav Helge Førde and Trine Magnus and Frank Olsen and Bård Uleberg},
 title = {Dagkirurgi i {N}orge 2011-2013, utvalgte inngrep},
@@ -72,7 +123,6 @@ year = {2015},
 isbn = {978-82-93141-16-7},
 note = {{ISBN: 978-82-93141-16-7}}
 }
-
 ```
 
 - `Adler2013` og `dagkir` er "nøkkelen" man bruker for å sitere disse referansene i teksten. Det gjør man ved å skrive `\cite{Adler2013}` der man vil putte siteringen.
@@ -82,41 +132,6 @@ note = {{ISBN: 978-82-93141-16-7}}
 - Å finne "riktig" referansestil, både i tekst og i referanselisten til slutt, kan være litt pes. Kan være lurt å bruke enten *natbib* eller *biblatex*.
 - Se ellers annen bibtex-dokumentasjon på nett.
 - I barnehelseatlasrapporten ville vi ha to referanselister: en for de som ble sitert i teksten og en for resten av artiklene i vår bib-fil. Dette ble gjort ved bruk av pakken `bibtopic` og det som står etter `\begin{btSect}`.
-
-
-## Oversettelse av Helseatlas
-
-### Hvordan få et LaTeX-dokument klar for oversettelse
-
-Oversettelse av Helseatlas (rapporter og faktaark) har blir gjort av [Anneli Olsbø](Anneli@allegro-as.no) ved Allegro AS. Før dokumentene sendes til Allegro for oversettelse, må de konverteres til Word. For å få dette til mest mulig smertefritt gjøres følgende:
-
-- Fjern unødvendige sider (forside, side 2, bakside etc.).
-- Slå av fancyheadings ved å bruke `\pagestyle{empty}` på hele dokumentet.
-- Bruk `\usepackage[none]{hyphenat}` for å tvinge LaTeX til å ikke bryte ord. Ev. følgende kode
-```
-\tolerance=1
-\emergencystretch=\maxdimen
-\hyphenpenalty=10000
-\hbadness=10000
-```
-- Bruk `\usepackage[demo]{graphicx}` for å legge inn svarte bokser i steden for figurer. 
-  Fungerer ikke alltid, så bruk eventuelt `\usepackage[allfiguresdraft]{draftfigure}` (*draftfigure.sty* må lastes ned og legges sammen med tex-dokumentet)
-- Bruk en font som er enkel å konvertere til word.
-- Konverter pdf-filen til word med adobe pro
-
-### Hvordan konvertere word-dokumentet tilbake til LaTeX
-
-- Lagre som rtf i word
-- Konvertere med `rtf2latex2e -n -f -p 1 <filnavn.rtf>` med en linux/unix-maskin
-- Hvis ikke dette går:
-   - Lagre først som doc
-   - Åpne doc og lagre som rtf
-
-
-#### regex i Overleaf
-
-- Erstatt `/(\d)\s+(?=\d)/` med `$1,` for bytte ut tusentallsmellomrom med komma (norsk til engelsk).
-
 
 ## Hvordan installere LaTeX på SKDE-maskiner
 
@@ -176,7 +191,8 @@ Alt dette må gjøres lokalt, noe som betyr at LaTeX må være installert på ma
 ### Slå sammen flere flettede tex-filer til én tex-fil
 
 Vi jobber som regel med flere tex-filer ved bruk av `\input{}`. *latexdiff* fungerer bare på en fil av gangen. Vi må derfor samle sammen alle filene til én. Følgende *python*-script samler sammen flere tex-filer til én fil (kopiert fra [Andrew Walker](http://dropbearcode.blogspot.no/2011/09/multiple-file-latex-diff.html)):
-```
+
+```python
 #!/usr/bin/env python
 import sys
 import os
@@ -206,7 +222,8 @@ if __name__ == "__main__":
 3. Gjør skriptet kjørbart: ´chmod u+x flatten-latex.py´
 4. Sørg for at du har to mapper med to ulike versjoner av et LaTeX-prosjekt i samme mappe (dette kan gjøres ved å klone samme overleaf-dokument to ganger og gå tilbake i historien på det ene).
 5. Lag flate tex-versjoner av de to LaTeX-prosjektene:
-  ```
+
+  ```bash
   ./flatten-latex.py mappe1/rapport.tex > gammel.tex
   ./flatten-latex.py mappe2/rapport.tex > ny.tex
   ```
@@ -215,12 +232,14 @@ if __name__ == "__main__":
 ### Kjøre *latexdiff* på to tex-filer
 
 - Vi kan nå lage en ny tex-fil, som vi legger i mappen der nyeste versjon av LaTeX-prosjektet ligger (i dette tilfelle ´mappe2´)
-```
+
+```bash
 latexdiff gammel.tex ny.tex > mappe2/diff.tex
 ```
   Det legges i den mappen, slik at vi kan kompilere filen etterpå og få med figurer etc.
 - Gå inn i mappen og kompiler dokumentet (i vårt tilfelle bruker vi som regel *lualatex*
-```
+
+```bash
 cd mappe2
 lualatex diff
 biber diff
