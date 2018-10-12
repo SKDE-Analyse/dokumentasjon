@@ -1,0 +1,29 @@
+# Mobilt kontor – programvare og tillegg
+
+Ved bestilling av PC med Mobilt kontor må ønsket programvare og eventuelle tillegg bestilles. På PC’er med mobilt kontor må man bruke adgangskortet og en pin-kode. Adgangskortet må aktiveres og pin-kode velges settes vekterne på UNN, Driftsavdelingen B.5.
+
+Følgende begrensninger gjelder for PC’er med mobilt kontor:
+1. Det er ikke mulig å logge på maskin uten kortet. Glemmer du kortet, må du enten kjøre/sykle hjem og hente det, eventuelt få utstedt ett nytt.
+2. Det er ikke mulig å opprette en lokal bruker. Uten nett kan du fortsatt bruke maskinen som om den ikke var på nett, med lokale dokumenter og programvare.
+
+Ønsket programvare og tillegg bestilles ved bestilling av PC med mobilt kontor (lista bygges ut over tid):
+- SAS
+    - Add-ins for Excel
+- EndNote
+    - Add-ins for Word
+- Chrome
+- Firefox
+- Notepad++
+- vscode
+- 7Zip
+- Stata
+- Eduroam (hvis tilknyttet UiT)
+    - installasjonsfil, se https://uit.no/om/orakelet/frag?p_document_id=319282
+- git
+- R
+- RStudio
+- Python 3
+
+Kontakt HelpDesk (07022) eller xxx (vi trenger egentlig en spesifikk kontaktperson for dette) for å bestille nye program/tillegg og fyll inn på lista over.
+
+
