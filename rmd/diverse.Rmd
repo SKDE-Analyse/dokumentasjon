@@ -2,10 +2,21 @@
 
 ## Koble til virtuelt møterom
 
-- Per telefon, ring *77602100*, konferanse ID *997515*
-- Videokonferanse over helsenettet, ring *997515*
-- Skype, *997515@uc.nhn.no*
-- For deltagere utenfor helsenettet, gå til siden https://join.nhn.no/ (installere klient), velg Delta i samtale (Join call), tast inn Samtale ID (Call ID) *997515* (Kode ikke nødvendig) og tast inn navnet ditt
+SKDE disponerer fire virtuelle møterom:
+
+| Rom | Adresse | Nummer | Web |
+| :-- | :------ | :----- | :--- |
+SKDE Analyse        | skde.analyse@vm.nhn.no   | 997297 | https://join.nhn.no/webapp/conference/997297
+SKDE Forskning      | skde.forskning@vm.nhn.no | 997298 | https://join.nhn.no/webapp/conference/997298
+SKDE Servicemiljøet | 997515@uc.nhn.no         | 997515 | https://join.nhn.no/webapp/conference/997515
+SKDE                | 999363@uc.nhn.no         | 999363 | https://join.nhn.no/webapp/conference/999363
+
+Disse kan ringes opp på følgende måter, med Servicemiljøet som eksempel:
+
+- Skype for Business: ring *997515@uc.nhn.no*
+- Per telefon: ring *77602100*, slå inn konferanse-ID *997515* og avslutt med *#*
+- For deltagere utenfor helsenettet eller uten Skype for Business: gå til siden https://join.nhn.no/, tast inn navnet ditt, og ring nummer *997515*. Eventuelt gå direkte til https://join.nhn.no/webapp/conference/997515
+- Videokonferanse over helsenettet: ring *997515*
 
 ## Koble til skriver
 
