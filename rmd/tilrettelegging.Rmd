@@ -4,10 +4,25 @@
 
 **Dette kapitlet kan med fordel utvides.**
 
-### Lage nye datasett
+### Lese inn `csv`
 
+Mulig dette også fungerer med `spss`-filer.
 
+- Kjør først en `proc import` uten `GUESSINGROWS`.
+- Hvis dette gir en `error`, ser man i loggen under `Notes` og finner den første/øverste linjen med noe ala dette: `NOTE: Invalid data for takst_15 in line 153 535-537`. 
+- Sett så `GUESSINGROWS` til noe større enn `153` og kjør på nytt (se under).
+- Dette gjøres helt til man ikke lenger får en feilmelding.
 
+```sas
+proc import datafile="\\tos-sas...\...\<filnavn>.csv" 
+   out=utl_npr_somatikk
+   dbms=csv
+   replace;
+   DELIMITER=';';
+   GUESSINGROWS=200;
+run;
+
+```
 
 ### Lage diff-filer
 
