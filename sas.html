@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 SAS | Dokumentasjon for internt bruk ved SKDE</title>
+  <meta name="description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
+  <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 SAS | Dokumentasjon for internt bruk ved SKDE" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 SAS | Dokumentasjon for internt bruk ved SKDE" />
+  
+  <meta name="twitter:description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
+  
+
+<meta name="author" content="Arnfinn Hykkerud Steindal, SKDE" />
+
+
+<meta name="date" content="2021-03-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="diverse.html"/>
+<link rel="next" href="tilrettelegging-av-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#section"></a></li>
+<li class="chapter" data-level="1" data-path="diverse.html"><a href="diverse.html"><i class="fa fa-check"></i><b>1</b> Diverse</a><ul>
+<li class="chapter" data-level="1.1" data-path="diverse.html"><a href="diverse.html#koble-til-virtuelt-møterom"><i class="fa fa-check"></i><b>1.1</b> Koble til virtuelt møterom</a></li>
+<li class="chapter" data-level="1.2" data-path="diverse.html"><a href="diverse.html#teams"><i class="fa fa-check"></i><b>1.2</b> Teams</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="diverse.html"><a href="diverse.html#piping"><i class="fa fa-check"></i><b>1.2.1</b> Piping</a></li>
+<li class="chapter" data-level="1.2.2" data-path="diverse.html"><a href="diverse.html#koble-seg-til-virtuelt-møterom"><i class="fa fa-check"></i><b>1.2.2</b> Koble seg til virtuelt møterom</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="diverse.html"><a href="diverse.html#koble-til-nettverksstasjoner"><i class="fa fa-check"></i><b>1.3</b> Koble til nettverksstasjoner</a></li>
+<li class="chapter" data-level="1.4" data-path="diverse.html"><a href="diverse.html#mobilt-kontor-programvare-og-tillegg"><i class="fa fa-check"></i><b>1.4</b> Mobilt kontor – programvare og tillegg</a></li>
+<li class="chapter" data-level="1.5" data-path="diverse.html"><a href="diverse.html#google-chrome"><i class="fa fa-check"></i><b>1.5</b> Google Chrome</a></li>
+<li class="chapter" data-level="1.6" data-path="diverse.html"><a href="diverse.html#visual-studio-code"><i class="fa fa-check"></i><b>1.6</b> Visual Studio Code</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="diverse.html"><a href="diverse.html#settings-fil"><i class="fa fa-check"></i><b>1.6.1</b> Settings-fil</a></li>
+<li class="chapter" data-level="1.6.2" data-path="diverse.html"><a href="diverse.html#file-encoding"><i class="fa fa-check"></i><b>1.6.2</b> File encoding</a></li>
+<li class="chapter" data-level="1.6.3" data-path="diverse.html"><a href="diverse.html#git-for-source-control"><i class="fa fa-check"></i><b>1.6.3</b> Git for source control</a></li>
+<li class="chapter" data-level="1.6.4" data-path="diverse.html"><a href="diverse.html#triks-og-tips"><i class="fa fa-check"></i><b>1.6.4</b> Triks og tips</a></li>
+<li class="chapter" data-level="1.6.5" data-path="diverse.html"><a href="diverse.html#extensions"><i class="fa fa-check"></i><b>1.6.5</b> Extensions</a></li>
+<li class="chapter" data-level="1.6.6" data-path="diverse.html"><a href="diverse.html#latex"><i class="fa fa-check"></i><b>1.6.6</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="diverse.html"><a href="diverse.html#atom-text-editor"><i class="fa fa-check"></i><b>1.7</b> Atom text editor</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="diverse.html"><a href="diverse.html#diverse-oppsett"><i class="fa fa-check"></i><b>1.7.1</b> Diverse oppsett</a></li>
+<li class="chapter" data-level="1.7.2" data-path="diverse.html"><a href="diverse.html#annet"><i class="fa fa-check"></i><b>1.7.2</b> Annet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sas.html"><a href="sas.html"><i class="fa fa-check"></i><b>2</b> SAS</a><ul>
+<li class="chapter" data-level="2.1" data-path="sas.html"><a href="sas.html#lagring-av-sensitive-datasett"><i class="fa fa-check"></i><b>2.1</b> Lagring av sensitive datasett</a></li>
+<li class="chapter" data-level="2.2" data-path="sas.html"><a href="sas.html#koble-til-sas-server-i-sas-enterprise-guide"><i class="fa fa-check"></i><b>2.2</b> Koble til sas-server i SAS Enterprise guide</a></li>
+<li class="chapter" data-level="2.3" data-path="sas.html"><a href="sas.html#laste-inn-vår-egen-autocomplete-fil"><i class="fa fa-check"></i><b>2.3</b> Laste inn vår egen autocomplete-fil</a></li>
+<li class="chapter" data-level="2.4" data-path="sas.html"><a href="sas.html#makroer"><i class="fa fa-check"></i><b>2.4</b> Makroer</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="sas.html"><a href="sas.html#lage-en-makro"><i class="fa fa-check"></i><b>2.4.1</b> Lage en makro</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="sas.html"><a href="sas.html#formater"><i class="fa fa-check"></i><b>2.5</b> Formater</a></li>
+<li class="chapter" data-level="2.6" data-path="sas.html"><a href="sas.html#rateprogrammet"><i class="fa fa-check"></i><b>2.6</b> Rateprogrammet</a></li>
+<li class="chapter" data-level="2.7" data-path="sas.html"><a href="sas.html#annet-1"><i class="fa fa-check"></i><b>2.7</b> Annet</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="sas.html"><a href="sas.html#feilmelding-ala-error-libref-npr_skde-is-not-assigned."><i class="fa fa-check"></i><b>2.7.1</b> Feilmelding ala <code>ERROR: Libref NPR_SKDE is not assigned.</code></a></li>
+<li class="chapter" data-level="2.7.2" data-path="sas.html"><a href="sas.html#gtitle"><i class="fa fa-check"></i><b>2.7.2</b> gtitle</a></li>
+<li class="chapter" data-level="2.7.3" data-path="sas.html"><a href="sas.html#redusere-størrelsen-på-datasett"><i class="fa fa-check"></i><b>2.7.3</b> Redusere størrelsen på datasett</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="sas.html"><a href="sas.html#diverse-engangs-oppgaver"><i class="fa fa-check"></i><b>2.8</b> Diverse engangs-oppgaver</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="sas.html"><a href="sas.html#slå-av-advarsel-om-sletting-av-midlertidig-datasett"><i class="fa fa-check"></i><b>2.8.1</b> Slå av advarsel om sletting av midlertidig datasett</a></li>
+<li class="chapter" data-level="2.8.2" data-path="sas.html"><a href="sas.html#sas-syntax-i-atom-text-editor"><i class="fa fa-check"></i><b>2.8.2</b> SAS-syntax i <em>Atom text editor</em></a></li>
+<li class="chapter" data-level="2.8.3" data-path="sas.html"><a href="sas.html#sas-syntax-i-notepad"><i class="fa fa-check"></i><b>2.8.3</b> SAS-syntax i <em>Notepad++</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tilrettelegging-av-data.html"><a href="tilrettelegging-av-data.html"><i class="fa fa-check"></i><b>3</b> Tilrettelegging av data</a><ul>
+<li class="chapter" data-level="3.1" data-path="tilrettelegging-av-data.html"><a href="tilrettelegging-av-data.html#tilrettelegging-av-nye-data-fra-npr"><i class="fa fa-check"></i><b>3.1</b> Tilrettelegging av nye data fra NPR</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="tilrettelegging-av-data.html"><a href="tilrettelegging-av-data.html#lese-inn-csv"><i class="fa fa-check"></i><b>3.1.1</b> Lese inn <code>csv</code></a></li>
+<li class="chapter" data-level="3.1.2" data-path="tilrettelegging-av-data.html"><a href="tilrettelegging-av-data.html#lage-diff-filer"><i class="fa fa-check"></i><b>3.1.2</b> Lage diff-filer</a></li>
+<li class="chapter" data-level="3.1.3" data-path="tilrettelegging-av-data.html"><a href="tilrettelegging-av-data.html#kodeverk"><i class="fa fa-check"></i><b>3.1.3</b> Kodeverk</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="tilrettelegging-av-data.html"><a href="tilrettelegging-av-data.html#tilrettelegging-av-innbyggertall-fra-ssb"><i class="fa fa-check"></i><b>3.2</b> Tilrettelegging av innbyggertall fra SSB</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="instant-atlas.html"><a href="instant-atlas.html"><i class="fa fa-check"></i><b>4</b> Instant Atlas</a><ul>
+<li class="chapter" data-level="4.1" data-path="instant-atlas.html"><a href="instant-atlas.html#lage-et-atlas-fra-bunnen-av"><i class="fa fa-check"></i><b>4.1</b> Lage et atlas fra bunnen av</a></li>
+<li class="chapter" data-level="4.2" data-path="instant-atlas.html"><a href="instant-atlas.html#lage-fila-data.js-fra-excel-workbook"><i class="fa fa-check"></i><b>4.2</b> Lage fila data.js fra excel workbook</a></li>
+<li class="chapter" data-level="4.3" data-path="instant-atlas.html"><a href="instant-atlas.html#oppdatere-config.xml"><i class="fa fa-check"></i><b>4.3</b> Oppdatere config.xml</a></li>
+<li class="chapter" data-level="4.4" data-path="instant-atlas.html"><a href="instant-atlas.html#design-av-atlaset"><i class="fa fa-check"></i><b>4.4</b> Design av atlaset</a></li>
+<li class="chapter" data-level="4.5" data-path="instant-atlas.html"><a href="instant-atlas.html#logo"><i class="fa fa-check"></i><b>4.5</b> Logo</a></li>
+<li class="chapter" data-level="4.6" data-path="instant-atlas.html"><a href="instant-atlas.html#legge-ut-et-atlas-på-helseatlas.no"><i class="fa fa-check"></i><b>4.6</b> Legge ut et atlas på helseatlas.no</a></li>
+<li class="chapter" data-level="4.7" data-path="instant-atlas.html"><a href="instant-atlas.html#legge-inn-lenke-til-faktaark"><i class="fa fa-check"></i><b>4.7</b> Legge inn lenke til faktaark</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="zotero.html"><a href="zotero.html"><i class="fa fa-check"></i><b>5</b> Zotero</a></li>
+<li class="chapter" data-level="6" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>6</b> git</a><ul>
+<li class="chapter" data-level="6.1" data-path="git.html"><a href="git.html#installèr-git"><i class="fa fa-check"></i><b>6.1</b> Installèr git</a></li>
+<li class="chapter" data-level="6.2" data-path="git.html"><a href="git.html#legg-inn-brukernavn-og-epost"><i class="fa fa-check"></i><b>6.2</b> Legg inn brukernavn og epost</a></li>
+<li class="chapter" data-level="6.3" data-path="git.html"><a href="git.html#lag-ssh-nøkkel"><i class="fa fa-check"></i><b>6.3</b> Lag SSH-nøkkel</a></li>
+<li class="chapter" data-level="6.4" data-path="git.html"><a href="git.html#legg-din-nøkkel-på-github"><i class="fa fa-check"></i><b>6.4</b> Legg din nøkkel på <code>github</code></a></li>
+<li class="chapter" data-level="6.5" data-path="git.html"><a href="git.html#sett-opp-ssh-komunikasjon-gjennom-proxy"><i class="fa fa-check"></i><b>6.5</b> Sett opp ssh-komunikasjon gjennom proxy</a></li>
+<li class="chapter" data-level="6.6" data-path="git.html"><a href="git.html#github"><i class="fa fa-check"></i><b>6.6</b> Github</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="git.html"><a href="git.html#sette-opp-travis-til-å-lage-github-pages"><i class="fa fa-check"></i><b>6.6.1</b> Sette opp Travis til å lage github pages</a></li>
+<li class="chapter" data-level="6.6.2" data-path="git.html"><a href="git.html#lage-github-pages-med-pkgdowndeploy_site_github-i-travis"><i class="fa fa-check"></i><b>6.6.2</b> Lage github pages med <code>pkgdown::deploy_site_github()</code> i Travis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="git.html"><a href="git.html#rstudio-git-og-github-på-windows-gjennom-proxy"><i class="fa fa-check"></i><b>6.7</b> Rstudio, git og github på Windows gjennom proxy</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="git.html"><a href="git.html#hvordan-sette-opp-git-i-rstudio"><i class="fa fa-check"></i><b>6.7.1</b> Hvordan sette opp git i rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="git.html"><a href="git.html#diverse-mer-eller-mindre-obskure-git-triks"><i class="fa fa-check"></i><b>6.8</b> Diverse mer eller mindre obskure git-triks</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="git.html"><a href="git.html#ekskluder-fil-fra-merge"><i class="fa fa-check"></i><b>6.8.1</b> Ekskluder fil fra merge</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>7</b> R</a><ul>
+<li class="chapter" data-level="7.1" data-path="r.html"><a href="r.html#sette-globale-instillinger"><i class="fa fa-check"></i><b>7.1</b> Sette globale instillinger</a></li>
+<li class="chapter" data-level="7.2" data-path="r.html"><a href="r.html#rstudio-og-github-pakker"><i class="fa fa-check"></i><b>7.2</b> Rstudio og github-pakker</a></li>
+<li class="chapter" data-level="7.3" data-path="r.html"><a href="r.html#rstudio-og-shinyapps"><i class="fa fa-check"></i><b>7.3</b> Rstudio og shinyapps</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="r.html"><a href="r.html#første-gang"><i class="fa fa-check"></i><b>7.3.1</b> Første gang</a></li>
+<li class="chapter" data-level="7.3.2" data-path="r.html"><a href="r.html#laste-opp-en-shinyapp-til-httpwww.shinyapps.io"><i class="fa fa-check"></i><b>7.3.2</b> Laste opp en shinyapp til <a href="http://www.shinyapps.io" class="uri">http://www.shinyapps.io</a></a></li>
+<li class="chapter" data-level="7.3.3" data-path="r.html"><a href="r.html#hvordan-opprette-en-ny-rshiny-applikasjon"><i class="fa fa-check"></i><b>7.3.3</b> Hvordan opprette en ny Rshiny applikasjon</a></li>
+<li class="chapter" data-level="7.3.4" data-path="r.html"><a href="r.html#ta-en-backup-av-en-eksisterende-app"><i class="fa fa-check"></i><b>7.3.4</b> Ta en backup av en eksisterende app</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="latex-1.html"><a href="latex-1.html"><i class="fa fa-check"></i><b>8</b> LaTeX</a><ul>
+<li class="chapter" data-level="8.1" data-path="latex-1.html"><a href="latex-1.html#skrive-en-rapport-eller-et-notat"><i class="fa fa-check"></i><b>8.1</b> Skrive en rapport eller et notat</a></li>
+<li class="chapter" data-level="8.2" data-path="latex-1.html"><a href="latex-1.html#forside"><i class="fa fa-check"></i><b>8.2</b> Forside</a></li>
+<li class="chapter" data-level="8.3" data-path="latex-1.html"><a href="latex-1.html#oversettelse-av-helseatlas"><i class="fa fa-check"></i><b>8.3</b> Oversettelse av Helseatlas</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="latex-1.html"><a href="latex-1.html#hvordan-få-et-latex-dokument-klar-for-oversettelse"><i class="fa fa-check"></i><b>8.3.1</b> Hvordan få et LaTeX-dokument klar for oversettelse</a></li>
+<li class="chapter" data-level="8.3.2" data-path="latex-1.html"><a href="latex-1.html#hvordan-konvertere-word-dokumentet-tilbake-til-latex"><i class="fa fa-check"></i><b>8.3.2</b> Hvordan konvertere word-dokumentet tilbake til LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="latex-1.html"><a href="latex-1.html#en-enkel-start"><i class="fa fa-check"></i><b>8.4</b> En enkel start</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="latex-1.html"><a href="latex-1.html#diverse-man-må-huske"><i class="fa fa-check"></i><b>8.4.1</b> Diverse man må huske</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="latex-1.html"><a href="latex-1.html#bibtex"><i class="fa fa-check"></i><b>8.5</b> BibTeX</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="latex-1.html"><a href="latex-1.html#konvertere-fra-pubmed-til-bibtex"><i class="fa fa-check"></i><b>8.5.1</b> Konvertere fra <em>Pubmed</em> til <em>BibTeX</em></a></li>
+<li class="chapter" data-level="8.5.2" data-path="latex-1.html"><a href="latex-1.html#bruke-latex"><i class="fa fa-check"></i><b>8.5.2</b> Bruke LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="latex-1.html"><a href="latex-1.html#spor-endringer-i-latex-ved-bruk-av-latexdiff"><i class="fa fa-check"></i><b>8.6</b> Spor endringer i LaTeX ved bruk av <em>latexdiff</em></a><ul>
+<li class="chapter" data-level="8.6.1" data-path="latex-1.html"><a href="latex-1.html#slå-sammen-flere-flettede-tex-filer-til-én-tex-fil"><i class="fa fa-check"></i><b>8.6.1</b> Slå sammen flere flettede tex-filer til én tex-fil</a></li>
+<li class="chapter" data-level="8.6.2" data-path="latex-1.html"><a href="latex-1.html#kjøre-latexdiff-på-to-tex-filer"><i class="fa fa-check"></i><b>8.6.2</b> Kjøre <em>latexdiff</em> på to tex-filer</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>9</b> Python</a><ul>
+<li class="chapter" data-level="9.1" data-path="python.html"><a href="python.html#virtualenv"><i class="fa fa-check"></i><b>9.1</b> Virtualenv</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="python.html"><a href="python.html#installere"><i class="fa fa-check"></i><b>9.1.1</b> installere</a></li>
+<li class="chapter" data-level="9.1.2" data-path="python.html"><a href="python.html#bruke"><i class="fa fa-check"></i><b>9.1.2</b> Bruke</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="linux.html"><a href="linux.html"><i class="fa fa-check"></i><b>10</b> Linux</a><ul>
+<li class="chapter" data-level="10.1" data-path="linux.html"><a href="linux.html#installere-linux-på-stasjonære-jobb-pc"><i class="fa fa-check"></i><b>10.1</b> Installere Linux på stasjonære jobb-pc</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="linux.html"><a href="linux.html#lubuntu"><i class="fa fa-check"></i><b>10.1.1</b> Lubuntu</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="linux.html"><a href="linux.html#linux-gjennom-proxy"><i class="fa fa-check"></i><b>10.2</b> Linux gjennom proxy</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="linux.html"><a href="linux.html#linux-mint"><i class="fa fa-check"></i><b>10.2.1</b> Linux Mint</a></li>
+<li class="chapter" data-level="10.2.2" data-path="linux.html"><a href="linux.html#lubuntu-1"><i class="fa fa-check"></i><b>10.2.2</b> Lubuntu</a></li>
+<li class="chapter" data-level="10.2.3" data-path="linux.html"><a href="linux.html#generelt"><i class="fa fa-check"></i><b>10.2.3</b> Generelt</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="linux.html"><a href="linux.html#rrstudio"><i class="fa fa-check"></i><b>10.3</b> R/RStudio</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="linux.html"><a href="linux.html#sett-opp-cran"><i class="fa fa-check"></i><b>10.3.1</b> Sett opp CRAN</a></li>
+<li class="chapter" data-level="10.3.2" data-path="linux.html"><a href="linux.html#installere-r"><i class="fa fa-check"></i><b>10.3.2</b> Installere R</a></li>
+<li class="chapter" data-level="10.3.3" data-path="linux.html"><a href="linux.html#installere-rstudio"><i class="fa fa-check"></i><b>10.3.3</b> Installere RStudio</a></li>
+<li class="chapter" data-level="10.3.4" data-path="linux.html"><a href="linux.html#installere-devtools"><i class="fa fa-check"></i><b>10.3.4</b> Installere <code>devtools</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="linux.html"><a href="linux.html#eksternt-skrivebord"><i class="fa fa-check"></i><b>10.4</b> Eksternt skrivebord</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="docker.html"><a href="docker.html"><i class="fa fa-check"></i><b>11</b> Docker</a><ul>
+<li class="chapter" data-level="11.1" data-path="docker.html"><a href="docker.html#docker-image"><i class="fa fa-check"></i><b>11.1</b> Docker image</a></li>
+<li class="chapter" data-level="11.2" data-path="docker.html"><a href="docker.html#docker-container"><i class="fa fa-check"></i><b>11.2</b> Docker container</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="arnfinn.html"><a href="arnfinn.html"><i class="fa fa-check"></i><b>12</b> Arnfinn</a><ul>
+<li class="chapter" data-level="12.1" data-path="arnfinn.html"><a href="arnfinn.html#splitte-pdf"><i class="fa fa-check"></i><b>12.1</b> Splitte pdf</a></li>
+<li class="chapter" data-level="12.2" data-path="arnfinn.html"><a href="arnfinn.html#regular-expressions"><i class="fa fa-check"></i><b>12.2</b> Regular expressions</a></li>
+<li class="chapter" data-level="12.3" data-path="arnfinn.html"><a href="arnfinn.html#bash"><i class="fa fa-check"></i><b>12.3</b> Bash</a></li>
+<li class="chapter" data-level="12.4" data-path="arnfinn.html"><a href="arnfinn.html#opprette-automatisk-dokumentasjonekstrasjon-fra-sas-filer"><i class="fa fa-check"></i><b>12.4</b> Opprette automatisk dokumentasjonekstrasjon fra SAS-filer</a></li>
+<li class="chapter" data-level="12.5" data-path="arnfinn.html"><a href="arnfinn.html#diverse-om-figurer"><i class="fa fa-check"></i><b>12.5</b> Diverse om figurer</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="arnfinn.html"><a href="arnfinn.html#fjerne-hvit-bakgrunn-på-epspdf-filer"><i class="fa fa-check"></i><b>12.5.1</b> Fjerne hvit bakgrunn på eps/pdf-filer</a></li>
+<li class="chapter" data-level="12.5.2" data-path="arnfinn.html"><a href="arnfinn.html#fjerne-luft-rundt-figurer"><i class="fa fa-check"></i><b>12.5.2</b> Fjerne luft rundt figurer</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="arnfinn.html"><a href="arnfinn.html#etter-en-retank-av-maskin"><i class="fa fa-check"></i><b>12.6</b> Etter en retank av maskin</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="arnfinn.html"><a href="arnfinn.html#rstudio"><i class="fa fa-check"></i><b>12.6.1</b> RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="arnfinn.html"><a href="arnfinn.html#oversettelse-helseatlas"><i class="fa fa-check"></i><b>12.7</b> Oversettelse, Helseatlas</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="arnfinn.html"><a href="arnfinn.html#diverse-bash-kode"><i class="fa fa-check"></i><b>12.7.1</b> Diverse bash-kode</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="arnfinn.html"><a href="arnfinn.html#kompilere-denne-dokumentasjonen-lokalt"><i class="fa fa-check"></i><b>12.8</b> Kompilere denne dokumentasjonen lokalt</a><ul>
+<li class="chapter" data-level="12.8.1" data-path="arnfinn.html"><a href="arnfinn.html#linux-1"><i class="fa fa-check"></i><b>12.8.1</b> Linux</a></li>
+<li class="chapter" data-level="12.8.2" data-path="arnfinn.html"><a href="arnfinn.html#kompilere-selve-dokumentasjonen"><i class="fa fa-check"></i><b>12.8.2</b> Kompilere selve dokumentasjonen</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Dokumentasjon for internt bruk ved SKDE</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sas" class="section level1">
+<h1><span class="header-section-number">2</span> SAS</h1>
+<div id="lagring-av-sensitive-datasett" class="section level2">
+<h2><span class="header-section-number">2.1</span> Lagring av sensitive datasett</h2>
+
+<div class="rmdimportant">
+Sensitive datasett skal <em>kun</em> lagres på <code>npr_utva</code>! Disse skal slettes hvert år, når vi får nye data i hus og nye data er tilrettelagt.
+</div>
+
+<ul>
+<li>Med sensitive data menes datasett der det er en mulighet for å identifisere pasienter (pid, kjønn, alder, bosted og/eller behandlingssted etc. ikke er slettet)</li>
+<li>Merk gjerne datasettet med dine initialer, slik som dette</li>
+</ul>
+<pre class="sas"><code>data npr_utva.ahs_utvalg1;
+set mittutvalg;
+
+/*
+some code
+*/
+
+run;</code></pre>
+</div>
+<div id="koble-til-sas-server-i-sas-enterprise-guide" class="section level2">
+<h2><span class="header-section-number">2.2</span> Koble til sas-server i SAS Enterprise guide</h2>
+<ul>
+<li>Trykk på symbol/blå tekst nede i høyre hjørne</li>
+</ul>
+<p><img src="figurer/nySASserver0.png" /><!-- --></p>
+<ul>
+<li>Trykk på <code>Add...</code></li>
+</ul>
+<p><img src="figurer/nySASserver1.png" /><!-- --></p>
+<ul>
+<li>Fyll inn (<em>Name</em> og <em>Description</em> er valgfritt; bruk eget brukernavn og passord; Machine: <code>xxxx</code>; Port: <code>yyyy</code>), og trykk på <em>Save</em></li>
+<li>Markér din nylagde profil og trykk på <em>Set Active</em>.</li>
+</ul>
+</div>
+<div id="laste-inn-vår-egen-autocomplete-fil" class="section level2">
+<h2><span class="header-section-number">2.3</span> Laste inn vår egen autocomplete-fil</h2>
+<p>Dette gjøres slik at man kan enkelt få inn rateprogram etc. i sas-prosjektet</p>
+<ol style="list-style-type: decimal">
+<li>Gå inn på <em>Program/Editor Macros/Macros</em></li>
+<li>Marker alle og slett dem (hvis du ikke har lagd dine egne makroer du vil ta vare på)</li>
+<li><em>Import...</em></li>
+<li>Gå inn på <code>&lt;server&gt;\felleskoder\master\makroer\</code> og velg <em>autocomplete.kmf</em></li>
+<li><em>Close</em></li>
+</ol>
+
+<div class="rmdinfo">
+Med ujevne mellomrom oppdateres <em>autocomplete.kmf</em>, og man må da kjøre stegene 1 til 5 på nytt. Vi får prøve å gi beskjed om dette internt...
+</div>
+
+<p><strong>(Ufullstending) oversikt over autocomplete som finnes nå</strong></p>
+<ul>
+<li><code>AUTO_MACRO</code> legger inn kode som definerer <em>filbane</em> og link til makroene våre</li>
+<li><code>INCLUDE</code> inkluderer noen av formatene våre</li>
+<li><code>RATEPROGRAM</code> legger inn kode for å kjøre rateprogrammet</li>
+<li><code>DATA_MAGNUS</code> legger inn datasteg for å laste inn de fem årgangene av <code>T17_magnus_avd_</code></li>
+<li><code>DATA_AVTSPES</code> legger inn datasteg for å laste inn tre årganger av <code>T17_magnus_avtspes_</code></li>
+<li>...</li>
+</ul>
+</div>
+<div id="makroer" class="section level2">
+<h2><span class="header-section-number">2.4</span> Makroer</h2>
+<div id="lage-en-makro" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Lage en makro</h3>
+<ul>
+<li>En makro kan se omtrent slik ut:</li>
+</ul>
+<pre><code>%macro macronavn(datasett=);
+
+data &amp;datasett;
+run &amp;datasett;
+...
+*gjør noe her med datasettet;
+...
+
+%mend macronavn;</code></pre>
+<ul>
+<li>Hvis man lagrer en fil med navn <code>macronavn.sas</code> i <code>&lt;server&gt;\felleskoder\master\makroer\</code> kan andre bruke denne hvis de har kjørt følgende kode i SAS-prosjektet:</li>
+</ul>
+<pre><code>%let filbane=&lt;server&gt;\felleskoder\master;
+options sasautos=(&quot;&amp;filbane\makroer&quot; SASAUTOS);</code></pre>
+<p>Mer informasjon finnes <a href="http://skde-analyse.github.io/sas_codes/">her</a>. Legg spesielt merke til hvordan man skal dokumentere sine makroer.</p>
+<p>Makroene i <code>&amp;filbane\makroer\</code> ligger på <a href="https://github.com/SKDE-Analyse/sas_codes/tree/master/makroer">github</a>.</p>
+</div>
+</div>
+<div id="formater" class="section level2">
+<h2><span class="header-section-number">2.5</span> Formater</h2>
+<p>Bruk de formatene som ligger under <code>&lt;server&gt;\felleskoder\master\formater\</code>, som f.eks</p>
+<pre><code>%let filbane=&lt;server&gt;\felleskoder\master\;
+%include &quot;&amp;filbane\Formater\SKDE_somatikk.sas&quot;;
+%include &quot;&amp;filbane\Formater\bo.sas&quot;;
+%include &quot;&amp;filbane\Formater\beh.sas&quot;;</code></pre>
+<p>Hvis man vil ha spesialtilpasset formater, kan man enten - kopiere over det som står i en av sas-filene som ligger på master rett inn i programmet sitt, eller - kopiere mappen <code>master</code> og endre direkte i den nye mappen.</p>
+</div>
+<div id="rateprogrammet" class="section level2">
+<h2><span class="header-section-number">2.6</span> Rateprogrammet</h2>
+<ul>
+<li>Dokumentasjon kan finnes <a href="http://skde-analyse.github.io/sas_codes/">her</a></li>
+<li>Koden ligger på <a href="https://github.com/SKDE-Analyse/sas_codes"><em>github</em></a></li>
+</ul>
+</div>
+<div id="annet-1" class="section level2">
+<h2><span class="header-section-number">2.7</span> Annet</h2>
+<div id="feilmelding-ala-error-libref-npr_skde-is-not-assigned." class="section level3">
+<h3><span class="header-section-number">2.7.1</span> Feilmelding ala <code>ERROR: Libref NPR_SKDE is not assigned.</code></h3>
+<ul>
+<li>Dette betyr at man må <em>assigne</em> mappen <code>NPR_SKDE</code> (den vil vises som grå i SAS Enterprise)</li>
+<li>Det gjøres ved å gå inn til denne mappen, høyreklikk og velg <em>Assign</em></li>
+</ul>
+<p><img src="figurer/nySASserver5.png" /><!-- --></p>
+</div>
+<div id="gtitle" class="section level3">
+<h3><span class="header-section-number">2.7.2</span> gtitle</h3>
+<p>For at tittel skal bli lagt på figurene som produseres i SAS, må følgende gjøres i SAS Enterprise Guide:</p>
+<ul>
+<li>Gå inn på <code>Tools/Options...</code> og skriv inn følgende:</li>
+</ul>
+<p><img src="figurer/sas_gtitle.png" /><!-- --></p>
+</div>
+<div id="redusere-størrelsen-på-datasett" class="section level3">
+<h3><span class="header-section-number">2.7.3</span> Redusere størrelsen på datasett</h3>
+<p>Alle verdier lagres som standard med 8 bytes. Dette er i de fleste av våre tilfeller ikke nødvendig. SAS kan redusere plassen hvert tall tar på disk ned til 3 bytes. Hvis man vil redusere størrelsen på en variabel til 3 bytes, legger man inn følgende i et datasteg:</p>
+<pre class="sas"><code>length variabelnavn 3;</code></pre>
+</div>
+</div>
+<div id="diverse-engangs-oppgaver" class="section level2">
+<h2><span class="header-section-number">2.8</span> Diverse engangs-oppgaver</h2>
+<div id="slå-av-advarsel-om-sletting-av-midlertidig-datasett" class="section level3">
+<h3><span class="header-section-number">2.8.1</span> Slå av advarsel om sletting av midlertidig datasett</h3>
+<ul>
+<li>Gå inn på <code>Tools/Options.../Data/Data General/</code> og huk vekk <code>Always prompt when closing...</code></li>
+</ul>
+<p><img src="figurer/sas_tmpdata.png" /><!-- --></p>
+</div>
+<div id="sas-syntax-i-atom-text-editor" class="section level3">
+<h3><span class="header-section-number">2.8.2</span> SAS-syntax i <em>Atom text editor</em></h3>
+<p>Gå inn på <em>Settings</em> (<code>ctrl-,</code>), velg <code>install</code>, søk etter og installer <code>language-sas</code>.</p>
+</div>
+<div id="sas-syntax-i-notepad" class="section level3">
+<h3><span class="header-section-number">2.8.3</span> SAS-syntax i <em>Notepad++</em></h3>
+<p>Legg følgende i en fil kalt <code>UserDefineLang.xml</code> og lagre den i mappen <code>C:\Brukere\&lt;ditt brukernavn&gt;\AppData\Roaming\Notepad++</code> (hvis filen finnes allerede, legger man inn innholdet mellom de eksisterende <NotepadPlus>):</p>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;NotepadPlus&gt;</span>
+    <span class="kw">&lt;UserLang</span><span class="ot"> name=</span><span class="st">&quot;SAS&quot;</span><span class="ot"> ext=</span><span class="st">&quot;sas SAS&quot;</span><span class="ot"> udlVersion=</span><span class="st">&quot;2.0&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;Settings&gt;</span>
+            <span class="kw">&lt;Global</span><span class="ot"> caseIgnored=</span><span class="st">&quot;yes&quot;</span><span class="ot"> allowFoldOfComments=</span><span class="st">&quot;no&quot;</span><span class="ot"> forceLineCommentsAtBOL=</span><span class="st">&quot;yes&quot;</span><span class="ot"> foldCompact=</span><span class="st">&quot;yes&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;Prefix</span><span class="ot"> Keywords1=</span><span class="st">&quot;no&quot;</span><span class="ot"> Keywords2=</span><span class="st">&quot;no&quot;</span><span class="ot"> Keywords3=</span><span class="st">&quot;no&quot;</span><span class="ot"> Keywords4=</span><span class="st">&quot;yes&quot;</span><span class="ot"> Keywords5=</span><span class="st">&quot;yes&quot;</span><span class="ot"> Keywords6=</span><span class="st">&quot;no&quot;</span><span class="ot"> Keywords7=</span><span class="st">&quot;no&quot;</span><span class="ot"> Keywords8=</span><span class="st">&quot;yes&quot;</span> <span class="kw">/&gt;</span>
+        <span class="kw">&lt;/Settings&gt;</span>
+        <span class="kw">&lt;KeywordLists&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Comments&quot;</span><span class="ot"> id=</span><span class="st">&quot;0&quot;</span><span class="kw">&gt;</span>00* 01 02; 03/* 04*/<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Numbers, additional&quot;</span><span class="ot"> id=</span><span class="st">&quot;1&quot;</span><span class="kw">&gt;</span>- -- :<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Numbers, prefixes&quot;</span><span class="ot"> id=</span><span class="st">&quot;2&quot;</span><span class="kw">&gt;&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Numbers, extras with prefixes&quot;</span><span class="ot"> id=</span><span class="st">&quot;3&quot;</span><span class="kw">&gt;&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Numbers, suffixes&quot;</span><span class="ot"> id=</span><span class="st">&quot;4&quot;</span><span class="kw">&gt;&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Operators1&quot;</span><span class="ot"> id=</span><span class="st">&quot;5&quot;</span><span class="kw">&gt;</span><span class="dv">&amp;apos;</span> - ! <span class="dv">&amp;quot;</span> <span class="dv">&amp;amp;</span> ( ) , . : ; ? @ [ \ ] ^ ` { | } ~ + <span class="dv">&amp;lt;</span> <span class="dv">&amp;gt;</span><span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Operators2&quot;</span><span class="ot"> id=</span><span class="st">&quot;6&quot;</span><span class="kw">&gt;&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Folders in code1, open&quot;</span><span class="ot"> id=</span><span class="st">&quot;7&quot;</span><span class="kw">&gt;</span>%MACRO<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Folders in code1, middle&quot;</span><span class="ot"> id=</span><span class="st">&quot;8&quot;</span><span class="kw">&gt;&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Folders in code1, close&quot;</span><span class="ot"> id=</span><span class="st">&quot;9&quot;</span><span class="kw">&gt;</span>%MEND;<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Folders in code2, open&quot;</span><span class="ot"> id=</span><span class="st">&quot;10&quot;</span><span class="kw">&gt;&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Folders in code2, middle&quot;</span><span class="ot"> id=</span><span class="st">&quot;11&quot;</span><span class="kw">&gt;&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Folders in code2, close&quot;</span><span class="ot"> id=</span><span class="st">&quot;12&quot;</span><span class="kw">&gt;&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Folders in comment, open&quot;</span><span class="ot"> id=</span><span class="st">&quot;13&quot;</span><span class="kw">&gt;</span>region<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Folders in comment, middle&quot;</span><span class="ot"> id=</span><span class="st">&quot;14&quot;</span><span class="kw">&gt;</span>rrr<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Folders in comment, close&quot;</span><span class="ot"> id=</span><span class="st">&quot;15&quot;</span><span class="kw">&gt;</span>rend<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Keywords1&quot;</span><span class="ot"> id=</span><span class="st">&quot;16&quot;</span><span class="kw">&gt;</span>append bmdp calendar catalog chart cimport compare contents convert copy corr cport datasets format forms freq glm gplot logistic means npar1way options pds plot pmenu print printto rank release sort source spell sql standard summary tabulate tapecopy tapelabel timeplot transpose ttest univariate v5tov6<span class="dv">&amp;#x000D;&amp;#x000A;</span>DATA PROC quit run<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Keywords2&quot;</span><span class="ot"> id=</span><span class="st">&quot;17&quot;</span><span class="kw">&gt;</span>$include _all_ _character_ _cmd_ _error_ _freq_ _i_ _infile_ _last_ _msg_ _n_ _null_ _numeric_ _temporary_ _type_ abort addr adjrsq alpha alter altlog altprint array as attrib authserver autoexec awscontrol awsdef awsmenu awsmenumerge awstitle backward base blocksize bufno bufsize by byerr byline call cards cards4 catcache cbufno center change chisq class cleanup cntllev codegen col collin column comamid comaux1 comaux2 comdef config continue cpuid create datalines datalines4 dbcslang dbcstype ddm delete delimiter descending device dflang display distinct dkricond dkrocond dlm do drop dsnferr echo else emaildlg emailid emailpw emailserver emailsys encrypt end endsas engine eof eov error errorcheck errors feedback file fileclose filefmt filevar first first. firstobs fmterr fmtsearch font fontalias footnote footnote1 footnote2 footnote3 footnote4 footnote5 footnote6 footnote7 footnote8 footnote9 force formatted formchar formdelim formdlim forward from go goto group gwindow hbar helpenv helploc honorappearance hostprint hpct html hvar ibr id if infile informat initcmd initstmt inr into invaliddata is join keep kentb label last last. leave lib library line linesize link list lostcard lrecl ls macro macrogen maps mautosource maxdec maxr measures median memtype merge merror missing missover mlogic mode model modify mprint mrecall msglevel msymtabmax mvarsize myy new news no nobatch nobs nocol nocaps nocardimage nocenter nocharcode nocmdmac nocum nodate nodbcs nodetails nodmr nodms nodmsbatch nodup nodupkey noduplicates noechoauto noequals noerrorabend noexitwindows nofullstimer noicon noimplmac noint nolist noloadlist nomiss nomlogic nomprint nomrecall nomsgcase nomstored nomultenvappl nonotes nonumber noobs noovp nopad noprint noprintinit norow norsasuser nosetinit nosource2 nosplash nosymbolgen notes notitle notitles notsorted noverbose noxsync noxwait number numkeys nummousekeys nway obs ods on option order otherwise out outp= output over ovp pad pad2 page pageno pagesize paired parm parmcards path pathdll pfkey position printer probsig procleave prt ps pw pwreq r ranks read recfm reg register regr remote remove rename replace retain return reuse rsquare rtf rtrace rtraceloc s s2 samploc sasautos sascontrol sasfrscr sashelp sasmsg sasmstore sasscript sasuser select selection separated seq serror set setcomm simple siteinfo skip sle sls sortedby sortpgm sortseq sortsize source2 splashlocation split spool start stdin stimer stop stopover sumwgt symbol symbolgen sysin sysleave sysparm sysprint sysprintfont t table tables tapeclose tbufsize terminal test then title title1 title2 title3 title4 title5 title6 title7 title8 title9 to tol tooldef trantab truncover type unformatted union until update user usericon validate value var varray varrayx vformat vformatd vformatdx vformatn vformatnx vformatw vformatwx vformatx vinarray vinarrayx vinformat vinformatd vinformatdx vinformatn vinformatnx vinformatw vinformatwx vinformatx vlabel vlabelx vlength vlengthx vname vnamex vnferr vtype vtypex weight when where while wincharset window work workinit workterm write x xsync xwait yearcutoff yes abs airy all arcos arsin atan attrc attrn band betainv blshift bnot bor brshift bxor byte cdf ceil cexist cinv close cnonct collate compbl compound compress cos cosh css curobs cv daccdb daccdbsl daccsl daccsyd dacctab dairy date datejul datepart datetime day dclose depdb define depdbsl depsl depsyd deptab dequote dhms dif digamma dim dinfo dnum dopen doptname doptnum dread dropnote dsname erf erfc exist exp fappend fclose fcol fdelete fetch fetchobs fexist fget fileexist filename fileref finfo finv fipname fipnamel fipstate floor fnonct fnote fopen foptname foptnum fpoint fpos fput fread frewind frlen fsep full fuzz fwrite gaminv gamma getoption getvarc getvarn hbound hms hosthelp hour ibessel index indexc indexw inner input inputc inputn int intck intnx intrr irr jbessel juldate kurtosis lag lbound left length lgamma libname libref log log10 log2 logpdf logpmf logsdf lowcase max mdy mean min minute mod month mopen mort n netpv nmiss normal note npv open ordinal outer pathname pdf peek peekc pmf point poisson poke probbeta probbnml probchi probf probgam probhypr probit probnegb probnorm probt put putc putn qtr quote ranbin rancau ranexp rangam range rannor ranpoi rantbl rantri ranuni repeat resolve reverse rewind right round saving scan sdf second sign sin sinh skewness soundex spedis sqrt std stderr stfips stname stnamel substr sum symget symput sysget sysmsg sysprod sysrc system tan tanh time timepart tinv tnonct today translate tranwrd trigamma trim trimn trunc uniform upcase uss varfmt varinfmt varlabel varlen varname varnum vartype verify weekday year yyq zipfips zipname zipnamel zipstate crosstab descript design= levels nest setot subgroup subpopn totper wsum<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Keywords3&quot;</span><span class="ot"> id=</span><span class="st">&quot;18&quot;</span><span class="kw">&gt;</span>%bquote %do %else %end %eval %global %goto %if %inc %include %index %input %length %let %list %local %macro %mend %nrbquote %nrquote %nrstr %put %qscan %qsysfunc %quote %run %substr %syscall %sysevalf %sysexec %sysfunc %sysrc %then %to %until %while %window<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Keywords4&quot;</span><span class="ot"> id=</span><span class="st">&quot;19&quot;</span><span class="kw">&gt;</span>~<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Keywords5&quot;</span><span class="ot"> id=</span><span class="st">&quot;20&quot;</span><span class="kw">&gt;</span>% <span class="dv">&amp;amp;</span><span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Keywords6&quot;</span><span class="ot"> id=</span><span class="st">&quot;21&quot;</span><span class="kw">&gt;</span>$1 $2 $3 $4 $5 $6 $7 $8 $9 $ascii $binary $cb $char $charzb $ebcdic $hex $kanji $kanjix $msgcase $octal $phex $quote $reverj $revers $upcase $varying<span class="dv">&amp;#x000D;&amp;#x000A;&amp;#x000D;&amp;#x000A;</span>best binary bits bz cb char comma commax dateampm ddmmyy dollar dollarx downame eurdfdd eurdfde eurdfdn eurdfdt eurdfdwn eurdfmn eurdfmy eurdfwdx eurdfwkx float fract hex hhmm ib ieee julday julian minguo mmddyy mmss mmyy monname monyy msec negparen nengo numx octal pd pdjulg pdjuli pdtime percent pib pk punch pvalue qtrr rb rmfdur rmfstamp roman row s370ff s370fib s370fibu s370fpd s370fpdu s370fpib s370frb s370fzd s370fzdl s370fzds s370fzdt s370fzdu smfstamp timeampm tod tu vaxrb weekdate weekdatx worddate worddatx wordf words yen yymm yymmdd yymon yyqr z zd zdb zdv<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Keywords7&quot;</span><span class="ot"> id=</span><span class="st">&quot;22&quot;</span><span class="kw">&gt;</span>For each Parse and or between next take in count not<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Keywords8&quot;</span><span class="ot"> id=</span><span class="st">&quot;23&quot;</span><span class="kw">&gt;</span>@<span class="kw">&lt;/Keywords&gt;</span>
+            <span class="kw">&lt;Keywords</span><span class="ot"> name=</span><span class="st">&quot;Delimiters&quot;</span><span class="ot"> id=</span><span class="st">&quot;24&quot;</span><span class="kw">&gt;</span>00<span class="dv">&amp;quot;</span> 01 02<span class="dv">&amp;quot;</span> 03<span class="dv">&amp;apos;</span> 04 05<span class="dv">&amp;apos;</span> 06( 07 08) 09<span class="dv">&amp;apos;</span> 10 11<span class="dv">&amp;apos;</span>d 12[ 13 14] 15??? 16; 17??? 18 19 20 21 22 23<span class="kw">&lt;/Keywords&gt;</span>
+        <span class="kw">&lt;/KeywordLists&gt;</span>
+        <span class="kw">&lt;Styles&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;DEFAULT&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;0&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;000000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;</span><span class="dv">&amp;#xFFFF;&amp;#x0013;&amp;#x08A2;&amp;#x0005;&amp;#x6FA3;&amp;#x5534;</span><span class="st">s</span><span class="dv">&amp;#x8A00;&amp;#x6150;&amp;#x7372;</span><span class="st">e</span><span class="dv">&amp;#x2E01;&amp;#x6FA1;&amp;#x5534;</span><span class="st">.</span><span class="dv">&amp;#x8000;</span><span class="st">R&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;0&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;COMMENTS&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;1&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;008000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFCA&quot;</span><span class="ot"> fontName=</span><span class="st">&#39;</span><span class="dv">&amp;quot;</span><span class="st">ourier New&#39;</span><span class="ot"> fontStyle=</span><span class="st">&quot;2&quot;</span><span class="ot"> fontSize=</span><span class="st">&quot;10&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;139296&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;LINE COMMENTS&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;2&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;008000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;</span><span class="dv">&amp;amp;</span><span class="st">ourier New&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;2&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;139552&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;NUMBERS&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;3&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;00</span><span class="er">&lt;</span><span class="st">port&gt;&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;</span><span class="dv">&amp;#x0002;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;1&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;KEYWORDS1&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;4&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;000080&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;N&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;1&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;KEYWORDS2&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;5&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;0000FF&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;z</span><span class="dv">&amp;#x0013;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;0&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;KEYWORDS3&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;6&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;00</span><span class="er">&lt;</span><span class="st">port&gt;&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;|</span><span class="dv">&amp;#x0013;&amp;#xA8A8;&amp;#x0013;&amp;#x6FE9;&amp;#x5534;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;0&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;KEYWORDS4&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;7&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;FF8000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;L</span><span class="dv">&amp;#x0013;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;1&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;KEYWORDS5&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;8&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;000000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;J&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;3&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;KEYWORDS6&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;9&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;00</span><span class="er">&lt;</span><span class="st">port&gt;&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;R&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;0&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;KEYWORDS7&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;10&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;FF0000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;</span><span class="dv">&amp;#x0006;&amp;#x2201;&amp;#x1368;&amp;#x01E6;&amp;#x6FAD;&amp;#x5534;&amp;#x433B;&amp;#x8C00;&amp;#xA86C;&amp;#x0013;&amp;#x0001;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;1&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;KEYWORDS8&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;11&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;FF80C0&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;</span><span class="dv">&amp;#x0008;&amp;#x2201;&amp;#x7379;&amp;#x6574;&amp;#x6FA9;&amp;#x5534;&amp;#x6257;&amp;#x8000;&amp;#x000C;&amp;#x2200;&amp;#x6957;&amp;#x646E;&amp;#x6F97;&amp;#x5534;&amp;#x7953;&amp;#x8000;&amp;#x000E;&amp;#x2101;</span><span class="st">_C</span><span class="dv">&amp;#x6F95;&amp;#x5534;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;3&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;OPERATORS&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;12&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;000000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;</span><span class="dv">&amp;#x000C;&amp;#x2200;&amp;#x6957;&amp;#x646E;&amp;#x6F97;&amp;#x5534;&amp;#x7953;&amp;#x8000;&amp;#x000E;&amp;#x2101;</span><span class="st">_C</span><span class="dv">&amp;#x6F95;&amp;#x5534;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;0&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;FOLDER IN CODE1&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;13&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;000080&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;</span><span class="dv">&amp;#x000E;&amp;#x2101;</span><span class="st">_C</span><span class="dv">&amp;#x6F95;&amp;#x5534;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;1&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;FOLDER IN CODE2&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;14&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;000000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;</span><span class="dv">&amp;#x0010;&amp;#x2101;&amp;#x6C6C;&amp;#x765C;&amp;#x6F93;&amp;#x5534;&amp;#x433B;&amp;#x8000;&amp;#x0016;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;7&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;FOLDER IN COMMENT&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;15&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;008000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;Nide Latin&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;3&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;DELIMITERS1&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;16&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;800080&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;</span><span class="dv">&amp;#x0012;&amp;#x2100;&amp;#x5353;&amp;#x524F;&amp;#x6FF7;&amp;#x5534;&amp;#x4948;&amp;#x8C00;&amp;#xA8E4;&amp;#x0013;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;0&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;DELIMITERS2&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;17&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;800080&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;.</span><span class="dv">&amp;#x2301;&amp;#x2E3B;&amp;#x5357;&amp;#x6F89;&amp;#x5534;&amp;#x4353;&amp;#x8000;&amp;#x0012;&amp;#x2100;&amp;#x5353;&amp;#x524F;&amp;#x6FF7;&amp;#x5534;&amp;#x4948;&amp;#x8C00;&amp;#xA8E4;&amp;#x0013;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;0&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;DELIMITERS3&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;18&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;000000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;C0C0C0&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;,</span><span class="dv">&amp;#x2300;</span><span class="st">_C</span><span class="dv">&amp;#x6F8B;&amp;#x5534;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;0&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;DELIMITERS4&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;19&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;00</span><span class="er">&lt;</span><span class="st">port&gt;&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;*</span><span class="dv">&amp;#x2401;&amp;#xEF6B;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;1&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;DELIMITERS5&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;20&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;000000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FF0000&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;v</span><span class="dv">&amp;#x2400;&amp;#xCC18;</span><span class="st">M</span><span class="dv">&amp;#x6E31;&amp;#x5534;</span><span class="st">&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;0&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;DELIMITERS6&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;21&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;000000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FF8000&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;t&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;1&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;DELIMITERS7&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;22&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;000000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;r</span><span class="dv">&amp;#x2300;&amp;#x7461;&amp;#x5C61;&amp;#x6E35;&amp;#x5534;&amp;#xA415;&amp;#x8000;</span><span class="st">t&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;0&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;WordsStyle</span><span class="ot"> name=</span><span class="st">&quot;DELIMITERS8&quot;</span><span class="ot"> styleID=</span><span class="st">&quot;23&quot;</span><span class="ot"> fgColor=</span><span class="st">&quot;000000&quot;</span><span class="ot"> bgColor=</span><span class="st">&quot;FFFFFF&quot;</span><span class="ot"> fontName=</span><span class="st">&quot;p&quot;</span><span class="ot"> fontStyle=</span><span class="st">&quot;0&quot;</span><span class="ot"> nesting=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span>
+        <span class="kw">&lt;/Styles&gt;</span>
+    <span class="kw">&lt;/UserLang&gt;</span>
+<span class="kw">&lt;/NotepadPlus&gt;</span></code></pre></div>
+<p>Restart <em>Notepad++</em> og gå inn på <em>Språk</em>. Der kan man velge <em>SAS</em> nest nederst.</p>
+<p>Mappen <code>AppData</code> er en skjult mappe, så gjør følgende hvis man ikke ser denne i utforskeren:</p>
+<ol style="list-style-type: decimal">
+<li>Trykk på <em>Windows</em>-knappen</li>
+<li>Skriv <code>mappe</code></li>
+<li>Velg <code>Vis skjulte filer og mapper</code></li>
+<li>Huk av på valget <code>Vis skjulte filer, mapper og stasjoner</code> og trykk OK (se figur)</li>
+</ol>
+<p><img src="figurer/vis_skjulte_mapper.png" /><!-- --></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="diverse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tilrettelegging-av-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/rmd/sas.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SKDEdokumentasjon.pdf", "SKDEdokumentasjon.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
