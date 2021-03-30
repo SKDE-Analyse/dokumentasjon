@@ -45,7 +45,7 @@ jobs:
 
       - name: htmlproofer doc
         run: |
-          gem install html-proofer
+          sudo gem install html-proofer
           htmlproofer --alt-ignore '/.*/'  --url-ignore "https://www.r-project.org/*,https://cran.r-project.org/*" ./docs
 
       - name: Deploy
