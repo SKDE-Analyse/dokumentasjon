@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Dokumentasjon for internt bruk ved SKDE</title>
+  <title>11 Docker | Dokumentasjon for internt bruk ved SKDE</title>
   <meta name="description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta property="og:title" content="11 Docker | Dokumentasjon for internt bruk ved SKDE" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta name="twitter:title" content="11 Docker | Dokumentasjon for internt bruk ved SKDE" />
   
   <meta name="twitter:description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="diverse.html"/>
+<link rel="prev" href="linux.html"/>
+<link rel="next" href="arnfinn.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -277,23 +277,54 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Dokumentasjon for internt bruk ved SKDE</h1>
-<p class="author"><em>Arnfinn Hykkerud Steindal, SKDE</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-03-30</em></p>
+<div id="docker" class="section level1">
+<h1><span class="header-section-number">11</span> Docker</h1>
+<p>Diverse sider med info</p>
+<ul>
+<li><a href="https://hackernoon.com/docker-and-best-practices-for-devops-c53ta30ki" class="uri">https://hackernoon.com/docker-and-best-practices-for-devops-c53ta30ki</a></li>
+<li><a href="https://docker-curriculum.com/" class="uri">https://docker-curriculum.com/</a></li>
+</ul>
+<div id="docker-image" class="section level2">
+<h2><span class="header-section-number">11.1</span> Docker image</h2>
+<p><strong>Lag docker image basert på Dockerfile</strong></p>
+<p>Man kan lage et docker image av en lokal lagret docker fil med følgende kommando:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> build /path/to/directory/containing/dockerfile/</code></pre></div>
+<p>Det vil si at man kan kjøre <code>docker build .</code> hvis man står i mappen allerede.</p>
+<p><strong>Hent ned docker image</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> pull openanalytics/shinyproxy-demo</code></pre></div>
+<p>Hvis man vil hente ned en spesifikk versjon (og ikke latest):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> pull openanalytics/shinyproxy-demo:<span class="op">&lt;</span>versjon<span class="op">&gt;</span></code></pre></div>
+<p><strong>Liste over docker images</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> image ls</code></pre></div>
+<p><strong>Oppdatere docker image</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> pull <span class="op">&lt;</span>REPOSITORY<span class="op">&gt;</span></code></pre></div>
+<p><code>&lt;REPOSITORY&gt;</code> sees i listen man får ved å kjøre <code>docker image ls</code>. Denne kommandoen henter ned et helt nytt image og det eldre image vil fremdeles ligger der. Dette kan slettes, hvis den ikke brukes av en container.</p>
+<p><strong>Slette docker image</strong></p>
+<pre><code>docker image rm &lt;IMAGE ID&gt;</code></pre>
+<p><code>&lt;IMAGE ID&gt;</code> sees i listen man får ved å kjøre <code>docker image ls</code>.</p>
 </div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-<p>Dette er en samling dokumentasjon om diverse datatekniske utfordringer og løsninger ved SKDE. Det er hovedsakelig skrevet av Arnfinn, men andre må også gjerne bidra. Man kan bidra <a href="https://github.com/SKDE-Analyse/dokumentasjon/">her</a> eller på <em>Analyse/Data/skde-analyse.github.io/</em></p>
+<div id="docker-container" class="section level2">
+<h2><span class="header-section-number">11.2</span> Docker container</h2>
+<p><strong>Lage en container</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> container create <span class="op">&lt;</span>image<span class="op">&gt;</span></code></pre></div>
+<p>Ofte vil man lage en container med diverse kommandoer. Vårt eget image <code>hnskde/shinymap</code> kan f.eks lages slik:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> container create -v ~/.ssh:/home/rstudio/.ssh -e PASSWORD=password --name shinymap_dev -p 8787:8787 hnskde/shinymap:latest</code></pre></div>
+<p><strong>Starte en container</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> start <span class="op">&lt;</span>NAMES<span class="op">&gt;</span></code></pre></div>
+<p><code>&lt;NAMES&gt;</code> sees i listen fra <code>docker ps -a</code> (se under).</p>
+<p><strong>Se hvilke containere som kjører</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> ps</code></pre></div>
+<p>Hvis man vil se alle containere så bruker man <code>docker ps -a</code>.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="diverse.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="linux.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="arnfinn.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -324,7 +355,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/index.Rmd",
+"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/rmd/docker.Rmd",
 "text": "Edit"
 },
 "history": {

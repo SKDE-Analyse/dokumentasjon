@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Dokumentasjon for internt bruk ved SKDE</title>
+  <title>3 Tilrettelegging av data | Dokumentasjon for internt bruk ved SKDE</title>
   <meta name="description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta property="og:title" content="3 Tilrettelegging av data | Dokumentasjon for internt bruk ved SKDE" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta name="twitter:title" content="3 Tilrettelegging av data | Dokumentasjon for internt bruk ved SKDE" />
   
   <meta name="twitter:description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="diverse.html"/>
+<link rel="prev" href="sas.html"/>
+<link rel="next" href="instant-atlas.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -277,23 +277,115 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Dokumentasjon for internt bruk ved SKDE</h1>
-<p class="author"><em>Arnfinn Hykkerud Steindal, SKDE</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-03-30</em></p>
+<div id="tilrettelegging-av-data" class="section level1">
+<h1><span class="header-section-number">3</span> Tilrettelegging av data</h1>
+<div id="tilrettelegging-av-nye-data-fra-npr" class="section level2">
+<h2><span class="header-section-number">3.1</span> Tilrettelegging av nye data fra NPR</h2>
+<p><strong>Dette kapitlet kan med fordel utvides.</strong></p>
+<div id="lese-inn-csv" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Lese inn <code>csv</code></h3>
+<p>Mulig dette også fungerer med <code>spss</code>-filer.</p>
+<ul>
+<li>Kjør først en <code>proc import</code> uten <code>GUESSINGROWS</code>.</li>
+<li>Hvis dette gir en <code>error</code>, ser man i loggen under <code>Notes</code> og finner den første/øverste linjen med noe ala dette: <code>NOTE: Invalid data for takst_15 in line 153 535-537</code>.</li>
+<li>Sett så <code>GUESSINGROWS</code> til noe større enn <code>153</code> og kjør på nytt (se under).</li>
+<li>Dette gjøres helt til man ikke lenger får en feilmelding.</li>
+</ul>
+<pre class="sas"><code>proc import datafile=&quot;\\tos-sas...\...\&lt;filnavn&gt;.csv&quot; 
+   out=utl_npr_somatikk
+   dbms=csv
+   replace;
+   DELIMITER=&#39;;&#39;;
+   GUESSINGROWS=200;
+run;
+</code></pre>
 </div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-<p>Dette er en samling dokumentasjon om diverse datatekniske utfordringer og løsninger ved SKDE. Det er hovedsakelig skrevet av Arnfinn, men andre må også gjerne bidra. Man kan bidra <a href="https://github.com/SKDE-Analyse/dokumentasjon/">her</a> eller på <em>Analyse/Data/skde-analyse.github.io/</em></p>
+<div id="lage-diff-filer" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Lage diff-filer</h3>
+<ul>
+<li><em>gitbash</em> (og eventuelt <em>gvim</em>) må være installert</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><code>vimdiff fil1 fil2 fil3 ...</code></li>
+<li><code>:TOhtml</code></li>
+<li>Press Enter, hvis man får beskjed om det</li>
+<li><code>:save diff.html</code></li>
+<li><code>:qa</code></li>
+</ol>
+</div>
+<div id="kodeverk" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Kodeverk</h3>
+<div id="ncmp-ncrp-ncsp" class="section level4">
+<h4><span class="header-section-number">3.1.3.1</span> NCMP, NCRP, NCSP</h4>
+<ul>
+<li>Koder hentet fra <a href="https://ehelse.no/kodeverk/regler-og-veiledning-for-kliniske-kodeverk-i-spesialisthelsetjenesten-icd-10-ncsp-ncmp-og-ncrp">Direktoratet for e-helse</a></li>
+<li>Filene ligger på ANALYSE/Data/Kodeverk/NCMP_NCSP_NCRP/</li>
+<li>txt-filer med tab-mellomrom mellom kode og tekst</li>
+</ul>
+</div>
+<div id="icd-10" class="section level4">
+<h4><span class="header-section-number">3.1.3.2</span> ICD-10</h4>
+<ul>
+<li>Koder hentet fra <a href="https://ehelse.no/kodeverk/regler-og-veiledning-for-kliniske-kodeverk-i-spesialisthelsetjenesten-icd-10-ncsp-ncmp-og-ncrp">Direktoratet for e-helse</a></li>
+<li>Filene ligger på ANALYSE/Data/Kodeverk/ICD10/</li>
+<li>txt-filer med tab-mellomrom mellom kode og tekst</li>
+</ul>
+</div>
+<div id="drg" class="section level4">
+<h4><span class="header-section-number">3.1.3.3</span> DRG</h4>
+<ul>
+<li>Koder hentet <a href="https://helsedirektoratet.no/finansieringsordninger/innsatsstyrt-finansiering-isf-og-drg-systemet">her</a>.</li>
+<li>Filene ligger på ANALYSE/Data/Kodeverk/DRG/</li>
+<li>csv-filer produsert fra ISF xlsx-filer, med semikolon mellom kode og tekst</li>
+</ul>
+</div>
+<div id="hente-ut-hdiag3tegn-formater" class="section level4">
+<h4><span class="header-section-number">3.1.3.4</span> Hente ut Hdiag3tegn formater</h4>
+<ol style="list-style-type: decimal">
+<li>Lagre pdf, som hentes fra <a href="https://ehelse.no/kodeverk/regler-og-veiledning-for-kliniske-kodeverk-i-spesialisthelsetjenesten-icd-10-ncsp-ncmp-og-ncrp">Direktoratet for e-helse sine hjemmesider</a>, som tekstfil (<code>*.txt*</code>).</li>
+</ol>
+<ul>
+<li>Åpne dokumentet</li>
+<li>Merk all tekst (<code>CTRL + a</code>)</li>
+<li>Kopier (<code>CTRL + c</code>)</li>
+<li>Åpne et tomt tekstdokument i Notepad++ og lim inn (<code>CTRL + v</code>)</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Kjør script <code>extract_hdiag3tegn.py</code>, som ligger på <code>Analyse/Data/python/script/skde/</code>, på tekstfilen</p>
+<pre><code>python /e/Analyse/Data/python/script/skde/extract_hdiag3tegn.py ICD-10_2017.txt &gt; tmp.sas</code></pre></li>
+<li><p>Gå gjennom filen <code>tmp.sas</code> og fiks feil. Skriptet ser etter linjer som begynner på <code>Xnn</code>, der X er en bokstav og n er et tall. Linjer som dette: &quot;C74 gis tilleggskode E27.5, og et basofilt adenom i hypofyse med Cushings syndrom med koden&quot; bli også bli ekstrahert om må manuelt fjernes.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="tilrettelegging-av-innbyggertall-fra-ssb" class="section level2">
+<h2><span class="header-section-number">3.2</span> Tilrettelegging av innbyggertall fra SSB</h2>
+<p>Innbyggertallene for 1. januar 2018 brukes som nevner når ratene for 2017 beregnes. Før utlevering av nye data fra NPR for året før, kan innbyggertallene fra 1. januar dette år hentes fra SSB. Innbyggertall fordelt på kommune hentes fra <a href="https://www.ssb.no/statbank/table/07459">tabell 07459</a> mens innbyggertall for bydelene hentes fra <a href="https://www.ssb.no/statbank/table/10826">tabell 10826</a>.</p>
+<ol style="list-style-type: decimal">
+<li>Velg aktuelle kommuner/bydeler og siste år.</li>
+<li>Last ned data som <em>Semikolonseparert med overskrift (csv)</em>.</li>
+<li>Åpne csv-fil i Excel</li>
+</ol>
+<ul>
+<li>Fjern i to øverste radene</li>
+<li>Erstatt <code>kjønn</code> med <code>kjonn</code> og <code>Personer ÅÅÅÅ</code> med <code>Personer</code></li>
+<li>Sjekk at fanen heter <code>Personer</code></li>
+<li>Lagre som <code>xlxs</code>-fil med navnet <code>Innb20XX_bydel</code> eller <code>Innb20XX_kommune</code> i mappen <code>Analyse\Data\SAS\Tilrettelegging\Innbyggere</code>.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Kjør SAS-prosjektet <code>oppdatere_innbyggerfil.egp</code> i mappen <code>Analyse\Data\SAS\Tilrettelegging\Innbyggere</code>.</li>
+</ol>
+<p>SAS-prosjektet vil lage et sas-datasett av Excel-filene og legge dem til fjorårets innbyggerfil.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="diverse.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="instant-atlas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -324,7 +416,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/index.Rmd",
+"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/rmd/tilrettelegging.Rmd",
 "text": "Edit"
 },
 "history": {

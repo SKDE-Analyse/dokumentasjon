@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Dokumentasjon for internt bruk ved SKDE</title>
+  <title>4 Instant Atlas | Dokumentasjon for internt bruk ved SKDE</title>
   <meta name="description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta property="og:title" content="4 Instant Atlas | Dokumentasjon for internt bruk ved SKDE" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta name="twitter:title" content="4 Instant Atlas | Dokumentasjon for internt bruk ved SKDE" />
   
   <meta name="twitter:description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="diverse.html"/>
+<link rel="prev" href="tilrettelegging-av-data.html"/>
+<link rel="next" href="zotero.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -277,23 +277,108 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Dokumentasjon for internt bruk ved SKDE</h1>
-<p class="author"><em>Arnfinn Hykkerud Steindal, SKDE</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-03-30</em></p>
+<div id="instant-atlas" class="section level1">
+<h1><span class="header-section-number">4</span> Instant Atlas</h1>
+<p>InstantAtlas (IA) er programvaren for det dynamiske kartverktøyet. Det er to programmer som benyttes: <em>InstantAtlas Publisher</em> og <em>InstantAtlas Designer</em>. For hjelp og mer info om <em>InstantAtlas Desktop</em>, se <a href="https://help.instantatlas.com/instantatlas-desktop/en/welcome/desktop-user-guide/">Desktop User Guide</a>.</p>
+<div id="lage-et-atlas-fra-bunnen-av" class="section level2">
+<h2><span class="header-section-number">4.1</span> Lage et atlas fra bunnen av</h2>
+<ul>
+<li>Åpne <em>Instant atlas publisher</em></li>
+<li>Trykk på <em>Next</em></li>
+<li>Velg <code>Single Map (HTML Edition) (v6.7.8)</code> (version er muligens ikke lik)</li>
+<li>Velg en <em>ESRI shapefile</em>. Sjekk så <em>Data Preview</em> og velg <em>Feature code field:</em> og <em>Feature name field:</em> i forhold til hva som ser rett ut.</li>
+<li><em>Create a demo data file</em></li>
+<li>Trykk på <em>Next</em></li>
+<li>Trykk på <em>Next</em></li>
+<li>Trykk på <em>Next</em></li>
+<li>Pakk ut</li>
+</ul>
+<p>Atlaset kan nå åpnes i <em>Firefox</em> ved å åpne filen <code>atlas.html</code>. Filene <code>data.js</code> og <code>config.xml</code> kan så erstattes, slik at man får ønsket data og oppsett.</p>
 </div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-<p>Dette er en samling dokumentasjon om diverse datatekniske utfordringer og løsninger ved SKDE. Det er hovedsakelig skrevet av Arnfinn, men andre må også gjerne bidra. Man kan bidra <a href="https://github.com/SKDE-Analyse/dokumentasjon/">her</a> eller på <em>Analyse/Data/skde-analyse.github.io/</em></p>
+<div id="lage-fila-data.js-fra-excel-workbook" class="section level2">
+<h2><span class="header-section-number">4.2</span> Lage fila data.js fra excel workbook</h2>
+<p>InstantAtlas leser inn data fra <em>JSON</em> (eller <em>XML</em>-filer), og disse filene lages i <code>IAWorkbooks</code> som er <em>Excel</em>-filer. For å kunne eksportere data fra <em>Excel</em> til et format som <em>Instant Atlas</em> can lese (en <em>json</em>-fil, <code>data.js</code>), må man installere et <em>Excel</em>-tillegg: <a href="https://help.instantatlas.com/instantatlas-desktop/en/welcome/desktop-user-guide/the-instantatlas-excel-data-manager/the-excel-add-in/">InstantAtlas Data Manger - The Excel Add-inn</a>. Det ligger her:</p>
+<pre><code>Analyse\Data\InstantAtlas\Excel_AddIns\IA Data Manager v6_7_4.xla</code></pre>
+<p>Da er det mulig i <em>Excel</em> å velge - <code>Tillegg</code> - <code>IA Export</code> - Velg <em>JSON</em> og lagre som <code>data.js</code></p>
+</div>
+<div id="oppdatere-config.xml" class="section level2">
+<h2><span class="header-section-number">4.3</span> Oppdatere config.xml</h2>
+<p>Kan enten modifiseres direkte eller gjennom <em>InstantAtlas designer</em></p>
+</div>
+<div id="design-av-atlaset" class="section level2">
+<h2><span class="header-section-number">4.4</span> Design av atlaset</h2>
+<ul>
+<li>Åpne <em>Instant atlas designer</em></li>
+<li>Åpne en <code>config.xml</code>-fil</li>
+<li>Juster på layout</li>
+</ul>
+</div>
+<div id="logo" class="section level2">
+<h2><span class="header-section-number">4.5</span> Logo</h2>
+<ul>
+<li>Hvis man ikke definerer både høyde og bredde, men kun en av de, på logo i <code>config.xml</code> vil skaleringen alltid være riktig. Definer bredde på logo nederst til venstre; høyde på logo øverst til venstre.</li>
+<li>Unngå å bruke jpg i logoer</li>
+<li>Logo med kun tekst kan lages med følgende svg-kode</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;svg</span><span class="ot"> version=</span><span class="st">&quot;1.1&quot;</span><span class="ot"> xmlns=</span><span class="st">&quot;http://www.w3.org/2000/svg&quot;</span><span class="ot"> xmlns:xlink=</span><span class="st">&quot;http://www.w3.org/1999/xlink&quot;</span><span class="ot"> width=</span><span class="st">&quot;900&quot;</span><span class="ot"> height=</span><span class="st">&quot;66&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;text</span><span class="ot"> x=</span><span class="st">&quot;10&quot;</span><span class="ot"> y=</span><span class="st">&quot;50&quot;</span><span class="ot"> font-family=</span><span class="st">&quot;Verdana&quot;</span><span class="ot"> font-size=</span><span class="st">&quot;55&quot;</span>
+<span class="ot">        fill=</span><span class="st">&quot;#00509e&quot;</span><span class="ot"> stroke=</span><span class="st">&quot;#00509e&quot;</span><span class="ot"> stroke-width=</span><span class="st">&quot;2&quot;</span><span class="kw">&gt;</span>
+          Elderly (<span class="dv">&amp;#8805;</span>75 years), 2013-2015
+  <span class="kw">&lt;/text&gt;</span>
+<span class="kw">&lt;/svg&gt;</span></code></pre></div>
+<ul>
+<li><code>width</code> og <code>height</code> justeres slik at hele teksten kommer med (men ikke mer). Dette gjøres ved å åpne fil i nettleser samtidig som man endrer på verdiene.</li>
+<li>Det er mulig å bruke svg-filer på nettsidene, men har hatt noen problemer med dette i IA. Konverter figur til png, f.eks <a href="http://svgtopng.com/">her</a></li>
+</ul>
+</div>
+<div id="legge-ut-et-atlas-på-helseatlas.no" class="section level2">
+<h2><span class="header-section-number">4.6</span> Legge ut et atlas på helseatlas.no</h2>
+<ol style="list-style-type: decimal">
+<li>Gå inn på <a href="https://helseatlas.no/user" class="uri">https://helseatlas.no/user</a> og logg inn.</li>
+<li>Trykk på <em>Legg til innhold</em> og velg <em>Atlas</em>.</li>
+<li>Velg språk.</li>
+<li>Gå til <em>Publiseringsvalg</em> og huk bort <em>Publisert</em>, siden vi ikke vil legge ut atlaset for publisering før alt er sjekket og klart.</li>
+<li>Fyll ut punktene som har rød stjerne (<em>Navn</em> og <em>Tittel</em> i <em>Les mer</em>).</li>
+<li>Last opp en zip-fil med IA-filene i <em>Filer til atlaset</em>-fanen.</li>
+<li>Trykk på <em>Lagre</em>.</li>
+</ol>
+<p>Senere kan man gå inn å legge til nye filer, erstatte filer, og publisere atlaset for alle. Så lenge man er logget inn kan man se atlaset på forsiden, slik det vil bli seende ut etter publisering.</p>
+</div>
+<div id="legge-inn-lenke-til-faktaark" class="section level2">
+<h2><span class="header-section-number">4.7</span> Legge inn lenke til faktaark</h2>
+<ol style="list-style-type: decimal">
+<li><p>Last opp faktaark til nettsidene ved å gå på <em>Innhold</em> og <em>Filer</em>, og trykk på <em>Legg til fil</em>. <strong>Ikke</strong> gå på <em>Legg til innhold</em> og legg filene til der. Da vil filene sannsynligvis få tilfeldige navn.</p></li>
+<li><p>Legg lenkeadressen (der disse filene legger seg) inn i tredje linje i <code>IA-workbook</code>. Den legges over tre celler.</p></li>
+<li><p>Erstatt bolkene <code>ia-explorer-notes-icon</code> og <code>ia-explorer-notes-icon:hover</code> i filen <code>advanced.css</code> med følgende innhold:</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.ia-explorer-notes-icon</span> 
+<span class="kw">{</span> 
+    <span class="kw">display:</span><span class="dt">table-cell</span><span class="kw">;</span> <span class="co">/** Explorer notes icon: notes_hover.png --&gt; pdfbw_notes.png*/</span>
+    <span class="kw">background-image:</span><span class="dt">url(</span>pdfbw_notes<span class="dt">.</span>png<span class="dt">)</span><span class="kw">;</span>
+    <span class="kw">cursor:</span><span class="dt">pointer</span><span class="kw">;</span>
+    <span class="kw">background-repeat:</span><span class="dt">no-repeat</span><span class="kw">;</span>
+    <span class="kw">background-position:</span><span class="dt">center</span> <span class="dt">left</span><span class="kw">;</span>
+    <span class="kw">width:</span><span class="dt">20px</span><span class="kw">;</span> <span class="co">/** width:20px; */</span>
+    <span class="kw">height:</span><span class="dt">13px</span><span class="kw">;</span> <span class="co">/** height:13px; */</span>        
+<span class="kw">}</span>
+<span class="fl">.ia-explorer-notes-icon</span><span class="dv">:hover</span>
+<span class="kw">{</span>
+    <span class="kw">background-image:</span><span class="dt">url(</span>pdf_notes_hover<span class="dt">.</span>png<span class="dt">)</span><span class="kw">;</span>  <span class="co">/** Explorer notes icon: notes_hover.png --&gt;  pdf_notes_hover.png*/</span>
+<span class="kw">}</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Kopier over filene <code>pdfbw_notes.png</code> og <code>pdf_notes_hover.png</code> fra et annet atlas (f.eks herfra: <code>Analyse/Helseatlas/Eldre/IA/eldre_atlas/</code>).</p></li>
+<li><p><em>zip</em> mappen og last opp på nytt.</p></li>
+</ol>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="diverse.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tilrettelegging-av-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="zotero.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -324,7 +409,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/index.Rmd",
+"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/rmd/ia.Rmd",
 "text": "Edit"
 },
 "history": {

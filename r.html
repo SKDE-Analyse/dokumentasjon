@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Dokumentasjon for internt bruk ved SKDE</title>
+  <title>7 R | Dokumentasjon for internt bruk ved SKDE</title>
   <meta name="description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta property="og:title" content="7 R | Dokumentasjon for internt bruk ved SKDE" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta name="twitter:title" content="7 R | Dokumentasjon for internt bruk ved SKDE" />
   
   <meta name="twitter:description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="diverse.html"/>
+<link rel="prev" href="git.html"/>
+<link rel="next" href="latex-1.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -277,23 +277,74 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Dokumentasjon for internt bruk ved SKDE</h1>
-<p class="author"><em>Arnfinn Hykkerud Steindal, SKDE</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-03-30</em></p>
+<div id="r" class="section level1">
+<h1><span class="header-section-number">7</span> R</h1>
+<p>Hvis det oppstår problemer med noen av disse fremgangsmåtene, send gjerne en beskjed til <A HREF="mailto:&#097;&#114;&#110;&#102;&#105;&#110;&#110;&#046;&#115;&#116;&#101;&#105;&#110;&#100;&#097;&#108;&#064;&#115;&#107;&#100;&#101;&#046;&#110;&#111;">arnfinn</A>.</p>
+<div id="sette-globale-instillinger" class="section level2">
+<h2><span class="header-section-number">7.1</span> Sette globale instillinger</h2>
+<p>Når man starter en R-session leses filen <code>&lt;R_USER&gt;/.Rprofile</code>, hvis den finnes. Her kan man legge inn instillinger man vil ha hver gang man åpner en ny <em>session</em> (Mappen <code>&lt;R_USER&gt;</code> finnes ved å kjøre kommandoen <code>Sys.getenv(&quot;R_USER&quot;)</code>. Denne er som regel <code>p</code>-disken.). Eksempelvis kan RStudio finne LaTeX ved å legge følgende kommando i <code>.Rprofile</code>:</p>
+<pre><code>Sys.setenv(PATH = paste(Sys.getenv(&quot;PATH&quot;), &quot;C:\\ProgramData\\App-V\\5667D610-8377-430E-9529-F9EA42A7D0E5\\78EEF753-8FA5-476F-9F66-E1D5ECB7A7FE\\Root\\VFS\\ProgramFilesX64\\MiKTeX\ 2.9\\miktex\\bin\\x64&quot;, sep=.Platform$path.sep))</code></pre>
+<p>(Stien til LaTeX kan finnes ved å kjøre følgende kommando i git-bash: <code>which pdflatex</code>)</p>
 </div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-<p>Dette er en samling dokumentasjon om diverse datatekniske utfordringer og løsninger ved SKDE. Det er hovedsakelig skrevet av Arnfinn, men andre må også gjerne bidra. Man kan bidra <a href="https://github.com/SKDE-Analyse/dokumentasjon/">her</a> eller på <em>Analyse/Data/skde-analyse.github.io/</em></p>
+<div id="rstudio-og-github-pakker" class="section level2">
+<h2><span class="header-section-number">7.2</span> Rstudio og github-pakker</h2>
+<p>R-pakker som ligger på github kan installeres med</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;&lt;brukernavn&gt;/&lt;pakkenavn&gt;&quot;</span>)</code></pre></div>
+<p>For å kunne gjøre dette når man sitter bak proxy, må en av følgende koder kjøres først. Enten</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Sys.setenv</span>(<span class="dt">http_proxy=</span><span class="st">&quot;&lt;helsenord-proxy&gt;:&lt;port&gt;&quot;</span>)
+<span class="kw">Sys.setenv</span>(<span class="dt">https_proxy=</span><span class="st">&quot;&lt;helsenord-proxy&gt;:&lt;port&gt;&quot;</span>)</code></pre></div>
+<p>eller</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;httr&quot;</span>)
+<span class="kw">library</span>(httr)
+<span class="kw">set_config</span>(<span class="kw">use_proxy</span>(<span class="dt">url=</span><span class="st">&quot;&lt;helsenord-proxy&gt;&quot;</span>, <span class="dt">port=</span><span class="op">&lt;</span>port<span class="op">&gt;</span>))</code></pre></div>
+</div>
+<div id="rstudio-og-shinyapps" class="section level2">
+<h2><span class="header-section-number">7.3</span> Rstudio og shinyapps</h2>
+<div id="første-gang" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Første gang</h3>
+<ul>
+<li>Installér shiny-pakken</li>
+<li>Opprett en bruker på <a href="http://www.shinyapps.io">shinyapps.io</a></li>
+<li>Opprett en ny eller åpne en gammel &quot;Shiny web application&quot; i Rstudio.</li>
+<li>Kopier din token fra <a href="http://www.shinyapps.io/admin/#/tokens">shinyapps</a> og kopier over i &quot;Manage Accounts&quot;</li>
+</ul>
+<p><img src="figurer/rshiny_5.png" /><!-- --></p>
+</div>
+<div id="laste-opp-en-shinyapp-til-httpwww.shinyapps.io" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Laste opp en shinyapp til <a href="http://www.shinyapps.io" class="uri">http://www.shinyapps.io</a></h3>
+<ul>
+<li>Dette må gjøres gjennom proxy hvis man sitter på Helse Nord sitt nett. Følgende kommandoer må da kjøres først:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">RCurlOptions =</span> <span class="kw">list</span>(<span class="dt">proxy =</span> <span class="st">&quot;&lt;helsenord-proxy&gt;:&lt;port&gt;&quot;</span>))
+<span class="kw">options</span>(<span class="dt">shinyapps.http =</span> <span class="st">&quot;rcurl&quot;</span>)</code></pre></div>
+<ul>
+<li>Selve shinyappen lastes opp med følgende kommando</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rsconnect<span class="op">::</span><span class="kw">deployApp</span>(<span class="dt">appName =</span> <span class="st">&quot;&lt;navn&gt;&quot;</span>)</code></pre></div>
+</div>
+<div id="hvordan-opprette-en-ny-rshiny-applikasjon" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> Hvordan opprette en ny Rshiny applikasjon</h3>
+<p><img src="figurer/rshiny_1.png" /><!-- --></p>
+<p><img src="figurer/rshiny_2.png" /><!-- --></p>
+<p><img src="figurer/rshiny_3.png" /><!-- --></p>
+<p><img src="figurer/rshiny_4.png" /><!-- --></p>
+<p><img src="figurer/rshiny_5.png" /><!-- --></p>
+</div>
+<div id="ta-en-backup-av-en-eksisterende-app" class="section level3">
+<h3><span class="header-section-number">7.3.4</span> Ta en backup av en eksisterende app</h3>
+<p>Gå inn på <a href="https://www.shinyapps.io/admin/#/dashboard" class="uri">https://www.shinyapps.io/admin/#/dashboard</a> og gå inn på applikasjonssiden. Her kan man laste ned en <em>Bundle</em> av appen på <em>Oveview</em>-siden.</p>
+<p>Hvis man ønsker å dytte opp igjen denne versjonen til shinyapps.io etter at man har lastet den ned, må man først fjerne filen <code>manifest.json</code>.</p>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="diverse.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="git.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="latex-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -324,7 +375,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/index.Rmd",
+"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/rmd/r.Rmd",
 "text": "Edit"
 },
 "history": {

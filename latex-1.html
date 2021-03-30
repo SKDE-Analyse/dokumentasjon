@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Dokumentasjon for internt bruk ved SKDE</title>
+  <title>8 LaTeX | Dokumentasjon for internt bruk ved SKDE</title>
   <meta name="description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta property="og:title" content="8 LaTeX | Dokumentasjon for internt bruk ved SKDE" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta name="twitter:title" content="8 LaTeX | Dokumentasjon for internt bruk ved SKDE" />
   
   <meta name="twitter:description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="diverse.html"/>
+<link rel="prev" href="r.html"/>
+<link rel="next" href="python.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -277,23 +277,202 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Dokumentasjon for internt bruk ved SKDE</h1>
-<p class="author"><em>Arnfinn Hykkerud Steindal, SKDE</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-03-30</em></p>
+<div id="latex-1" class="section level1">
+<h1><span class="header-section-number">8</span> LaTeX</h1>
+<p>Analyseenheten i SKDE skriver de fleste rapporter i LaTeX ved hjelp av <a href="https://www.overleaf.com">overleaf.com</a>.</p>
+<div id="skrive-en-rapport-eller-et-notat" class="section level2">
+<h2><span class="header-section-number">8.1</span> Skrive en rapport eller et notat</h2>
+<p>SKDE har noen maler som kan brukes. Dokumentmaler finnes <a href="https://www.overleaf.com/gallery/tagged/skde">her</a>.</p>
 </div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-<p>Dette er en samling dokumentasjon om diverse datatekniske utfordringer og løsninger ved SKDE. Det er hovedsakelig skrevet av Arnfinn, men andre må også gjerne bidra. Man kan bidra <a href="https://github.com/SKDE-Analyse/dokumentasjon/">her</a> eller på <em>Analyse/Data/skde-analyse.github.io/</em></p>
+<div id="forside" class="section level2">
+<h2><span class="header-section-number">8.2</span> Forside</h2>
+<p>Til barnehelseatlasrapporten ble det lagd en forside, og det er denne vi bruker som mal for fremtidige rapporter ved SKDE. For å kunne endre teksten på forsiden og samtidig bevare samme font, må fonten <em>Open Sans</em> installeres på maskinen. Dette kan enten gjøres ved å få <em>Helse Nord IKT</em> til å installere fonten, eller ved å bruke <a href="https://woorkup.com/install-fonts-without-administrator-access/">denne metoden (<em>install fonts without administrator access</em>)</a>.</p>
+<p>Ved bytte av forsidebilde i <em>Adobe Acrobate Pro</em> vil informasjon om tidligere bilde ligge i filen, og filen vil derfor bli uhensiktsmessig stor. For å bli kvitt denne informasjonen kan man - gå inn på <code>Fil/Instillinger/Dokumenter</code> og huke av <em>Fjern skjult informasjon når du lukker dokumentet</em>. - Lukk så dokumentet og velg <em>Fjern all informasjon, men ikke lukk dokumentet</em>. - Ta bort avhuking på <em>Metadata</em> og <em>Overlappende objekter</em>, men fjern informasjon om <em>Slettet eller beskåret innhold</em>. - Trykk på <em>Fjern</em> og lagre dokumentet.</p>
+</div>
+<div id="oversettelse-av-helseatlas" class="section level2">
+<h2><span class="header-section-number">8.3</span> Oversettelse av Helseatlas</h2>
+<div id="hvordan-få-et-latex-dokument-klar-for-oversettelse" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> Hvordan få et LaTeX-dokument klar for oversettelse</h3>
+<p>Oversettelse av Helseatlas (rapporter og faktaark) har blir gjort av <em>Anneli Olsbø</em> ved Allegro AS. Før dokumentene sendes til Allegro for oversettelse, må de konverteres til Word. For å få dette til mest mulig smertefritt gjøres følgende:</p>
+<ul>
+<li>Fjern unødvendige sider (forside, side 2, bakside etc.).</li>
+<li>Slå av fancyheadings ved å bruke <code>\pagestyle{empty}</code> på hele dokumentet.</li>
+<li>Bruk følgende kode for å tvinge LaTeX til å ikke bryte ord</li>
+</ul>
+<pre><code>\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000</code></pre>
+<ul>
+<li>Venstrejuster all tekst med <code>\raggedright</code></li>
+<li>Bruk <code>\usepackage[demo]{graphicx}</code> for å legge inn svarte bokser i steden for figurer. Fungerer ikke alltid, så bruk eventuelt <code>\usepackage[allfiguresdraft]{draftfigure}</code> (<em>draftfigure.sty</em> må lastes ned og legges sammen med tex-dokumentet)</li>
+<li>Bruk en font som er enkel å konvertere til word (f.eks <code>calibri</code>).</li>
+<li>Konverter pdf-filen til <em>word</em> med <em>Adobe Acrobate Pro</em></li>
+</ul>
+</div>
+<div id="hvordan-konvertere-word-dokumentet-tilbake-til-latex" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Hvordan konvertere word-dokumentet tilbake til LaTeX</h3>
+<ul>
+<li>Lagre som rtf i word</li>
+<li>Konvertere med <code>rtf2latex2e -n -f -p 1 &lt;filnavn.rtf&gt;</code> med en linux/unix-maskin</li>
+<li>Hvis ikke dette går:</li>
+<li>Lagre først som doc</li>
+<li>Åpne doc og lagre som rtf</li>
+</ul>
+<div id="regex" class="section level4">
+<h4><span class="header-section-number">8.3.2.1</span> regex</h4>
+<ul>
+<li>Erstatte tusenskilletegn</li>
+</ul>
+<pre><code>for i in *.tex; do sed -e &#39;s/\([0-9]\)\\,\([0-9][0-9][0-9]\)/\1,\2/g&#39; $i &gt; tmp; mv tmp $i; done</code></pre>
+<ul>
+<li>Erstatte desimaltegn komma med punktum</li>
+</ul>
+<pre><code>for i in *.tex; do sed -e &#39;s/\([0-9]\),\([0-9]\)/\1.\2/g&#39; $i &gt; tmp; mv tmp $i; done</code></pre>
+</div>
+</div>
+</div>
+<div id="en-enkel-start" class="section level2">
+<h2><span class="header-section-number">8.4</span> En enkel start</h2>
+<p>Dette dokumentet er omtrent så enkelt det kan bli med LaTeX</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex"><span class="bu">\documentclass</span>[a4paper, norsk]{<span class="ex">article</span>}
 
+<span class="bu">\usepackage</span>[utf8]{<span class="ex">inputenc</span>}
+<span class="bu">\usepackage</span>[norsk]{<span class="ex">babel</span>}
+<span class="bu">\usepackage</span>{<span class="ex">parskip</span>}
+
+<span class="kw">\begin</span>{<span class="ex">document</span>}
+
+<span class="kw">\section</span>{Dette er en overskrift}
+
+En introduksjon til hvordan man skriver i <span class="fu">\LaTeX</span>.
+
+<span class="kw">\subsection</span>{En underoverskrift}
+
+Enkelt og greit.
+
+<span class="kw">\section*</span>{Dette er en overskrift uten teller}
+
+Litt mer tekst med æ, ø og å.
+
+<span class="kw">\end</span>{<span class="ex">document</span>}</code></pre></div>
+<ul>
+<li>Et LaTeX-dokument starter alltid med <code>documentclass</code>. Her spesifiserer man hva slags dokument man skal skrive (article/report/book) og gir noen instillinger (at dokumentet er på norsk og at det er A4).</li>
+<li>Man legger så inn noen pakker man vil bruke. Her har jeg brukt pakken <code>inputenc</code> med valget <code>utf8</code> for å kunne skrive æ, ø og å. Jeg bruker i tillegg pakken <code>babel</code> med valg <code>norsk</code>, for å bryte ord riktig ved tvunget linjeskift. Til slutt bruker jeg pakken <code>parskip</code> for å få rom mellom avsnitt.</li>
+<li>Mellom <code>\begin{document}</code> og <code>\end{document}</code> skriver man inn selve teksten.</li>
+<li>Overskrifter og underoverskrifter skrives i <code>\section{}</code> og <code>\subsection{}</code>.</li>
+</ul>
+<p>Kopier teksten inn i et nytt dokument i TeXmaker, lagre det, og trykk på <code>F6</code>. Dokumentet blir da kompilert og lager en pdf. pdf-filen kan åpnes ved å trykke <code>F7</code>. Dette vil gi et dokument som ser slik ut:</p>
+<p><img src="figurer/simple_tex.png" /><!-- --></p>
+<div id="diverse-man-må-huske" class="section level3">
+<h3><span class="header-section-number">8.4.1</span> Diverse man må huske</h3>
+<ul>
+<li>40 % skrives <code>40\,\%</code></li>
+<li>&quot;friske&quot; skrives <code>&lt;&lt;friske&gt;&gt;</code></li>
+<li>én skrives <code>{\'e}n</code></li>
+</ul>
+</div>
+</div>
+<div id="bibtex" class="section level2">
+<h2><span class="header-section-number">8.5</span> BibTeX</h2>
+<p>Når man legger inn referanser i LaTeX bruker man som regel bibtex. Da lager man en egen fil som heter noe som ender på <code>.bib</code>. I denne skrives alle referansene, omtrent slik som dette:</p>
+<div class="sourceCode"><pre class="sourceCode latex"><code class="sourceCode latex">@article{Adler2013,
+author = {Adler, Jeremy and Sandberg, Kelly C. and Shpeen, Benjamin H. and Eder, Sally J. and Dhanani, Muhammad and Clark, Sarah J. and Freed, Gary L},
+title = {Variation in {I}nfliximab Administration Practices in the Treatment of Pediatric Inflammatory Bowel Disease},
+journal = &quot;J Pediatr. Gastroenterol. Nutr.&quot;,
+year = {2013},
+volume = {57},
+number = {1},
+pages = {35-38},
+}
+
+@misc{dagkir,
+author = {Lise Balteskard and Trygve Deraas and Olav Helge Førde and Trine Magnus and Frank Olsen and Bård Uleberg},
+title = {Dagkirurgi i {N}orge 2011-2013, utvalgte inngrep},
+month = {Januar},
+year = {2015},
+isbn = {978-82-93141-16-7},
+note = {{ISBN: 978-82-93141-16-7}}
+}</code></pre></div>
+<ul>
+<li><code>Adler2013</code> og <code>dagkir</code> er &quot;nøkkelen&quot; man bruker for å sitere disse referansene i teksten. Det gjør man ved å skrive <code>\cite{Adler2013}</code> der man vil putte siteringen.</li>
+<li>Man skiller forfattere med <code>and</code></li>
+<li>Alt, bortsett fra første bokstav, i tittel blir små bokstaver, så hvis man vil beholde stor bokstav må bokstaven &quot;beskyttes&quot; med klammeparantes (som i <code>{I}nfliximab</code>).</li>
+<li>Når man skal kompilere LaTeX-dokumentet når man bruker bibtex må man gjøre dette flere ganger for at alt skal bli riktig. I TeXmaker må man typisk gjøre følgende: <code>F6</code>, <code>F11</code>, <code>F6</code>, <code>F6</code> (<code>F11</code> for å kompilere bibtex-filen).</li>
+<li>Å finne &quot;riktig&quot; referansestil, både i tekst og i referanselisten til slutt, kan være litt pes. Kan være lurt å bruke enten <em>natbib</em> eller <em>biblatex</em>.</li>
+<li>Se ellers annen bibtex-dokumentasjon på nett.</li>
+<li>I barnehelseatlasrapporten ville vi ha to referanselister: en for de som ble sitert i teksten og en for resten av artiklene i vår bib-fil. Dette ble gjort ved bruk av pakken <code>bibtopic</code> og det som står etter <code>\begin{btSect}</code>.</li>
+</ul>
+<div id="konvertere-fra-pubmed-til-bibtex" class="section level3">
+<h3><span class="header-section-number">8.5.1</span> Konvertere fra <em>Pubmed</em> til <em>BibTeX</em></h3>
+<p>Følgende nettside kan brukes til å søke opp artikler i <a href="https://www.ncbi.nlm.nih.gov/pubmed">Pubmed</a> og konvertere til <em>BibTeX</em>: <a href="https://www.bioinformatics.org/texmed/">www.bioinformatics.org/texmed</a></p>
+</div>
+<div id="bruke-latex" class="section level3">
+<h3><span class="header-section-number">8.5.2</span> Bruke LaTeX</h3>
+<p><a href="http://www.google.no/search?q=introduction+to+latex">Google</a> er din venn.</p>
+</div>
+</div>
+<div id="spor-endringer-i-latex-ved-bruk-av-latexdiff" class="section level2">
+<h2><span class="header-section-number">8.6</span> Spor endringer i LaTeX ved bruk av <em>latexdiff</em></h2>
+<p><em>latexdiff</em> lager en tex-fil ut fra forskjellene mellom to tex-filer, og fargelegger/stryker over det som er gjort av endringer mellom to versjoner. Denne tex-filen kan vi så kompilere og lage en pdf. Alt dette må gjøres lokalt, noe som betyr at LaTeX må være installert på maskinen (MikTeX, hvis du sitter på en Windows-maskin). I tillegg må man ha <em>python</em> installert (mer om det senere).</p>
+<div id="slå-sammen-flere-flettede-tex-filer-til-én-tex-fil" class="section level3">
+<h3><span class="header-section-number">8.6.1</span> Slå sammen flere flettede tex-filer til én tex-fil</h3>
+<p>Vi jobber som regel med flere tex-filer ved bruk av <code>\input{}</code>. <em>latexdiff</em> fungerer bare på en fil av gangen. Vi må derfor samle sammen alle filene til én. Følgende <em>python</em>-script samler sammen flere tex-filer til én fil (kopiert fra <a href="http://dropbearcode.blogspot.no/2011/09/multiple-file-latex-diff.html">Andrew Walker</a>):</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
+<span class="im">import</span> sys
+<span class="im">import</span> os
+<span class="im">import</span> re
+
+inputPattern <span class="op">=</span> re.<span class="bu">compile</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">input{(.*)}&#39;</span>)
+
+<span class="kw">def</span> flattenLatex( rootFilename ):
+    dirpath, filename <span class="op">=</span> os.path.split(rootFilename)
+    <span class="cf">with</span> <span class="bu">open</span>(rootFilename,<span class="st">&#39;r&#39;</span>) <span class="im">as</span> fh:
+        <span class="cf">for</span> line <span class="kw">in</span> fh:
+            match <span class="op">=</span> inputPattern.search( line )
+            <span class="cf">if</span> match:
+                newFile <span class="op">=</span> match.group(<span class="dv">1</span>)
+                <span class="cf">if</span> <span class="kw">not</span> newFile.endswith(<span class="st">&#39;tex&#39;</span>):
+                    newFile <span class="op">+=</span> <span class="st">&#39;.tex&#39;</span>
+                flattenLatex( os.path.join(dirpath,newFile) )
+            <span class="cf">else</span>:
+                sys.stdout.write(line)
+
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:
+    flattenLatex( sys.argv[<span class="dv">1</span>] )</code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Kopier innholdet til en fil, kall filen f.eks <em>flatten-latex.py</em>, og legg den i mappen der du skal sammenligne to dokumenter</li>
+<li>Åpne ´bash´ i denne mappen (´git-bash´ hvis du sitter på en Windows-maskin).</li>
+<li>Gjør skriptet kjørbart: ´chmod u+x flatten-latex.py´</li>
+<li>Sørg for at du har to mapper med to ulike versjoner av et LaTeX-prosjekt i samme mappe (dette kan gjøres ved å klone samme overleaf-dokument to ganger og gå tilbake i historien på det ene).</li>
+<li>Lag flate tex-versjoner av de to LaTeX-prosjektene:</li>
+</ol>
+<p><code>bash   ./flatten-latex.py mappe1/rapport.tex &gt; gammel.tex   ./flatten-latex.py mappe2/rapport.tex &gt; ny.tex</code> Man har nå to tex-filer man kan kjøre <em>latexdiff</em> på</p>
+</div>
+<div id="kjøre-latexdiff-på-to-tex-filer" class="section level3">
+<h3><span class="header-section-number">8.6.2</span> Kjøre <em>latexdiff</em> på to tex-filer</h3>
+<ul>
+<li>Vi kan nå lage en ny tex-fil, som vi legger i mappen der nyeste versjon av LaTeX-prosjektet ligger (i dette tilfelle ´mappe2´)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">latexdiff</span> gammel.tex ny.tex <span class="op">&gt;</span> mappe2/diff.tex</code></pre></div>
+<p>Det legges i den mappen, slik at vi kan kompilere filen etterpå og få med figurer etc. - Gå inn i mappen og kompiler dokumentet (i vårt tilfelle bruker vi som regel <em>lualatex</em></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> mappe2
+<span class="ex">lualatex</span> diff
+<span class="ex">biber</span> diff
+<span class="ex">lualatex</span> diff
+<span class="ex">lualatex</span> diff</code></pre></div>
+<p>Dette går som regel ikke smertefritt... Jeg fikk det ikke til på første forsøk i Windows. Hvis du er heldig har du nå et dokument som heter <em>diff.pdf</em> som viser endringene mellom to versjoner.</p>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="diverse.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="python.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -324,7 +503,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/index.Rmd",
+"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/rmd/latex.Rmd",
 "text": "Edit"
 },
 "history": {

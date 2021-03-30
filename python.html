@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Dokumentasjon for internt bruk ved SKDE</title>
+  <title>9 Python | Dokumentasjon for internt bruk ved SKDE</title>
   <meta name="description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta property="og:title" content="9 Python | Dokumentasjon for internt bruk ved SKDE" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta name="twitter:title" content="9 Python | Dokumentasjon for internt bruk ved SKDE" />
   
   <meta name="twitter:description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="diverse.html"/>
+<link rel="prev" href="latex-1.html"/>
+<link rel="next" href="linux.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -277,23 +277,52 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Dokumentasjon for internt bruk ved SKDE</h1>
-<p class="author"><em>Arnfinn Hykkerud Steindal, SKDE</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-03-30</em></p>
+<div id="python" class="section level1">
+<h1><span class="header-section-number">9</span> Python</h1>
+<ul>
+<li>Installér Python 3, lastet ned fra <a href="https://www.python.org/downloads/">python.org</a></li>
+<li><p>For å installere numpy (og andre python-pakker), last ned wheel-pakke manuelt og installer med <em>pip</em> (i en terminal)</p>
+<pre><code>$ pip install filename.whl</code></pre></li>
+<li><p>For å få <em>vim</em> til å være mer python-vennlig, installer <a href="https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/#vim-extensions">Vundle</a></p>
+<pre><code>$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim</code></pre></li>
+</ul>
+<div id="virtualenv" class="section level2">
+<h2><span class="header-section-number">9.1</span> Virtualenv</h2>
+<div id="installere" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> installere</h3>
+<pre><code>pip install virtualenv</code></pre>
 </div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-<p>Dette er en samling dokumentasjon om diverse datatekniske utfordringer og løsninger ved SKDE. Det er hovedsakelig skrevet av Arnfinn, men andre må også gjerne bidra. Man kan bidra <a href="https://github.com/SKDE-Analyse/dokumentasjon/">her</a> eller på <em>Analyse/Data/skde-analyse.github.io/</em></p>
+<div id="bruke" class="section level3">
+<h3><span class="header-section-number">9.1.2</span> Bruke</h3>
+<pre><code>cd my_project_folder
+virtualenv my_project
 
+source my_project/bin/activate # for linux/unix
+source my_project/Scripts/activate # for windows
+##
+## Install whatever packages
+##
+pip install &lt;pythonpakke&gt;
+##
+## Deactivate current env
+##
+deactivate
+##
+## &quot;Freeze&quot; the current state
+##
+pip freeze &gt; requirements.txt
+pip install -r requirements.txt</code></pre>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="diverse.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="latex-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linux.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -324,7 +353,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/index.Rmd",
+"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/rmd/python.Rmd",
 "text": "Edit"
 },
 "history": {

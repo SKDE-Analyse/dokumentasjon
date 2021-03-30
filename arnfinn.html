@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Dokumentasjon for internt bruk ved SKDE</title>
+  <title>12 Arnfinn | Dokumentasjon for internt bruk ved SKDE</title>
   <meta name="description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta property="og:title" content="12 Arnfinn | Dokumentasjon for internt bruk ved SKDE" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta name="twitter:title" content="12 Arnfinn | Dokumentasjon for internt bruk ved SKDE" />
   
   <meta name="twitter:description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="docker.html"/>
 
-<link rel="next" href="diverse.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -277,23 +277,187 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Dokumentasjon for internt bruk ved SKDE</h1>
-<p class="author"><em>Arnfinn Hykkerud Steindal, SKDE</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-03-30</em></p>
-</div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-<p>Dette er en samling dokumentasjon om diverse datatekniske utfordringer og løsninger ved SKDE. Det er hovedsakelig skrevet av Arnfinn, men andre må også gjerne bidra. Man kan bidra <a href="https://github.com/SKDE-Analyse/dokumentasjon/">her</a> eller på <em>Analyse/Data/skde-analyse.github.io/</em></p>
+<div id="arnfinn" class="section level1">
+<h1><span class="header-section-number">12</span> Arnfinn</h1>
+<p>Mine egne notater, som er lite interessant for andre</p>
+<div id="splitte-pdf" class="section level2">
+<h2><span class="header-section-number">12.1</span> Splitte pdf</h2>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/usr/bin/env bash</span>
 
+<span class="va">num_pages=</span><span class="kw">`</span><span class="ex">qpdf</span> --show-npages <span class="va">$1</span><span class="kw">`</span>
+
+<span class="kw">if</span><span class="bu"> [</span> <span class="st">&quot;</span><span class="va">$num_pages</span><span class="st">&quot;</span> <span class="ot">-ne</span> <span class="st">&quot;13&quot;</span><span class="bu"> ]</span>
+<span class="kw">then</span>
+<span class="bu">echo</span> <span class="st">&quot;Number of pages (</span><span class="va">$num_pages</span><span class="st">) not equal 13&quot;</span>
+<span class="bu">echo</span> <span class="st">&quot;Something wrong with your pdf file&quot;</span>
+<span class="bu">exit</span> 0
+<span class="kw">fi</span>
+
+<span class="ex">qpdf</span> --split-pages <span class="va">$1</span> tmp.pdf
+
+<span class="fu">mv</span> tmp-01.pdf kvalitet_samlet_res.pdf
+<span class="fu">mv</span> tmp-02.pdf kvalitet_hjerteinfarkt.pdf
+<span class="fu">mv</span> tmp-03.pdf kvalitet_karkirurgi.pdf
+<span class="fu">mv</span> tmp-04.pdf kvalitet_hjerneslag.pdf
+<span class="fu">mv</span> tmp-05.pdf kvalitet_invasiv_kardio.pdf
+<span class="fu">mv</span> tmp-06.pdf kvalitet_tarmkreft.pdf
+<span class="fu">mv</span> tmp-07.pdf kvalitet_brystkreft.pdf
+<span class="fu">mv</span> tmp-08.pdf kvalitet_lungekreft.pdf
+<span class="fu">mv</span> tmp-09.pdf kvalitet_prostatakreft.pdf
+<span class="fu">mv</span> tmp-10.pdf kvalitet_barnediabetes.pdf
+<span class="fu">mv</span> tmp-11.pdf kvalitet_voksendiabetes.pdf
+<span class="fu">mv</span> tmp-12.pdf kvalitet_hoftebrudd.pdf
+<span class="fu">mv</span> tmp-13.pdf kvalitet_nyre.pdf</code></pre></div>
+</div>
+<div id="regular-expressions" class="section level2">
+<h2><span class="header-section-number">12.2</span> Regular expressions</h2>
+<ul>
+<li>Her kan man teste ut sine <em>regular expressions</em>: <a href="https://regex101.com/">regex101.com</a></li>
+<li>Søke etter <code>per</code> som ikke har bokstaver ved siden av seg. Vil ikke få treff på f.eks. <code>Per Sandberg</code> (stor <code>P</code>) eller <code>ropert</code> (bokstaver inntil).</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">[^<span class="ex">a-z</span>æøåA-ZÆØÅ]per[^a-zæøåA-ZÆØÅ]</code></pre></div>
+<ul>
+<li>Søke med start (<code>^</code>) og slutt (<code>$</code>) på linje.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">^<span class="ex">Dette</span> er en setning på egen linje$</code></pre></div>
+<ul>
+<li>Definere argument 1, 2 etc. ved å bruke <code>\(</code> og <code>\)</code>, som så kan brukes etterpå. Her vil man kunne erstatte komma med punktum som desimaltegn (norsk til engelsk):</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"> <span class="fu">sed</span> -e <span class="st">&#39;s/\([0-9]\),\([0-9][^0-9]\)/\1.\2/g&#39;</span></code></pre></div>
+<ul>
+<li>Sette inn tusenskilletegn (mellomrom)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sed</span> -e <span class="st">&#39;s/\([0-9]\)\([0-9][0-9][0-9][^0-9]\)/\1\\,\2/g&#39;</span> <span class="op">&lt;</span>file<span class="op">&gt;</span></code></pre></div>
+</div>
+<div id="bash" class="section level2">
+<h2><span class="header-section-number">12.3</span> Bash</h2>
+<p><code>sed</code> vil konvertere fil fra windows til linux. Gjør derfor følgende:</p>
+<pre><code>for i in *.sas; do sed -e -i &#39;s/foo/bar/g&#39; $i; unix2dos $i; done</code></pre>
+</div>
+<div id="opprette-automatisk-dokumentasjonekstrasjon-fra-sas-filer" class="section level2">
+<h2><span class="header-section-number">12.4</span> Opprette automatisk dokumentasjonekstrasjon fra SAS-filer</h2>
+<p>I mange av våre prosjekter på <a href="https://github.com/SKDE-Analyse">github</a> lages det dokuemtasjonssider automatisk når man oppdaterer koden. Dette gjøres av <a href="https://travis-ci.org/SKDE-Analyse">Travis CI</a>.</p>
+<ul>
+<li>Bruk følgende <code>.travis.yml</code> fil:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode yml"><code class="sourceCode yaml"><span class="fu">language:</span><span class="at"> python</span>
+
+<span class="fu">python:</span>
+  <span class="kw">-</span> <span class="st">&quot;3.6&quot;</span>
+
+<span class="fu">before_script:</span>
+  <span class="co"># copy version 1.0.0 of the script from github</span>
+  <span class="kw">-</span> <span class="fu">wget https:</span><span class="at">//raw.githubusercontent.com/SKDE-Analyse/python-scripts/v1.0.0/skde/extract_sas_documentation.py</span>
+
+<span class="fu">script:</span>
+    <span class="co"># Will only extract documentation from sas-files on root directory of project</span>
+  <span class="kw">-</span> python extract_sas_documentation.py
+
+<span class="fu">deploy:</span>
+  <span class="fu">provider:</span><span class="at"> pages                         </span><span class="co"># Specify the gh-pages deployment method</span>
+  <span class="fu">skip_cleanup:</span><span class="at"> true                      </span><span class="co"># Don&#39;t remove files</span>
+  <span class="fu">github_token:</span><span class="at"> $GITHUB_TOKEN             </span><span class="co"># Set in travis-ci.org dashboard</span>
+  <span class="fu">local_dir:</span><span class="at"> docs                         </span><span class="co"># Deploy the docs folder</span>
+  <span class="fu">on:</span>
+    <span class="fu">branch:</span><span class="at"> master</span>
+
+<span class="fu">notifications:</span>
+  <span class="fu">email:</span><span class="at"> false</span></code></pre></div>
+<ul>
+<li><p>Aktiver Travis CI <a href="https://travis-ci.org/profile/SKDE-Analyse">her</a></p></li>
+<li><p>Trykk på <em>Settings</em> og legg inn <code>GITHUB_TOKEN</code>. Hent <code>GITHUB_TOKEN</code> fra <code>p/github/token.txt</code>.</p></li>
+<li><p>Legg inn følgende <code>_config.yml</code> fil i <code>docs</code>-mappe (lag denne mappen hvis den ikke eksisterer):</p></li>
+</ul>
+<pre><code>theme: jekyll-theme-minimal</code></pre>
+</div>
+<div id="diverse-om-figurer" class="section level2">
+<h2><span class="header-section-number">12.5</span> Diverse om figurer</h2>
+<div id="fjerne-hvit-bakgrunn-på-epspdf-filer" class="section level3">
+<h3><span class="header-section-number">12.5.1</span> Fjerne hvit bakgrunn på eps/pdf-filer</h3>
+<ul>
+<li>Åpne i Inkscape</li>
+<li>Velg objekt (klikk på bildet)</li>
+<li>Filtre - transparency utilities - Light eraser</li>
+<li>Lagre fil</li>
+</ul>
+</div>
+<div id="fjerne-luft-rundt-figurer" class="section level3">
+<h3><span class="header-section-number">12.5.2</span> Fjerne luft rundt figurer</h3>
+<p>Ble brukt på figurene til eldrehelseatlas-faktaarkene</p>
+<p><code>pdfcrop original.pdf croppet.pdf</code></p>
+</div>
+</div>
+<div id="etter-en-retank-av-maskin" class="section level2">
+<h2><span class="header-section-number">12.6</span> Etter en retank av maskin</h2>
+<p>Installerer alt på <code>c/Users/ast046/AppData/Local/Programs/</code></p>
+<ol style="list-style-type: decimal">
+<li>Installér Chrome og prøv å logg på</li>
+<li>Installér <a href="https://git-scm.com/download/win">git</a></li>
+<li>Installér <a href="https://cran.r-project.org/bin/windows/base/">r</a></li>
+<li>Installér <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li>Installér <a href="https://miktex.org/download">MiKTeX</a> (basic MiKTeX installer)</li>
+<li>Installér <a href="https://code.visualstudio.com/download">vscode</a></li>
+<li>Installèr <a href="http://mirror.netinch.com/pub/vim/pc/">gvim</a> (for å kunne få bedre vimdiff)</li>
+<li>Installèr <a href="https://www.python.org/downloads/">python</a> 3 (custom installasjon, slik at man kan skru av &quot;for alle&quot;)</li>
+</ol>
+<div id="rstudio" class="section level3">
+<h3><span class="header-section-number">12.6.1</span> RStudio</h3>
+<ul>
+<li>bytte libpath</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span><span class="kw">.libPaths</span>(<span class="st">&quot;C:/Users/&lt;user&gt;/AppData/Local/Programs/R-3.3.1/library&quot;</span>)
+<span class="op">&gt;</span><span class="st"> </span><span class="kw">.libPaths</span>()
+[<span class="dv">1</span>] <span class="st">&quot;C:/Users/&lt;user&gt;/AppData/Local/Programs/R-3.3.1/library&quot;</span></code></pre></div>
+<ul>
+<li>Installere pakker</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;shiny&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;rsconnect&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;knitr&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;BH&quot;</span>)
+<span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;DBI&quot;</span>,<span class="st">&quot;DT&quot;</span>,<span class="st">&quot;assertthat&quot;</span>,<span class="st">&quot;caTools&quot;</span>,<span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;htmlwidgets&quot;</span>, <span class="st">&quot;lazyeval&quot;</span>,<span class="st">&quot;rmarkdown&quot;</span>,<span class="st">&quot;tibble&quot;</span>))
+<span class="kw">install.packages</span>(<span class="st">&quot;tidyr&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="oversettelse-helseatlas" class="section level2">
+<h2><span class="header-section-number">12.7</span> Oversettelse, Helseatlas</h2>
+<div id="diverse-bash-kode" class="section level3">
+<h3><span class="header-section-number">12.7.1</span> Diverse bash-kode</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> faktaark-eldre-til-oversettelse_-EN.tex <span class="kw">|</span><span class="fu">grep</span> <span class="st">&#39;\\section&#39;</span> <span class="kw">|</span> <span class="fu">cut</span> -d <span class="st">&#39;{&#39;</span> -f 3 <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;s/..............$//&#39;</span> <span class="op">&gt;</span> ../../list_factsheets_elderly.txt</code></pre></div>
+<div id="endre-navn-på-fil-samme-navn-med-forskjellig-fil-endelse" class="section level4">
+<h4><span class="header-section-number">12.7.1.1</span> Endre navn på fil (samme navn med forskjellig fil-endelse)</h4>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="ex">i</span> in <span class="op">&lt;</span>filename<span class="op">&gt;</span>.*<span class="kw">;</span> <span class="kw">do</span> <span class="fu">mv</span> <span class="va">$i</span> <span class="op">&lt;</span>newfile<span class="op">&gt;</span>.<span class="va">${i##</span>*.<span class="va">}</span><span class="kw">;</span> <span class="kw">done</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="kompilere-denne-dokumentasjonen-lokalt" class="section level2">
+<h2><span class="header-section-number">12.8</span> Kompilere denne dokumentasjonen lokalt</h2>
+<div id="linux-1" class="section level3">
+<h3><span class="header-section-number">12.8.1</span> Linux</h3>
+<p><em>R</em> må være installert, samt pakken <em>bookdown</em>. Gjør følgende i terminal (dette gjelder for Debian/Ubuntu:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install r-base-core 
+<span class="fu">sudo</span> apt-get install libcurl4-openssl-dev
+<span class="fu">sudo</span> apt-get install libssl-dev
+<span class="fu">sudo</span> Rscript -e <span class="st">&#39;install.packages(&quot;devtools&quot;,&quot;/usr/local/lib/R/site-library&quot;,&quot;http://cran.r-project.org&quot;)&#39;</span>
+<span class="fu">sudo</span> apt-get install pandoc pandoc-citeproc</code></pre></div>
+</div>
+<div id="kompilere-selve-dokumentasjonen" class="section level3">
+<h3><span class="header-section-number">12.8.2</span> Kompilere selve dokumentasjonen</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> Rscript -e <span class="st">&#39;devtools::install_github(&quot;rstudio/bookdown&quot;)&#39;</span> <span class="co"># kun hvis pakken ikke er installert enda</span>
+<span class="ex">Rscript</span> -e <span class="st">&quot;rmarkdown::render_site(output_format = c(&#39;bookdown::gitbook&#39;, &#39;bookdown::pdf_book&#39;, &#39;bookdown::epub_book&#39;), encoding = &#39;UTF-8&#39;)&quot;</span></code></pre></div>
+<p>Siste linje kan erstattes med å kun kjøre scriptet <code>_build.sh</code>.</p>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="docker.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="diverse.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -324,7 +488,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/index.Rmd",
+"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/rmd/arnfinn.Rmd",
 "text": "Edit"
 },
 "history": {

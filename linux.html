@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Dokumentasjon for internt bruk ved SKDE</title>
+  <title>10 Linux | Dokumentasjon for internt bruk ved SKDE</title>
   <meta name="description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   <meta name="generator" content="bookdown 0.21.7 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta property="og:title" content="10 Linux | Dokumentasjon for internt bruk ved SKDE" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Dokumentasjon for internt bruk ved SKDE" />
+  <meta name="twitter:title" content="10 Linux | Dokumentasjon for internt bruk ved SKDE" />
   
   <meta name="twitter:description" content="Diverse dokumentasjon etc. for å (forhåpentligvis) gjøre hverdagen enklere" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="diverse.html"/>
+<link rel="prev" href="python.html"/>
+<link rel="next" href="docker.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -277,23 +277,145 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Dokumentasjon for internt bruk ved SKDE</h1>
-<p class="author"><em>Arnfinn Hykkerud Steindal, SKDE</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-03-30</em></p>
-</div>
-<div id="section" class="section level1 unnumbered">
-<h1></h1>
-<p>Dette er en samling dokumentasjon om diverse datatekniske utfordringer og løsninger ved SKDE. Det er hovedsakelig skrevet av Arnfinn, men andre må også gjerne bidra. Man kan bidra <a href="https://github.com/SKDE-Analyse/dokumentasjon/">her</a> eller på <em>Analyse/Data/skde-analyse.github.io/</em></p>
+<div id="linux" class="section level1">
+<h1><span class="header-section-number">10</span> Linux</h1>
+<div id="installere-linux-på-stasjonære-jobb-pc" class="section level2">
+<h2><span class="header-section-number">10.1</span> Installere Linux på stasjonære jobb-pc</h2>
+<ol style="list-style-type: decimal">
+<li>Få først Helse Nord IKT til å installere <em>VirtualBox</em></li>
+<li>Last ned <a href="https://lubuntu.net/downloads/">Lubuntu Alternate 64 bit</a> eller <a href="https://linuxmint.com/download.php">Linux Mint Mate</a>.</li>
+</ol>
 
+<div class="rmdinfo">
+Det er <a href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg">mange distroer</a> å velge mellom, men det er disse to distroene jeg har fått til å fungere. Jeg har også prøvd følgende distroer uten hell: <em>Lubuntu Desktop</em> 64 bit og 32 bit (problemer med skjerm) og <em>Fedora LXDE 27.1</em> (fikk ikke til proxy).
+</div>
+<p> 3. Lag en ny <em>Virtal Machine</em> med <em>VirtualBox</em>, start opp med iso-filen og installer Linux.</p>
+<div id="lubuntu" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> Lubuntu</h3>
+<div id="under-installasjonen" class="section level4">
+<h4><span class="header-section-number">10.1.1.1</span> Under installasjonen</h4>
+<ul>
+<li>Installer Lubuntu Alternate 64 bit (se over)</li>
+<li>Skriv inn mellomtjener/proxy-adresse når man får spørsmål om det (se under)</li>
+<li>Velg statisk størrelse på harddisk, for å unngå kræsj hvis din windowsmaskin-harddisk fylles opp.</li>
+</ul>
+</div>
+<div id="etter-installasjonen" class="section level4">
+<h4><span class="header-section-number">10.1.1.2</span> Etter installasjonen</h4>
+<ul>
+<li>Koble til nett</li>
+<li>Fikk problemer med dette i ett tilfelle med Lubuntu.</li>
+<li>Legg inn følgende i <code>.bashrc</code>:</li>
+</ul>
+<pre><code>export http_proxy=&lt;helsenord-proxy&gt;:&lt;port&gt;/
+export https_proxy=&lt;helsenord-proxy&gt;:&lt;port&gt;/</code></pre>
+<ul>
+<li>Kjør programvareoppdatering</li>
+<li>Installer <code>at-spi2-core</code> for å unngå advarsler senere</li>
+<li>Installer <a href="https://www.linuxbabe.com/ubuntu/install-google-chrome-ubuntu-16-04-lts">Chrome</a> gjennom terminal</li>
+<li>Kjør Chrome gjennom terminal <code>google-chrome-stable</code> for å få det til å fungere med proxy (ev. <code>Alt + F2</code>)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="linux-gjennom-proxy" class="section level2">
+<h2><span class="header-section-number">10.2</span> Linux gjennom proxy</h2>
+<div id="linux-mint" class="section level3">
+<h3><span class="header-section-number">10.2.1</span> Linux Mint</h3>
+<ul>
+<li><p><code>Menu/Control Center/Internett and Network/Network Proxy/Proxy Configuration/Manual proxy configuration</code></p></li>
+<li><p>Legg følgende i <code>.bashrc</code>:</p></li>
+</ul>
+<pre><code>export http_proxy=&lt;helsenord-proxy&gt;:&lt;port&gt;/
+export https_proxy=&lt;helsenord-proxy&gt;:&lt;port&gt;/</code></pre>
+
+<div class="rmdimportant">
+Man må bruke <code>sudo -E</code> (<em>preserve existing environment</em>) i steden for kun <code>sudo</code> ved installering av pakker etc. Dette for å kunne kommunisere ut og inn gjennom proxy.
+</div>
+
+<ul>
+<li>For eksempel:</li>
+</ul>
+<pre><code>sudo -E apt install r-base-core</code></pre>
+</div>
+<div id="lubuntu-1" class="section level3">
+<h3><span class="header-section-number">10.2.2</span> Lubuntu</h3>
+<p>Under installasjonen får man spørsmål om proxy, hvis man installerer <em>Alternate</em>-versjonen. Da skriver man inn <code>&lt;helsenord-proxy&gt;:&lt;port&gt;/</code>. Hvis man ikke blir spurt om dette, kan man legge følgende inn i <code>/etc/apt/apt.conf</code>:</p>
+<pre><code>ACQUIRE::http::Proxy &quot;&lt;helsenord-proxy&gt;:&lt;port&gt;/&quot;;</code></pre>
+<p>Proxy for <em>Firefox</em> legges inn i instillinger. Proxy for <em>Chrome</em> var ikke like enkelt... (enklere i Ubuntu).</p>
+</div>
+<div id="generelt" class="section level3">
+<h3><span class="header-section-number">10.2.3</span> Generelt</h3>
+<ul>
+<li>For å kommunisere med github legges følgende i filen <code>.ssh/config</code>:</li>
+</ul>
+<pre><code>Host githubhn
+        HostName github.com
+        User git
+        ProxyCommand /bin/nc -X connect -x www-proxy.helsenord.no:&lt;port&gt; %h %p</code></pre>
+</div>
+</div>
+<div id="rrstudio" class="section level2">
+<h2><span class="header-section-number">10.3</span> R/RStudio</h2>
+
+<div class="rmdinfo">
+Bak proxy må RStudio kjøres fra terminal.
+</div>
+
+<div id="sett-opp-cran" class="section level3">
+<h3><span class="header-section-number">10.3.1</span> Sett opp CRAN</h3>
+<p>Åpne filen <code>/etc/apt/sources.list</code> med <code>sudo</code> og legg inn følgende:</p>
+<pre><code>deb https://cloud.r-project.org/bin/linux/ubuntu xenial/ </code></pre>
+<p>Bytt ut <code>xenial</code> hvis du bruker en annen versjon av Ubuntu.</p>
+<p>Kjør følgende kommandoer:</p>
+<pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+sudo apt-get update</code></pre>
+</div>
+<div id="installere-r" class="section level3">
+<h3><span class="header-section-number">10.3.2</span> Installere R</h3>
+<pre><code>sudo apt-get install r-base
+sudo apt-get install r-base-dev # sannsynligvis greit også å installere denne</code></pre>
+</div>
+<div id="installere-rstudio" class="section level3">
+<h3><span class="header-section-number">10.3.3</span> Installere RStudio</h3>
+<ul>
+<li>Last ned RStudio, og installer i terminal:</li>
+</ul>
+<pre><code>sudo apt-get install libjpeg62 # RStudio er avhengig av denne pakken
+sudo dpkg -i Downloads/rstudio-*</code></pre>
+
+<div class="rmdinfo">
+Linux Mint er basert på LTS-versjon av Ubuntu. Per des. 2017 er dette Ubuntu 16.04.
+</div>
+
+</div>
+<div id="installere-devtools" class="section level3">
+<h3><span class="header-section-number">10.3.4</span> Installere <code>devtools</code></h3>
+<p><code>devtools</code> er avhengig av <code>git2r</code> og <code>httr</code>. Disse må ha følgende installert for å fungere</p>
+<pre><code>sudo apt-get install libssl-dev
+sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install libssh2-1-dev</code></pre>
+</div>
+</div>
+<div id="eksternt-skrivebord" class="section level2">
+<h2><span class="header-section-number">10.4</span> Eksternt skrivebord</h2>
+<p>Jeg (Arnfinn) fikk dette til å fungere på Lubuntu, som tilsvarer vanlig Ubuntu. Jeg installerte først <em>Remmina</em>, men sannsynligvis ikke nødvendig (skriver det her sånn i tilfelle det er nødvendig for at <em>Citrix Receiver</em> skal fungere).</p>
+<ol style="list-style-type: decimal">
+<li>Installer <a href="https://www.citrix.no/downloads/citrix-receiver/linux/receiver-for-linux-latest.html">Citrix Receiver for Linux</a>. Hvis du bruker Ubuntu, velg <em>Debian Package</em> og <em>Full Package (Self-Service Support)</em><br />
+</li>
+<li>Gå inn på <a href="https://portal.helsenord.no/vpn/index.html">portal.helsenord.no/vpn</a> og logg inn som vanlig.</li>
+<li>Dobbeltklikk på <em>ica</em>-filen, som lastes ned. Denne vil så åpnes i <em>Citrix Receiver</em></li>
+</ol>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="diverse.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="python.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="docker.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -324,7 +446,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/index.Rmd",
+"link": "https://github.com/SKDE-Analyse/dokumentasjon/edit/master/rmd/linux.Rmd",
 "text": "Edit"
 },
 "history": {
