@@ -2,9 +2,7 @@
 
 ## Lagring av sensitive datasett
 
-```{block2, sensdatasett, type='rmdimportant'}
-Sensitive datasett skal *kun* lagres på `npr_utva`! Disse skal slettes hvert år, når vi får nye data i hus og nye data er tilrettelagt.
-```
+> **_NOTE:_** Sensitive datasett skal *kun* lagres på `npr_utva`! Disse skal slettes hvert år, når vi får nye data i hus og nye data er tilrettelagt.
 
 - Med sensitive data menes datasett der det er en mulighet for å identifisere pasienter (pid, kjønn, alder, bosted og/eller behandlingssted etc. ikke er slettet)
 - Merk gjerne datasettet med dine initialer, slik som dette
@@ -25,15 +23,11 @@ run;
 
 - Trykk på symbol/blå tekst nede i høyre hjørne
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/nySASserver0.png")
-```
+![Alt Text](figurer/nySASserver0.png)
 
 - Trykk på `Add...`
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/nySASserver1.png")
-```
+![Alt Text](figurer/nySASserver1.png)
 
 - Fyll inn (*Name* og *Description* er valgfritt; bruk eget brukernavn og passord; Machine: `xxxx`; Port: `yyyy`), og trykk på *Save*
 - Markér din nylagde profil og trykk på *Set Active*. 
@@ -48,9 +42,7 @@ Dette gjøres slik at man kan enkelt få inn rateprogram etc. i sas-prosjektet
 4. Gå inn på `<server>\felleskoder\master\makroer\` og velg *autocomplete.kmf*
 5. *Close*
 
-```{block2, abbmacro, type='rmdinfo'}
-Med ujevne mellomrom oppdateres *autocomplete.kmf*, og man må da kjøre stegene 1 til 5 på nytt. Vi får prøve å gi beskjed om dette internt...
-```
+> **_NOTE:_** Med ujevne mellomrom oppdateres *autocomplete.kmf*, og man må da kjøre stegene 1 til 5 på nytt. Vi får prøve å gi beskjed om dette internt...
 
 **(Ufullstending) oversikt over autocomplete som finnes nå**
 
@@ -116,9 +108,7 @@ Hvis man vil ha spesialtilpasset formater, kan man enten
 - Dette betyr at man må *assigne* mappen `NPR_SKDE` (den vil vises som grå i SAS Enterprise)
 - Det gjøres ved å gå inn til denne mappen, høyreklikk og velg *Assign*
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/nySASserver5.png")
-```
+![Alt Text](figurer/nySASserver5.png)
 
 ### gtitle
 
@@ -126,9 +116,7 @@ For at tittel skal bli lagt på figurene som produseres i SAS, må følgende gj�
 
 - Gå inn på `Tools/Options...` og skriv inn følgende:
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/sas_gtitle.png")
-```
+![Alt Text](figurer/sas_gtitle.png)
 
 ### Redusere størrelsen på datasett
 
@@ -144,9 +132,7 @@ length variabelnavn 3;
 
 - Gå inn på `Tools/Options.../Data/Data General/` og huk vekk `Always prompt when closing...`
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/sas_tmpdata.png")
-```
+![Alt Text](figurer/sas_tmpdata.png)
 
 ### SAS-syntax i *Atom text editor*
 
@@ -229,6 +215,4 @@ Mappen `AppData` er en skjult mappe, så gjør følgende hvis man ikke ser denne
 3. Velg `Vis skjulte filer og mapper`
 4. Huk av på valget `Vis skjulte filer, mapper og stasjoner` og trykk OK (se figur)
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/vis_skjulte_mapper.png")
-```
+![Alt Text](figurer/vis_skjulte_mapper.png)

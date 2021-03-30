@@ -44,9 +44,7 @@ set_config(use_proxy(url="<helsenord-proxy>", port=<port>))
 - Opprett en ny eller åpne en gammel "Shiny web application" i Rstudio.
 - Kopier din token fra [shinyapps](http://www.shinyapps.io/admin/#/tokens) og kopier over i "Manage Accounts"
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/rshiny_5.png")
-```
+![Alt Text](figurer/rshiny_5.png)
 
 ### Laste opp en shinyapp til http://www.shinyapps.io
 
@@ -66,25 +64,15 @@ rsconnect::deployApp(appName = "<navn>")
 ### Hvordan opprette en ny Rshiny applikasjon
 
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/rshiny_1.png")
-```
+![Alt Text](figurer/rshiny_1.png)
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/rshiny_2.png")
-```
+![Alt Text](figurer/rshiny_2.png)
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/rshiny_3.png")
-```
+![Alt Text](figurer/rshiny_3.png)
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/rshiny_4.png")
-```
+![Alt Text](figurer/rshiny_4.png)
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/rshiny_5.png")
-```
+![Alt Text](figurer/rshiny_5.png)
 
 ### Ta en backup av en eksisterende app
 

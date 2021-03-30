@@ -2,5 +2,5 @@ Thumbs.db
 *~
 build
 *.swp
-docs/*
 _main.*
+node_modules
