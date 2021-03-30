@@ -1,0 +1,157 @@
+# git
+
+## Installèr git
+
+> **_NOTE:_**  Du kan fint installere *git* på nytt og på nytt uten risiko. Den fjerner gammel *git* før den installerer ny.
+
+- Last ned fra [git-scm.com](https://git-scm.com/download) og installer med default (ikke endre noen valg)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; git-bash.exe legges sannsynligvis her:
+
+```bash
+C:\Users\$USERNAME\AppData\Local\Programs\Git\
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connect.exe, git.exe etc. legges sannsynligvis her:
+
+```bash
+C:\Users\$USERNAME\AppData\Local\Programs\Git\mingw64\bin
+```
+
+
+## Legg inn brukernavn og epost
+
+- Åpne *Git Bash*
+    - Det er ikke mulig å bruke `ctrl-v` for å lime inn i Git Bash, men man kan trykke inn mellomtasten på musa (eller trykke høyretasten på musa og velge `Paste`)
+    - `$` er ikke en del av det som skal skrives inn, men viser til at dette er tekst som skrives inn til Git Bash.
+- Legg inn navn og epost:
+
+```bash
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+
+## Lag SSH-nøkkel
+
+- Hvis du skal bruke *git* sammen med *github* eller lignende må du lage en ssh-nøkkel. Trykk *Enter* når du får spørsmål om hvor nøkkel skal legges (så slipper du å lage ny nøkkel hver gang du må reinstallere maskinen, og nøkkelen din vil fungere på alle skde sine maskiner; bare trykk Enter når hun spør om passphrase):
+
+```bash
+$ mkdir /p/.ssh
+$ ssh-keygen
+Enter file in which to save the key (/p/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+```
+
+## Legg din nøkkel på `github`
+
+- Lag deg en profil på [github.com](https://github.com)
+- Gå inn på [github.com/settings/ssh](https://github.com/settings/ssh) og legg inn din nye SSH-nøkkel (kopier over det som ligger i fila `/p/.ssh/id_rsa.pub`, eventuelt skriv `cat /p/.ssh/id_rsa.pub` i *git-bash* og kopier over det som spyttes ut).
+
+## Sett opp ssh-komunikasjon gjennom proxy
+
+- Dette gjøres for å kunne kommunisere med github, som må gjøres gjennom proxy her på Helse-Nord-nettet.
+- Lag en fil kalt `config` i mappen `p/.ssh/` med innhold som under. Filen kan lages med `Notisblokk`, eller gjennom terminal (ved bruk av vim)
+
+```
+Host githubhn
+   Hostname github.com
+   User git
+   ProxyCommand /mingw64/bin/connect.exe -H <helsenord-proxy>:<port> %h %p
+```
+
+- Hvis du har lyst til å prøve å lage denne filen gjennom terminal, gjør følgende:
+
+```bash
+$ vi /p/.ssh/config
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trykk så `p` for å lime inn, og så `:wq` pluss Enter for å lagre og lukke.
+
+- Sjekk at git snakker med github ved å klone en repository (hvis ikke dette fungerer, er sannsyngligvis ikke git satt opp riktig):
+
+```bash
+$ cd
+$ git clone githubhn:SKDE-Analyse/dokumentasjon.git tmp-mappe
+$ rm -rf tmp-mappe # hvis alt gikk etter planen (fjerner mappen igjen)
+```
+
+## Github
+
+### Sette opp Travis til å lage github pages
+
+Om jeg husker rett må du gjøre følgende før dette vil fungere:
+
+- Lage konto på Travis-CI.
+- Lage en Token i github, som du legger inn i Travis-CI som GITHUB_TOKEN.
+- Lag en branch som heter gh-pages.
+- Gå inn i *settings* på prosjektet og aktiver github-pages. Velg gh-pages som aktuell branch.
+
+Travis-CI vil dytte html-filer, produsert av bookdown, til branchen gh-pages med `--force`.
+
+### Lage github pages med `pkgdown::deploy_site_github()` i Travis
+
+```
+ssh-keygen -f id_rsa
+openssl base64 -A -in id_rsa > id
+```
+
+- Lag en `branch` i prosjektet som heter `gh-pages`.
+- Gå inn på *Settings/Deploy keys*  på github-prosjektet og legg inn `id_rsa.pub` som en ny nøkkel.
+- Gå inn på *Settings* på Travis-prosjektet, legg inn ny *Environment Variables* med navnet `id_rsa` med innholdet i filen `id`.
+
+## Rstudio, git og github på Windows gjennom proxy
+
+### Hvordan sette opp git i rstudio
+
+- Hvis du skal bruke git sammen med RStudio må du lage en ny ssh-nøkkel og legge denne på `c:`, slik at Rstudio kan lese den (bytt ut `<user>` med ditt brukernavn; bare trykk Enter når hun spør om passphrase).
+
+```bash
+$ mkdir /c/Users/<user>/.ssh
+$ ssh-keygen
+Enter file in which to save the key (/p/.ssh/id_rsa): /c/Users/<user>/.ssh/id_rsa
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+```
+
+- Legg inn følgende i `/c/Users/$USERNAME/.ssh/config`:
+
+```
+Host githubhn
+   Hostname github.com
+   User git
+   ProxyCommand /mingw64/bin/connect.exe -H <helsenord-proxy>:<port> %h %p
+```
+- Legg inn følgende i `/c/Users/$USERNAME/.gitconfig` (Rstudio leser denne i steden for den på p-disken):
+
+```
+[include]
+    path = /p/.gitconfig
+```
+
+- Hvis du skal laste ned pakker fra github i RStudio med devtools::install_github() må du først kjøre følgende:
+
+```bash
+Sys.setenv(http_proxy="<helsenord-proxy>:<port>")
+Sys.setenv(https_proxy="<helsenord-proxy>:<port>")
+```
+
+
+## Diverse mer eller mindre obskure git-triks
+
+### Ekskluder fil fra merge
+
+I enkelte prosjekter vil det være filer man ikke vil oppdatere i en merge mellom brancher. I mitt tilfelle var det en csv-fil som er forskjellig i de ulike branchene, og skal være det. Denne oppskriften er tatt [herfra](https://medium.com/@porteneuve/how-to-make-git-preserve-specific-files-while-merging-18c92343826b#.sk2g4seov).
+
+- Definér en merge-driver:
+
+```bash
+git config --global merge.ours.driver true
+```
+
+- Legge vår fil inn i .gitattributes:
+
+```bash
+echo 'unix.csv merge=ours' >> .gitattributes
+git add .gitattributes
+git commit -m 'Preserve unix.csv during merges'
+```
