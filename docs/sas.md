@@ -2,9 +2,7 @@
 
 ## Lagring av sensitive datasett
 
-```{block2, sensdatasett, type='rmdimportant'}
-Sensitive datasett skal *kun* lagres på `npr_utva`! Disse skal slettes hvert år, når vi får nye data i hus og nye data er tilrettelagt.
-```
+> **_NOTE:_** Sensitive datasett skal *kun* lagres på `npr_utva`! Disse skal slettes hvert år, når vi får nye data i hus og nye data er tilrettelagt.
 
 - Med sensitive data menes datasett der det er en mulighet for å identifisere pasienter (pid, kjønn, alder, bosted og/eller behandlingssted etc. ikke er slettet)
 - Merk gjerne datasettet med dine initialer, slik som dette
@@ -44,9 +42,7 @@ Dette gjøres slik at man kan enkelt få inn rateprogram etc. i sas-prosjektet
 4. Gå inn på `<server>\felleskoder\master\makroer\` og velg *autocomplete.kmf*
 5. *Close*
 
-```{block2, abbmacro, type='rmdinfo'}
-Med ujevne mellomrom oppdateres *autocomplete.kmf*, og man må da kjøre stegene 1 til 5 på nytt. Vi får prøve å gi beskjed om dette internt...
-```
+> **_NOTE:_** Med ujevne mellomrom oppdateres *autocomplete.kmf*, og man må da kjøre stegene 1 til 5 på nytt. Vi får prøve å gi beskjed om dette internt...
 
 **(Ufullstending) oversikt over autocomplete som finnes nå**
 

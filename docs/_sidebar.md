@@ -1,7 +1,6 @@
 <!-- docs/_sidebar.md -->
 
-* [Hjem](/)
-* [Diverse](diverse.md)
+* [Diverse](/)
 * [SAS](sas.md)
 * [Tilrettelegging av data ](tilrettelegging.md)
 * [Instant Atlas](ia.md)
