@@ -1,0 +1,2 @@
+# Diverse instruksjoner
+
