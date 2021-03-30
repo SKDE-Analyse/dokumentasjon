@@ -5,9 +5,8 @@
 1. Få først Helse Nord IKT til å installere *VirtualBox*
 2. Last ned [Lubuntu Alternate 64 bit](https://lubuntu.net/downloads/) eller [Linux Mint Mate](https://linuxmint.com/download.php). 
 
-```{block2, linux-mint, type='rmdinfo'}
-Det er [mange distroer](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg) å velge mellom, men det er disse to distroene jeg har fått til å fungere. Jeg har også prøvd følgende distroer uten hell: *Lubuntu Desktop* 64 bit og 32 bit (problemer med skjerm) og *Fedora LXDE 27.1* (fikk ikke til proxy).
-```
+> **_NOTE:_** Det er [mange distroer](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg) å velge mellom, men det er disse to distroene jeg har fått til å fungere. Jeg har også prøvd følgende distroer uten hell: *Lubuntu Desktop* 64 bit og 32 bit (problemer med skjerm) og *Fedora LXDE 27.1* (fikk ikke til proxy).
+
 3. Lag en ny *Virtal Machine* med *VirtualBox*, start opp med iso-filen og installer Linux.
 
 ### Lubuntu
@@ -49,9 +48,7 @@ export http_proxy=<helsenord-proxy>:<port>/
 export https_proxy=<helsenord-proxy>:<port>/
 ```
 
-```{block2, sudo-E, type='rmdimportant'}
-Man må bruke `sudo -E` (*preserve existing environment*) i steden for kun `sudo` ved installering av pakker etc. Dette for å kunne kommunisere ut og inn gjennom proxy.
-```
+> **_NOTE:_** Man må bruke `sudo -E` (*preserve existing environment*) i steden for kun `sudo` ved installering av pakker etc. Dette for å kunne kommunisere ut og inn gjennom proxy.
 
 - For eksempel:
 
@@ -83,9 +80,7 @@ Host githubhn
 
 ## R/RStudio
 
-```{block2, rstudio, type='rmdinfo'}
-Bak proxy må RStudio kjøres fra terminal.
-```
+> **_NOTE:_** Bak proxy må RStudio kjøres fra terminal.
 
 ### Sett opp CRAN
 
@@ -120,9 +115,7 @@ sudo apt-get install libjpeg62 # RStudio er avhengig av denne pakken
 sudo dpkg -i Downloads/rstudio-*
 ```
 
-```{block2, ubuntu, type='rmdinfo'}
-Linux Mint er basert på LTS-versjon av Ubuntu. Per des. 2017 er dette Ubuntu 16.04.
-```
+> **_NOTE:_** Linux Mint er basert på LTS-versjon av Ubuntu. Per des. 2017 er dette Ubuntu 16.04.
 
 ### Installere `devtools`
 
