@@ -102,9 +102,7 @@ Litt mer tekst med æ, ø og å.
 
 Kopier teksten inn i et nytt dokument i TeXmaker, lagre det, og trykk på `F6`. Dokumentet blir da kompilert og lager en pdf. pdf-filen kan åpnes ved å trykke `F7`. Dette vil gi et dokument som ser slik ut:  
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/simple_tex.png")
-```
+![Alt Text](figurer/simple_tex.png)
 
 ### Diverse man må huske
 

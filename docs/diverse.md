@@ -35,9 +35,7 @@ Det kan være den ligger under *Flere detaljer*.
 
 Søk etter det virtuelle møterommet og velg video/telefon:
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/vm_teams.png")
-```
+![Text](figurer/vm_teams.png)
 
 ## Koble til nettverksstasjoner
 
@@ -98,9 +96,7 @@ Følgende utvidelser er hvitelistet:
 
 Man åpner `settings.json` ved å gå inn på *File/Preferences/Settings/* og trykke på `{}`-symbol oppe til høyre hjørne (se figur).
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/vscode_settings.png")
-```
+![Alt Text](figurer/vscode_settings.png)
 
 Husk komma etter hver linje på samme nivå, bortsett fra siste linje på gitt nivå. Eksempel:
 
@@ -153,9 +149,7 @@ På noen Windows10-maskiner er ikke *git* installert slik at *vscode* kan se *gi
 ```
 Adressen `0F29C83E-A275-4BEE-9296-92C3138DC9BC\\32D66D7D-55BA-4223-802C-F435F81AD5AD` kan sees hvis man åpner `git bash` og ser på vinduet som åpnes smatidig. Der vil denne adressen stå (se figur).
 
-```{r, echo=FALSE}
-knitr::include_graphics("figurer/vscode_gitpath.png")
-```
+![Alt Text](figurer/vscode_gitpath.png)
 
 
 ### Triks og tips

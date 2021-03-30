@@ -2,9 +2,7 @@
 
 ## Installèr git
 
-```{block2, gitinstall, type='rmdinfo'}
-Du kan fint installere *git* på nytt og på nytt uten risiko. Den fjerner gammel *git* før den installerer ny.
-```
+> **_NOTE:_**  Du kan fint installere *git* på nytt og på nytt uten risiko. Den fjerner gammel *git* før den installerer ny.
 
 - Last ned fra [git-scm.com](https://git-scm.com/download) og installer med default (ikke endre noen valg)
 
