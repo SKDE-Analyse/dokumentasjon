@@ -176,29 +176,3 @@ cat faktaark-eldre-til-oversettelse_-EN.tex |grep '\\section' | cut -d '{' -f 3 
 ```bash
 for i in <filename>.*; do mv $i <newfile>.${i##*.}; done
 ```
-
-
-
-## Kompilere denne dokumentasjonen lokalt
-
-
-### Linux
-
-*R* må være installert, samt pakken *bookdown*. Gjør følgende i terminal (dette gjelder for Debian/Ubuntu:
-
-```bash
-sudo apt-get install r-base-core 
-sudo apt-get install libcurl4-openssl-dev
-sudo apt-get install libssl-dev
-sudo Rscript -e 'install.packages("devtools","/usr/local/lib/R/site-library","http://cran.r-project.org")'
-sudo apt-get install pandoc pandoc-citeproc
-```
-
-### Kompilere selve dokumentasjonen
-
-```bash
-sudo Rscript -e 'devtools::install_github("rstudio/bookdown")' # kun hvis pakken ikke er installert enda
-Rscript -e "rmarkdown::render_site(output_format = c('bookdown::gitbook', 'bookdown::pdf_book', 'bookdown::epub_book'), encoding = 'UTF-8')"
-```
-
-Siste linje kan erstattes med å kun kjøre scriptet `_build.sh`.
