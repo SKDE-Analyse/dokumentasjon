@@ -36,8 +36,8 @@ run;
 
 Dette gjøres slik at man kan enkelt få inn rateprogram etc. i sas-prosjektet
 
-1. Gå inn på *Program/Editor Macros/Macros*
-2. Marker alle og slett dem (hvis du ikke har lagd dine egne makroer du vil ta vare på)
+1. Gå inn på *Program/Manage Macros and Snippets*
+2. Hvis det allerede finnes makroer her: marker alle og slett dem (hvis du ikke har lagd dine egne makroer du vil ta vare på)
 3. *Import...*
 4. Gå inn på `<server>\felleskoder\master\makroer\` og velg *autocomplete.kmf*
 5. *Close*
