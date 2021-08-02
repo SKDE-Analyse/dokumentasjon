@@ -77,27 +77,18 @@ $ rm -rf tmp-mappe # hvis alt gikk etter planen (fjerner mappen igjen)
 
 ## Github
 
-### Sette opp Travis til å lage github pages
+### Kjøre Github Actions lokalt
 
-Om jeg husker rett må du gjøre følgende før dette vil fungere:
+Github Actions kan kjøres lokalt ved å bruke [act](https://github.com/nektos/act). Etter [installasjon](https://github.com/nektos/act#installation) kjøres alle testene med kommandoen `act`. En gitt jobb kan kjøres med kommandoen `act -j <jobname>`, hvor `<jobname>` er navnet gitt som nivå under `jobs:` i yaml-fil. I tilfelle under er `<jobname>` lik `deploy_doc`.
 
-- Lage konto på Travis-CI.
-- Lage en Token i github, som du legger inn i Travis-CI som GITHUB_TOKEN.
-- Lag en branch som heter gh-pages.
-- Gå inn i *settings* på prosjektet og aktiver github-pages. Velg gh-pages som aktuell branch.
-
-Travis-CI vil dytte html-filer, produsert av bookdown, til branchen gh-pages med `--force`.
-
-### Lage github pages med `pkgdown::deploy_site_github()` i Travis
-
+```yaml
+jobs:
+  deploy_doc:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - ...
 ```
-ssh-keygen -f id_rsa
-openssl base64 -A -in id_rsa > id
-```
-
-- Lag en `branch` i prosjektet som heter `gh-pages`.
-- Gå inn på *Settings/Deploy keys*  på github-prosjektet og legg inn `id_rsa.pub` som en ny nøkkel.
-- Gå inn på *Settings* på Travis-prosjektet, legg inn ny *Environment Variables* med navnet `id_rsa` med innholdet i filen `id`.
 
 ## Rstudio, git og github på Windows gjennom proxy
 
