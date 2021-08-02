@@ -90,6 +90,16 @@ jobs:
       - ...
 ```
 
+### Slette branch lokalt som er slettet remote
+
+Følgende kommando kjøres etter `git fetch --prune` for å slette alle brancher med `[gone]`:
+
+```bash
+git branch -v|grep \\[gone\\]|awk '{print $1}'|xargs -I{} git branch -D {}
+```
+
+Hvis det dukker opp brancher her du egentlig ikke ville slette, kan du gjøre gjenopprette dem med kommandoen `git checkout -b <branch> <hash>`, der både `<branch>` og `<hash>` kan finnes i listen som spyttes ut av kommandoen over.
+
 ## Rstudio, git og github på Windows gjennom proxy
 
 ### Hvordan sette opp git i rstudio
