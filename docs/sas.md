@@ -21,16 +21,9 @@ run;
 
 ## Koble til sas-server i SAS Enterprise guide
 
-- Trykk på symbol/blå tekst nede i høyre hjørne
-
-![Alt Text](figurer/nySASserver0.png)
-
+- Trykk F9 (eventuelt `Tools/Connections`)
 - Trykk på `Add...`
-
-![Alt Text](figurer/nySASserver1.png)
-
-- Fyll inn (*Name* og *Description* er valgfritt; bruk eget brukernavn og passord; Machine: `xxxx`; Port: `yyyy`), og trykk på *Save*
-- Markér din nylagde profil og trykk på *Set Active*. 
+- Fyll inn (*Name* og *Description* er valgfritt; bruk eget brukernavn og passord; Machine: `xxxx` (navnet på vår SAS-server); ikke endre port), og trykk på *Save and Connect*
 
 ## Laste inn vår egen autocomplete-fil
 
