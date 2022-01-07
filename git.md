@@ -1,24 +1,5 @@
 # git
 
-## Installèr git
-
-> **_NOTE:_**  Du kan fint installere *git* på nytt og på nytt uten risiko. Den fjerner gammel *git* før den installerer ny.
-
-- Last ned fra [git-scm.com](https://git-scm.com/download) og installer med default (ikke endre noen valg)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; git-bash.exe legges sannsynligvis her:
-
-```bash
-C:\Users\$USERNAME\AppData\Local\Programs\Git\
-```
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connect.exe, git.exe etc. legges sannsynligvis her:
-
-```bash
-C:\Users\$USERNAME\AppData\Local\Programs\Git\mingw64\bin
-```
-
-
 ## Legg inn brukernavn og epost
 
 - Åpne *Git Bash*
