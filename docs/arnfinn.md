@@ -94,7 +94,7 @@ deploy:
   github_token: $GITHUB_TOKEN             # Set in travis-ci.org dashboard
   local_dir: docs                         # Deploy the docs folder
   on:
-    branch: master
+    branch: main
 
 notifications:
   email: false

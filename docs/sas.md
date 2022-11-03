@@ -32,7 +32,7 @@ Dette gjøres slik at man kan enkelt få inn rateprogram etc. i sas-prosjektet
 1. Gå inn på *Program/Manage Macros and Snippets*
 2. Hvis det allerede finnes makroer her: marker alle og slett dem (hvis du ikke har lagd dine egne makroer du vil ta vare på)
 3. *Import...*
-4. Gå inn på `<server>\felleskoder\master\makroer\` og velg *autocomplete.kmf*
+4. Gå inn på `Analyse/Data/SAS/felleskoder/main/makroer/` og velg *autocomplete.kmf*
 5. *Close*
 
 > **_NOTE:_** Med ujevne mellomrom oppdateres *autocomplete.kmf*, og man må da kjøre stegene 1 til 5 på nytt. Vi får prøve å gi beskjed om dette internt...
@@ -64,30 +64,30 @@ run &datasett;
 
 %mend macronavn;
 ```
-- Hvis man lagrer en fil med navn `macronavn.sas` i `<server>\felleskoder\master\makroer\` kan andre bruke denne hvis de har kjørt følgende kode i SAS-prosjektet:
+- Hvis man lagrer en fil med navn `macronavn.sas` i `Analyse/Data/SAS/felleskoder/main/makroer/` kan andre bruke denne hvis de har kjørt følgende kode i SAS-prosjektet:
 
 ```
-%let filbane=<server>\felleskoder\master;
+%let filbane=/sas_smb/skde_analyse/Data/SAS/felleskoder/main;
 options sasautos=("&filbane\makroer" SASAUTOS);
 ```
 
 Mer informasjon finnes [her](http://skde-analyse.github.io/sas_codes/). Legg spesielt merke til hvordan man skal dokumentere sine makroer.
 
-Makroene i `&filbane\makroer\` ligger på [github](https://github.com/SKDE-Analyse/sas_codes/tree/master/makroer).
+Makroene i `&filbane/makroer/` ligger på [github](https://github.com/SKDE-Analyse/sas_codes/tree/main/makroer).
 
 ## Formater
 
-Bruk de formatene som ligger under `<server>\felleskoder\master\formater\`, som f.eks
+Bruk de formatene som ligger under `/sas_smb/skde_analyse/Data/SAS/felleskoder/main/formater/`, som f.eks
 
 ```
-%let filbane=<server>\felleskoder\master\;
-%include "&filbane\Formater\SKDE_somatikk.sas";
-%include "&filbane\Formater\bo.sas";
-%include "&filbane\Formater\beh.sas";
+%let filbane=/sas_smb/skde_analyse/Data/SAS/felleskoder/main;
+%include "&filbane/formater/SKDE_somatikk.sas";
+%include "&filbane/formater/bo.sas";
+%include "&filbane/formater/beh.sas";
 ```
 Hvis man vil ha spesialtilpasset formater, kan man enten
-- kopiere over det som står i en av sas-filene som ligger på master rett inn i programmet sitt, eller
-- kopiere mappen `master` og endre direkte i den nye mappen.
+- kopiere over det som står i en av sas-filene som ligger på main rett inn i programmet sitt, eller
+- kopiere mappen `main` og endre direkte i den nye mappen.
 
 ## Rateprogrammet
 
