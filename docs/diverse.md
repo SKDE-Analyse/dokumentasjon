@@ -115,20 +115,29 @@ På Windows10-maskiner er ikke *git* installert slik at *vscode* kan se *git*. D
 
 ```json
     "git.path": "c:\\ProgramData\\App-V\\0F29C83E-A275-4BEE-9296-92C3138DC9BC\\32D66D7D-55BA-4223-802C-F435F81AD5AE\\Root\\VFS\\ProgramFilesX64\\Git\\mingw64\\bin\\git.exe",
-    "terminal.integrated.env.windows": {
-        "PATH": "/c/ProgramData/App-V/0F29C83E-A275-4BEE-9296-92C3138DC9BC/32D66D7D-55BA-4223-802C-F435F81AD5AE/Root/VFS/ProgramFilesX64/Git/mingw64/bin/"
-      },
-      "terminal.integrated.profiles.windows": {
-        "Custom Init": {
-          "path": "c:\\ProgramData\\App-V\\0F29C83E-A275-4BEE-9296-92C3138DC9BC\\32D66D7D-55BA-4223-802C-F435F81AD5AE\\Root\\VFS\\ProgramFilesX64\\Git\\usr\\bin\\bash.exe",
-        }
-      },
-      "terminal.integrated.windowsEnableConpty": false
 ```
+
 Adressen `0F29C83E-A275-4BEE-9296-92C3138DC9BC\\32D66D7D-55BA-4223-802C-F435F81AD5AE` varierer og må settes individuelt for hver bruker. Denne kan sees hvis man åpner `git bash` og ser på vinduet som åpnes samtidig. Der vil denne adressen stå (se figur).
 
 ![Alt Text](figurer/vscode_gitpath.png)
 
+### Bruke git-bash som terminal
+
+```json
+    "terminal.integrated.env.windows": {
+        "PATH": "/c/ProgramData/App-V/0F29C83E-A275-4BEE-9296-92C3138DC9BC/32D66D7D-55BA-4223-802C-F435F81AD5AE/Root/VFS/ProgramFilesX64/Git/mingw64/bin/"
+      },
+    "terminal.integrated.profiles.windows": {
+      "Custom Init": {
+        "path": "c:\\ProgramData\\App-V\\0F29C83E-A275-4BEE-9296-92C3138DC9BC\\32D66D7D-55BA-4223-802C-F435F81AD5AE\\Root\\VFS\\ProgramFilesX64\\Git\\usr\\bin\\bash.exe",
+        "args": ["-l"]
+      }
+    },
+    "terminal.integrated.defaultProfile.windows": "Custom Init",
+    "terminal.integrated.windowsEnableConpty": false
+```
+
+Jeg fikk en feilmelding hvis jeg ikke satt `windowsEnableConpty` til `false`. Mulig dette vil endre seg i fremtiden.
 
 ### Triks og tips
 
