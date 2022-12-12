@@ -94,7 +94,7 @@ Følgende utvidelser er hvitelistet:
 
 ### Settings-fil
 
-Man åpner `settings.json` ved å gå inn på *File/Preferences/Settings/* og trykke på `{}`-symbol oppe til høyre hjørne (se figur).
+Man åpner `settings.json` ved å gå inn på *File/Preferences/Settings/* og trykke på symbolet oppe til høyre hjørne (se figur).
 
 ![Alt Text](figurer/vscode_settings.png)
 
@@ -102,52 +102,30 @@ Husk komma etter hver linje på samme nivå, bortsett fra siste linje på gitt n
 
 ```json
 {
-    "[SAS]": {
-        "files.encoding": "windows1252"
-    },
     "files.autoGuessEncoding": true,
-    "telemetry.enableTelemetry": false
+    "git.enabled": true
 }
 ```
 
-### File encoding
-
-For å slå på automatisk detektering av tegnsett i filene, gå inn på *File/Preferences/Settings/* og søk etter `encoding`. Huk av på `Files: Auto Guess Encoding`.
-
-*SAS*-filer må ha tegnsett `windows1252`. For å tvinge *vscode* til å åpne *SAS*-filer med dette tegnsettet kan følgende snutt legges inn i `settings.json`:
-
-```json
-"[SAS]": {
-    "files.encoding": "windows1252"
-}
-```
-
-Språkidentifikatoren `SAS` er definert av tillegget `SAS-Syntax` av *77qingliu*. Det betyr at dette tillegget må være installert før denne instillingen vil fungere. Hvis et annet *SAS*-tillegg er installert, vil denne språkidentifikasjonen sannsynligvis være `sas` (med små bokstaver).
+Her har vi blant annet slått på automatisk detektering av tegnsett i filene som åpnes.
 
 ### Git for source control
 
-If Git was installed before VScode, then VScode should automatically pick up Git as a source control.  
-If VScode was installed before Git, then one can modify the settings to point to Git.
-
-Go to `settings.json` as above for 'File Encoding', add:
+På Windows10-maskiner er ikke *git* installert slik at *vscode* kan se *git*. Da kan man legge inn noe ala dette i `settings.json`:
 
 ```json
-    "git.enabled": true,
-    "git.path":"C:\users\<user name>\AppData\Local\Programs\Git\bin\git.exe"
-```
-
-På noen Windows10-maskiner er ikke *git* installert slik at *vscode* kan se *git*. Da kan man legge inn noe ala dette i `settings.json`:
-
-```json
-    "git.enabled": true,
-    "git.path": "c:\\ProgramData\\App-V\\0F29C83E-A275-4BEE-9296-92C3138DC9BC\\32D66D7D-55BA-4223-802C-F435F81AD5AD\\Root\\VFS\\ProgramFilesX64\\Git\\mingw64\\bin\\git.exe",
-    "terminal.integrated.shell.windows": "c:\\ProgramData\\App-V\\0F29C83E-A275-4BEE-9296-92C3138DC9BC\\32D66D7D-55BA-4223-802C-F435F81AD5AD\\Root\\VFS\\ProgramFilesX64\\Git\\usr\\bin\\bash.exe",
+    "git.path": "c:\\ProgramData\\App-V\\0F29C83E-A275-4BEE-9296-92C3138DC9BC\\32D66D7D-55BA-4223-802C-F435F81AD5AE\\Root\\VFS\\ProgramFilesX64\\Git\\mingw64\\bin\\git.exe",
     "terminal.integrated.env.windows": {
-        "PATH": "/c/ProgramData/App-V/0F29C83E-A275-4BEE-9296-92C3138DC9BC/32D66D7D-55BA-4223-802C-F435F81AD5AD/Root/VFS/ProgramFilesX64/Git/mingw64/bin/"
+        "PATH": "/c/ProgramData/App-V/0F29C83E-A275-4BEE-9296-92C3138DC9BC/32D66D7D-55BA-4223-802C-F435F81AD5AE/Root/VFS/ProgramFilesX64/Git/mingw64/bin/"
       },
-    "terminal.integrated.shellArgs.windows": ["-l"],
+      "terminal.integrated.profiles.windows": {
+        "Custom Init": {
+          "path": "c:\\ProgramData\\App-V\\0F29C83E-A275-4BEE-9296-92C3138DC9BC\\32D66D7D-55BA-4223-802C-F435F81AD5AE\\Root\\VFS\\ProgramFilesX64\\Git\\usr\\bin\\bash.exe",
+        }
+      },
+      "terminal.integrated.windowsEnableConpty": false
 ```
-Adressen `0F29C83E-A275-4BEE-9296-92C3138DC9BC\\32D66D7D-55BA-4223-802C-F435F81AD5AD` kan sees hvis man åpner `git bash` og ser på vinduet som åpnes smatidig. Der vil denne adressen stå (se figur).
+Adressen `0F29C83E-A275-4BEE-9296-92C3138DC9BC\\32D66D7D-55BA-4223-802C-F435F81AD5AE` varierer og må settes individuelt for hver bruker. Denne kan sees hvis man åpner `git bash` og ser på vinduet som åpnes samtidig. Der vil denne adressen stå (se figur).
 
 ![Alt Text](figurer/vscode_gitpath.png)
 
