@@ -18,7 +18,7 @@ $ git config --global user.email johndoe@example.com
 
 ```bash
 $ mkdir /p/.ssh
-$ ssh-keygen
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 Enter file in which to save the key (/p/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
