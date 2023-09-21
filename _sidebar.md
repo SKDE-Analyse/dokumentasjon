@@ -6,6 +6,7 @@
 * [Tilrettelegging av data ](tilrettelegging.md)
 * [Instant Atlas](ia.md)
 * [Zotero](zotero.md)
+* [Visual Studio Code](vscode.md)
 * [git](git.md)
 * [r](r.md)
 * [LaTeX](latex.md)
