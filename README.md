@@ -5,6 +5,7 @@ Dette er en samling dokumentasjon om diverse datatekniske utfordringer og løsni
 * [Diverse](diverse.md)
 * [SAS](sas.md)
 * [Tilrettelegging av data ](tilrettelegging.md)
+* [Teams](teams.md)
 * [Visual Studio Code](vscode.md)
 * [git](git.md)
 * [r](r.md)
