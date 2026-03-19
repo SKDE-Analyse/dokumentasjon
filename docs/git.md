@@ -60,7 +60,7 @@ $ rm -rf tmp-mappe # hvis alt gikk etter planen (fjerner mappen igjen)
 
 ### Kjøre Github Actions lokalt
 
-Github Actions kan kjøres lokalt ved å bruke [act](https://github.com/nektos/act). Etter [installasjon](https://github.com/nektos/act#installation) kjøres alle testene med kommandoen `act`. En gitt jobb kan kjøres med kommandoen `act -j <jobname>`, hvor `<jobname>` er navnet gitt som nivå under `jobs:` i yaml-fil. I tilfelle under er `<jobname>` lik `deploy_doc`.
+Github Actions kan kjøres lokalt ved å bruke [act](https://github.com/nektos/act). Etter [installasjon](https://github.com/nektos/act#installation) kjøres alle testene med kommandoen `act`. En gitt jobb kan kjøres med kommandoen `act -j <jobname>`, hvor `<jobname>` er navnet gitt som nivå under `jobs:` i yaml-fil. I tilfelle under er `<jobname>` lik `deploy_doc`. 
 
 ```yaml
 jobs:
